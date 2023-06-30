@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            归档
+            Git
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,15 +32,32 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">归档</h1>
+                <h1 class="header-subtitle">Git</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-06-30
+                        </span>
+                        
+                            
+                                <span id="/posts/1774397340/" class="leancloud_visitors" data-flag-title="Git">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/1774397340/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
                 </div>
             
         </div>
@@ -49,77 +66,71 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
-                        
-                            目前共计 5 篇日志，继续加油！
-                        
-                    </span>
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h4 id="初试化本地仓库"><a href="#初试化本地仓库" class="headerlink" title="初试化本地仓库"></a>初试化本地仓库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">初始化本地仓库</span><br><span class="line">git init</span><br><span class="line">提交文件</span><br><span class="line">git add .(或者文件 名)</span><br><span class="line"></span><br><span class="line">版本回退</span><br><span class="line">git reset --hard commitID</span><br><span class="line">如何查看已经删除的记录</span><br><span class="line">git reflog</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="分支的操作"><a href="#分支的操作" class="headerlink" title="分支的操作"></a>分支的操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">查看有哪些分支</span><br><span class="line">git branch</span><br><span class="line">切换分支</span><br><span class="line">git checkout (分支名)</span><br><span class="line">git checkout -b (分支名)如果不存在则创建分支</span><br><span class="line">合并分支</span><br><span class="line">git merge (分支名)</span><br><span class="line">删除分支</span><br><span class="line">git branch -d (分支名)</span><br><span class="line">git branch -D (分支名)（删除不成功的话） </span><br></pre></td></tr></table></figure>
+
+<p>配置ssh公钥</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#生成ssh公钥</span><br><span class="line">ssh-keygen -t rsa   (rsa是一个算法)</span><br><span class="line">#一路回车</span><br><span class="line">#获取ssh公钥</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line">查看是否成功</span><br><span class="line">$ ssh -T git@gitee.com</span><br><span class="line"></span><br><span class="line">告诉本地仓库  远程仓库的地址</span><br><span class="line">$ git remote add origin [git@gitee.com:Kuk-W/git-_test.git]</span><br><span class="line">查看是否添加上本地仓库</span><br><span class="line">$ git remote</span><br></pre></td></tr></table></figure>
+
+<p>操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">推送到远程仓库</span><br><span class="line">git push [-f][--set-upstream][远端名称[本地分支名][:远端分支名]]</span><br><span class="line">-f强制覆盖</span><br><span class="line">配置推送的位置</span><br><span class="line">git push --set-upstream origin master:master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">推送操作</span><br><span class="line">git push origin master :master</span><br><span class="line">git push origin master</span><br><span class="line">配置后的操作‘</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>克隆</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@gitee.com:Kuk-W/git-_test.git</span><br></pre></td></tr></table></figure>
+
+<p>抓取和拉取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch</span><br><span class="line">拉取但不会去合并</span><br><span class="line">git pull  == git fetch + git merge </span><br></pre></td></tr></table></figure>
+
+<p>解决合并冲突</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.png" alt="Kuk">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Kuk
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/1774397340/" target="_blank">Git</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/1774397340/"><span>Git</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-30</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/2180991710/"><span>liunx命令</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-30</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3424359953/"><span>JavaScript</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-06</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3098602189/"><span>java基础</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-05</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3417644953/"><span>博客</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-02</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/2180991710/" class="next-prefix">» </a> 下一篇：    <a href="/posts/2180991710/" title="发布于 2023-06-30 05:31">liunx命令</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
@@ -153,7 +164,7 @@
                     
                         <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
                     
-                        <li class=" active "><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
                     
                         <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
                     
