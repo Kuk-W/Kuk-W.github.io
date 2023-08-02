@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            传输动态加密
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">传输动态加密</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-08-02
+                        </span>
+                        
+                            
+                                <span id="/posts/1212588131/" class="leancloud_visitors" data-flag-title="传输动态加密">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/1212588131/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="传输动态加密"><a href="#传输动态加密" class="headerlink" title="传输动态加密"></a>传输动态加密</h2><h3 id="RSA简介"><a href="#RSA简介" class="headerlink" title="RSA简介"></a>RSA简介</h3><p>是非对称加密算法 </p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>安全性高：RSA的安全性基于大素数的质因数分解难题，这个难题在目前的计算能力下是不可解的，因此RSA具有较高的安全性。</li>
+<li>公钥易于分发：RSA的公钥可以自由分发，因此在实际应用中，发送方只需要知道接收方的公钥即可进行加密通信。</li>
+<li>数字签名功能：RSA可以用于数字签名，保证数字签名的真实性和完整性。</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li>计算量大：RSA的加密和解密需要进行大量的数学运算，因此计算量比较大，特别是在处理大数据时，会消耗大量的时间和计算资源。</li>
+<li>密钥管理困难：RSA需要管理一对密钥，其中私钥必须保密，如果私钥泄露，就会导致通信的安全性受到威胁。</li>
+<li>无法加密超过密钥长度的数据：RSA的加密过程中，只能加密比密钥长度小的数据，如果要加密长数据，需要进行数据分块和多次加密，这会增加计算量和通信开销。</li>
+</ol>
+<p>对于数据字节长度过长的不太友好 费时</p>
+<h3 id="AES简介"><a href="#AES简介" class="headerlink" title="AES简介"></a>AES简介</h3><p>对称加密 </p>
+<p>aes使用时会每次都传输新的秘钥</p>
+<h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>安全性高：AES提供了高强度的加密，可以有效地保护敏感数据。它使用块密码和分组密码的结合方式，抵御了许多攻击，特别是侧信道攻击和差分攻击。</li>
+<li>速度快：AES的加密和解密速度非常快，适合用于处理大量数据的场景。AES在硬件和软件中都有高效的实现，使得它成为一种流行的加密算法。</li>
+<li>算法公开：AES的算法公开，任何人都可以查看和分析其加密过程，这有助于提高其安全性。</li>
+</ol>
+<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li>密钥管理困难：AES是一种对称加密算法，密钥需要在发送方和接收方之间进行传递，因此需要进行安全的密钥管理。</li>
+<li>无法防止重放攻击：由于AES只提供加密和解密功能，而无法防止重放攻击，因此在应用中需要采取其他措施来防范重放攻击。</li>
+<li>无法进行数字签名：AES是一种对称加密算法，无法用于数字签名和认证，这需要使用其他加密算法来实现。</li>
+</ol>
+<h3 id="RSA实现"><a href="#RSA实现" class="headerlink" title="RSA实现"></a>RSA实现</h3><h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><p>依赖</p>
+<ul>
+<li><pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;com.github.qcloudsms&lt;/groupId&gt;
+   &lt;artifactId&gt;qcloudsms&lt;/artifactId&gt;
+   &lt;version&gt;1.0.6&lt;/version&gt;
+&lt;/dependency&gt;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">工具类</span><br><span class="line"></span><br><span class="line">- ###### 解密的工具类（也可生成对应的公钥私钥）</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    package com.kuk.usercenterbackkuk.utils;</span><br><span class="line">    </span><br><span class="line">    import sun.misc.BASE64Decoder;</span><br><span class="line">    import sun.misc.BASE64Encoder;</span><br><span class="line">    import java.security.interfaces.RSAPrivateKey;</span><br><span class="line">    import java.security.interfaces.RSAPublicKey;</span><br><span class="line">    import javax.crypto.Cipher;</span><br><span class="line">    import java.security.KeyFactory;</span><br><span class="line">    import java.security.Security;</span><br><span class="line">    import java.security.spec.PKCS8EncodedKeySpec;</span><br><span class="line">    import java.security.spec.X509EncodedKeySpec;</span><br><span class="line">    import java.util.Map;</span><br><span class="line">    import java.util.HashMap;</span><br><span class="line">    import java.security.KeyPairGenerator;</span><br><span class="line">    import java.security.SecureRandom;</span><br><span class="line">    import java.security.KeyPair;</span><br><span class="line">    </span><br><span class="line">    public class RSAUtils &#123;</span><br><span class="line">    </span><br><span class="line">        //公钥，可以写前端</span><br><span class="line">        public static String public_key=&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdInzGy9RUWkvq1Wt1GzX71rsd2NpGt4L+bZQSX741oJm7jsiHc8PlzB+FZX1UOO7+/eWde0xAsvVDVqf5RxKQhk42lyFCUaCbJjZc3PW2/mgkBURKmQ4kyLps/i5jYojQrddsoRLE1Aipcu6qrXOOHitnSeB3L4ggVI9p6hf6HwIDAQAB&quot;;</span><br><span class="line">    </span><br><span class="line">        //私钥，只能放后端</span><br><span class="line">        public static String private_key=&quot;MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJ0ifMbL1FRaS+rVa3UbNfvWux3Y\n&quot; +</span><br><span class="line">                &quot;2ka3gv5tlBJfvjWgmbuOyIdzw+XMH4VlfVQ47v795Z17TECy9UNWp/lHEpCGTjaXIUJRoJsmNlzc\n&quot; +</span><br><span class="line">                &quot;9bb+aCQFREqZDiTIumz+LmNiiNCt12yhEsTUCKly7qqtc44eK2dJ4HcviCBUj2nqF/ofAgMBAAEC\n&quot; +</span><br><span class="line">                &quot;gYEAl47LAMdaXZ3WOYNtqL79G5FqWwhsx+Z6b0JrnilAgeMMRE4cdiEfYoa2JGjWMCTVx5ZGINXq\n&quot; +</span><br><span class="line">                &quot;n0C8tR1g2FtHuB5nXekHtYIgB05HxEl0hwe5LSRx1cxPoH+s7P/vV2EUhXfOL61AtMR20GwlTwAr\n&quot; +</span><br><span class="line">                &quot;eKdynnuRjXmavDPWHE2h7skCQQDhuid/TUyHoGs2CHPGqrg1mRr9pWQAOrREt6vblCV5PpkzNC+B\n&quot; +</span><br><span class="line">                &quot;m9qEMm5PzOkB3mC1UUspI5wXfgRFXrU/m4qLAkEAsjVcvaEn18GT4pdu4S3MH3Kweb9txl6k+BeV\n&quot; +</span><br><span class="line">                &quot;o7Z8Gau2Y+xKFsiyBW7p645IJ34Omyzf3kUo+CZGCeAfraHFPQJBAME7ADDD1S2NL/nzRljdMBAB\n&quot; +</span><br><span class="line">                &quot;3s8fU/m2RzdEHAQ+T834vmDM3ZYP+wGLwk7h1N1apmLREoxHBYo+wB06M+Idnn0CQGypfxAdqOa1\n&quot; +</span><br><span class="line">                &quot;IVBkF/bz7ugqDZNe9zei1CJ2dwbpKYiZnFAXbyGvZGVNuRKpojN6eLuDxEmKkC2nYMN6xrYf0t0C\n&quot; +</span><br><span class="line">                &quot;QFo4VNc4jEnZrpKFXp8CsdadI3t8mfPAxG+xlTDR07sOca6lMzwWMMfJKEExz+HqmfHjTCXUkLvp\n&quot; +</span><br><span class="line">                &quot;DGdL4x825Y4=&quot;;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line">            //解密数据</span><br><span class="line">            try &#123;</span><br><span class="line">                //生成公钥和私钥</span><br><span class="line">                genKeyPair();</span><br><span class="line">                String publicKey = keyMap.get(0);</span><br><span class="line">                //打印出来自己记录下</span><br><span class="line">                System.out.println(&quot;公钥:&quot; + publicKey);</span><br><span class="line">                String privateKey = keyMap.get(1);</span><br><span class="line">                //打印出来自己记录下</span><br><span class="line">                System.out.println(&quot;私钥:&quot; + privateKey);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">                //获取到后，可以放这里，测试下能不能正确加解密</span><br><span class="line">                publicKey = public_key;</span><br><span class="line">                privateKey = private_key;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">                String orgData = &quot;admin&quot;;</span><br><span class="line">                System.out.println(&quot;原数据：&quot; + orgData);</span><br><span class="line">    </span><br><span class="line">                //加密</span><br><span class="line">                String encryptStr =encrypt(orgData,publicKey);</span><br><span class="line">                System.out.println(&quot;加密结果：&quot; + encryptStr);</span><br><span class="line">    </span><br><span class="line">                //解密</span><br><span class="line">                String decryptStr = decrypt(encryptStr,privateKey);</span><br><span class="line">                System.out.println(&quot;解密结果：&quot; + decryptStr);</span><br><span class="line">    </span><br><span class="line">            &#125; catch (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        /**</span><br><span class="line">         * RSA公钥加密</span><br><span class="line">         *</span><br><span class="line">         * @param str       加密字符串</span><br><span class="line">         * @param publicKey 公钥</span><br><span class="line">         * @return 密文</span><br><span class="line">         * @throws Exception 加密过程中的异常信息</span><br><span class="line">         */</span><br><span class="line">        public static String encrypt(String str,String publicKey) throws Exception &#123;</span><br><span class="line">            //base64编码的公钥</span><br><span class="line">            byte[] decoded = decryptBASE64(publicKey);</span><br><span class="line">            Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());</span><br><span class="line">            RSAPublicKey pubKey = (RSAPublicKey) KeyFactory.getInstance(&quot;RSA&quot;).generatePublic(new X509EncodedKeySpec(decoded));</span><br><span class="line">            //RSA加密</span><br><span class="line">            Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);</span><br><span class="line">            cipher.init(Cipher.ENCRYPT_MODE, pubKey);</span><br><span class="line">            String outStr = encryptBASE64(cipher.doFinal(str.getBytes(&quot;UTF-8&quot;)));</span><br><span class="line">            return outStr;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        /**</span><br><span class="line">         * RSA私钥解密</span><br><span class="line">         *</span><br><span class="line">         * @param str        加密字符串</span><br><span class="line">         * @param privateKey 私钥</span><br><span class="line">         * @return 明文</span><br><span class="line">         * @throws Exception 解密过程中的异常信息</span><br><span class="line">         */</span><br><span class="line">        public static String decrypt(String str, String privateKey) throws Exception &#123;</span><br><span class="line">            //64位解码加密后的字符串</span><br><span class="line">            byte[] inputByte = decryptBASE64(str);</span><br><span class="line">            //base64编码的私钥</span><br><span class="line">            byte[] decoded = decryptBASE64(privateKey);</span><br><span class="line">            Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());</span><br><span class="line">            RSAPrivateKey priKey = (RSAPrivateKey) KeyFactory.getInstance(&quot;RSA&quot;).generatePrivate(new PKCS8EncodedKeySpec(decoded));</span><br><span class="line">            //RSA解密</span><br><span class="line">            Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);</span><br><span class="line">            cipher.init(Cipher.DECRYPT_MODE, priKey);</span><br><span class="line">            String outStr = new String(cipher.doFinal(inputByte));</span><br><span class="line">            return outStr;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        //编码返回字符串</span><br><span class="line">        public static String encryptBASE64(byte[] key) throws Exception &#123;</span><br><span class="line">            return (new BASE64Encoder()).encodeBuffer(key);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        //解码返回byte</span><br><span class="line">        public static byte[] decryptBASE64(String key) throws Exception &#123;</span><br><span class="line">            return (new BASE64Decoder()).decodeBuffer(key);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        /**</span><br><span class="line">         * 密钥长度 于原文长度对应 以及越长速度越慢</span><br><span class="line">         */</span><br><span class="line">        private final static int KEY_SIZE = 1024;</span><br><span class="line">        /**</span><br><span class="line">         * 用于封装随机产生的公钥与私钥</span><br><span class="line">         */</span><br><span class="line">        private static Map&lt;Integer, String&gt; keyMap = new HashMap&lt;Integer, String&gt;();</span><br><span class="line">    </span><br><span class="line">        /**</span><br><span class="line">         * 随机生成密钥对</span><br><span class="line">         * @throws Exception</span><br><span class="line">         */</span><br><span class="line">        public static void genKeyPair() throws Exception &#123;</span><br><span class="line">            // KeyPairGenerator类用于生成公钥和私钥对，基于RSA算法生成对象</span><br><span class="line">            KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(&quot;RSA&quot;);</span><br><span class="line">            // 初始化密钥对生成器</span><br><span class="line">            keyPairGen.initialize(KEY_SIZE, new SecureRandom());</span><br><span class="line">            // 生成一个密钥对，保存在keyPair中</span><br><span class="line">            KeyPair keyPair = keyPairGen.generateKeyPair();</span><br><span class="line">            // 得到私钥</span><br><span class="line">            RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();</span><br><span class="line">            // 得到公钥</span><br><span class="line">            RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();</span><br><span class="line">            String publicKeyString = encryptBASE64(publicKey.getEncoded());</span><br><span class="line">            // 得到私钥字符串</span><br><span class="line">            String privateKeyString = encryptBASE64(privateKey.getEncoded());</span><br><span class="line">            // 将公钥和私钥保存到Map</span><br><span class="line">            //0表示公钥</span><br><span class="line">            keyMap.put(0, publicKeyString);</span><br><span class="line">            //1表示私钥</span><br><span class="line">            keyMap.put(1, privateKeyString);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>测试类</p>
+<ul>
+<li><p>测试类</p>
+<ul>
+<li><pre><code class="java">@Test
+    void contextLoads() &#123;
+        try &#123;
+            String s = RSAUtils.decrypt(&quot;PmiMANVmq59A6ZsSHk09cKB5TVVNPGD/QSyKyVh9jWIj6cinMyro3pcFW70J3wJMbtMafSV1DaLdyFLNVwY0isbfZBYjCTN+2C+h/S3KELwvZ3mtRiPZD6TpupMfq7tgFxA4D5sBtNnv+UZTnU5NtHWfPGAlWKu/DWY3HJL+7cE=&quot;, RSAUtils.private_key);
+            System.out.println(s);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实践</span><br><span class="line"></span><br><span class="line">- 实践（只需加上解密的操作即可）</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    //        解密</span><br><span class="line">            try &#123;</span><br><span class="line">                password = decrypt(password,private_key);</span><br><span class="line">            &#125; catch (Exception e) &#123;</span><br><span class="line">                throw new GlobalException(HttpStatus.FORBIDDEN,&quot;密码错误&quot;);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="RSA-AES实现"><a href="#RSA-AES实现" class="headerlink" title="RSA+AES实现"></a>RSA+AES实现</h3><h4 id="为什么使用RSA-AES混合加密"><a href="#为什么使用RSA-AES混合加密" class="headerlink" title="为什么使用RSA + AES混合加密"></a>为什么使用RSA + AES混合加密</h4><p>1.加密介绍</p>
+<p>RSA加密: 属于非对称加密，公钥用于对数据进行加密，私钥对数据进行解密，两者不可逆。公钥和私钥是同时生成的，且一一对应。比如：客户端拥有公钥，服务端拥有公钥和私钥。客户端将数据通过公钥进行加密后，发送密文给服务端，服务端可以通过私钥和公钥进行解密。<br>AES加密: 属于对称加密，简单点说就是，客户端用密码对数据进行AES加密后，服务端用同样的密码对密文进行AES解密。<br>2.加密思路</p>
+<p>利用 RSA 来加密传输 AES的密钥，用 AES的密钥 来加密数据。<br>既利用了 RSA 的灵活性，可以随时改动 AES 的密钥；又利用了 AES 的高效性，可以高效传输数据。<br>3.混合加密原因</p>
+<p>单纯的使用 RSA（非对称加密）方式，效率会很低，因为非对称加密解密方式虽然很保险，但是过程复杂，耗费时间长，性能不高;<br>RSA 优势在于数据传输安全，且对于几个字节的数据，加密和解密时间基本可以忽略，所以用它非常适合加密 AES 秘钥（一般16个字节）;<br>单纯的使用 AES（对称加密）方式的话，非常不安全。这种方式使用的密钥是一个固定的密钥，客户端和服务端是一样的，一旦密钥被人获取，那么，我们所发的每一条数据都会被都对方破解;<br>AES有个很大的优点，那就是加密解密效率很高，而我们传输正文数据时，正好需要这种加解密效率高的，所以这种方式适合用于传输量大的数据内容;<br>基于以上特点，就有了我们混合加密的思路</p>
+<p><img src="/posts/1212588131/1.png"></p>
+<h5 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h5><p>创建aesUtils.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">import CryptoJS from &#x27;crypto-js&#x27;</span><br><span class="line">import &#123;JSEncrypt&#125; from &#x27;jsencrypt&#x27;</span><br><span class="line">import cryptoJS from &#x27;./CryptoJSUtils&#x27;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 创建密钥</span><br><span class="line"> * @returns AES密钥</span><br><span class="line"> */</span><br><span class="line">export function createAesKey () &#123;</span><br><span class="line">  const expect = 16</span><br><span class="line">  let str = Math.random().toString(36).substr(2)</span><br><span class="line">  while (str.length &lt; expect) &#123;</span><br><span class="line">    str += Math.random().toString(36).substr(2)</span><br><span class="line">  &#125;</span><br><span class="line">  str = str.substr(0, 16)</span><br><span class="line">  return str</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * AES加密</span><br><span class="line"> * @param &#123;*&#125; word 加密字段</span><br><span class="line"> * @param &#123;*&#125; keyStr AES密钥</span><br><span class="line"> * @returns</span><br><span class="line"> */</span><br><span class="line">export function AESencrypt (word, keyStr) &#123;</span><br><span class="line">  keyStr = keyStr || &#x27;abcdefgabcdefg12&#x27;</span><br><span class="line">  var key = CryptoJS.enc.Utf8.parse(keyStr) // Latin1 w8m31+Yy/Nw6thPsMpO5fg==</span><br><span class="line">  var srcs = CryptoJS.enc.Utf8.parse(word)</span><br><span class="line">  var encrypted = CryptoJS.DES.encrypt(srcs, key, &#123;</span><br><span class="line">    mode: CryptoJS.mode.ECB,</span><br><span class="line">    padding: CryptoJS.pad.Pkcs7</span><br><span class="line">  &#125;)</span><br><span class="line">  return encrypted.ciphertext.toString()</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * RSA加密算法</span><br><span class="line"> * @param &#123;*&#125; pas</span><br><span class="line"> * @returns</span><br><span class="line"> */</span><br><span class="line">export function RSAencrypt (pas, publickey) &#123;</span><br><span class="line">  let jse = new JSEncrypt()</span><br><span class="line">  jse.setPublicKey(publickey)</span><br><span class="line">  return jse.encrypt(pas)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 获取16位随机数,当做aes秘钥key，进行加密操作</span><br><span class="line"> * @constructor</span><br><span class="line"> */</span><br><span class="line">export function RsaEncryptData (data) &#123;</span><br><span class="line">  // 此处生成十六位随机数进行aes对称加密密钥准备</span><br><span class="line">  var randomStr = Math.random().toString().substr(0, 16)</span><br><span class="line">  // aes加密</span><br><span class="line">  var datas = cryptoJS.encrypt(JSON.stringify(data), randomStr)</span><br><span class="line">  datas = datas.toString()</span><br><span class="line">  // 声明rsa加密规则</span><br><span class="line">  var encrypt = new JSEncrypt()</span><br><span class="line">  // 将rsa公钥进行保存</span><br><span class="line">  encrypt.setPublicKey(&#x27;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCI2zy2kkLxdhx31pu2gRB95QCx5aOvw5yTt44glEPIWhaoqXVeTch9dwAjaoInm6a1BiQHEtE/ccWTPmM7Iktrjcw3siC3dV2/QJkpk8/b52TMCw9R55qXL1+Y1f0z7BCu3ikCfyTw5cxAh5pa3r0YhYmeC+E6J3crmBPzImfYCwIDAQAB&#x27;)</span><br><span class="line">  // 使用公钥对aes的密钥进行加密</span><br><span class="line">  var encrypted = encrypt.encrypt(randomStr)</span><br><span class="line">  // 创建json对象</span><br><span class="line">  let json = &#123;</span><br><span class="line">    &#x27;requestData&#x27;: datas,</span><br><span class="line">    &#x27;encrypted&#x27;: encrypted</span><br><span class="line">  &#125;</span><br><span class="line">  return json</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 将返回的数据进行解密操作</span><br><span class="line"> * @constructor</span><br><span class="line"> */</span><br><span class="line">export function RsaDecryptsData (result) &#123;</span><br><span class="line">  // rsa解密,获取到aes秘钥</span><br><span class="line">  var decrypt = new JSEncrypt()</span><br><span class="line">  decrypt.setPrivateKey(&#x27;MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALs0Ufy3++1luZf7XtsQiPXORRuv5KC6ec7pkApNc3ckFQfpWjhAiM0yn7tqGl8y1zRRR8/g8dsUCofTLOL1EJB+7xEvUCSmjB6RDowtVOxA9vRCrrxwVoNY881x94GE/Ln2A64xVtbFspq0s9hpP4GU0QXWIHKMV/SzB7DsN37PAgMBAAECgYEArS6VukkqUlANBcCR2+7MBTmxTQ/HXbmk/fmsOxuzecBzhEIoKGnrJIl0o5hglTkfRVL8MB9VHurHYyfFGqDDlJB70FVrCPBrtxPoUtB5aI0SLSkDHX3EWjlOBlCQkMiFhx9cS9PCloDSA2Ahzga3y8Bg3LaXhoZediPgz4PmBaECQQD5+mPahaPnpJcR5CKCjryXlpqic+s0cE33ZtYPwKe163KHsSdCErOsFQ9k01JpHbCZmipzRRC+xT0CZ7DfKLRjAkEAv7bOVC+HO9YM5Qf2eYW2kUv4ssG9c8NhsXBSnKQfaFEKM4xLPtulj16YQevHpjgzr2BIg5arVWW81Nu1YLlJpQJAW7cHXcx8d2fG2ZSXKMmP3houf/4BxMqTgHrlfQAVSESrT6eqnK5Z54AOltKFwPVYrvKGMqabXzLkkHZUyXuYuwJAEkhywOCPewtcy3LI9Knl0VF3dES5tpKJfIyDtGCKhj5ERMo6WtJDpbqVtqOvtJBjjXQXNkVmLYy4R2x0jbbd6QJARGMQhsPUTkac/xf956UBZNkP8Xn/rokR3M2fm+HNPZ9t0EOzdfdIYk7aUUoLqR73v9o9YiSGy5NSwOT+33MCpw==&#x27;)</span><br><span class="line">  var aesKey = decrypt.decrypt(result.encrypted)</span><br><span class="line">  // 用aes秘钥进行解密</span><br><span class="line">  return eval(&#x27;(&#x27; + cryptoJS.decrypt(result.requestData, aesKey) + &#x27;)&#x27;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建CryptoJSUtils.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import CryptoJS from &#x27;crypto-js&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line"> </span><br><span class="line">  /**</span><br><span class="line">   @param &#123;*需要加密的字符串 注：对象转化为json字符串再加密&#125; word</span><br><span class="line">   @param &#123;*aes加密需要的key值，这个key值后端同学会告诉你&#125; keyStr</span><br><span class="line">   */</span><br><span class="line"> </span><br><span class="line">  encrypt (word, keyStr) &#123; // 加密</span><br><span class="line">    let key = CryptoJS.enc.Utf8.parse(keyStr)</span><br><span class="line">    let srcs = CryptoJS.enc.Utf8.parse(word)</span><br><span class="line">    let encrypted = CryptoJS.AES.encrypt(srcs, key, &#123;mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7&#125;) // 加密模式为ECB，补码方式为PKCS5Padding（也就是PKCS7）</span><br><span class="line">    return encrypted.toString()</span><br><span class="line">  &#125;,</span><br><span class="line"> </span><br><span class="line">  decrypt (word, keyStr) &#123; // 解密</span><br><span class="line">    let key = CryptoJS.enc.Utf8.parse(keyStr)</span><br><span class="line">    let decrypt = CryptoJS.AES.decrypt(word, key, &#123;mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7&#125;)</span><br><span class="line">    return CryptoJS.enc.Utf8.stringify(decrypt).toString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="后端-1"><a href="#后端-1" class="headerlink" title="后端"></a>后端</h5><p>创建DecodeRequestBodyAdvice.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wisdom.iotSystem.exception;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.google.gson.Gson;</span><br><span class="line"><span class="keyword">import</span> com.google.gson.reflect.TypeToken;</span><br><span class="line"><span class="keyword">import</span> com.wisdom.iotSystem.annotations.SecurityParameter;</span><br><span class="line"><span class="keyword">import</span> com.wisdom.iotSystem.utils.AesEncryptUtils;</span><br><span class="line"><span class="keyword">import</span> com.wisdom.iotSystem.utils.RSAUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.io.IOUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.MethodParameter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpHeaders;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpInputMessage;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.converter.HttpMessageConverter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Type;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wzw</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 请求数据解密</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/10/29 20:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ControllerAdvice(basePackages = &quot;com.wisdom.iotSystem.controller&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DecodeRequestBodyAdvice</span> <span class="keyword">implements</span> <span class="title class_">RequestBodyAdvice</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(DecodeRequestBodyAdvice.class);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//    @Value(&quot;$&#123;server.private.key&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">SERVER_PRIVATE_KEY</span> <span class="operator">=</span> <span class="string">&quot;MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIjbPLaSQvF2HHfWm7aBEH3lALHlo6/DnJO3jiCUQ8haFqipdV5NyH13ACNqgiebprUGJAcS0T9xxZM+YzsiS2uNzDeyILd1Xb9AmSmTz9vnZMwLD1HnmpcvX5jV/TPsEK7eKQJ/JPDlzECHmlrevRiFiZ4L4TondyuYE/MiZ9gLAgMBAAECgYBT5QnH5ctx1/TFpeKYs2/XrT2K0HpScfiXOSvAXwNaW5eOVyti3w3rk7qa+1zESQ+d4yDM0UVCvkze4ZzVEEXoyGV4q7HkaGhBYJeE9guWi81G4arsso8er5SvIcirAYGQykn9WvVssbsUjGe0P2Fan05RbGy9JnRpWXagyKMuqQJBAL4OgvQwoJ/djBgx5zRrJZzHySAP+Vr06ZF+6q2N+hBKG4g35Qqi7QWJxvJznlhNqqH58eWxl5Ypr0AmvjUKbl8CQQC4V0r4VBEvtorsCnilkoyiaNhITj/i3plKouKiwUf6Xvgkw2J1iqOKkZ1qlXxyUIzIeuasIIXnkJxjwN4xzt3VAkBW4X1dsYkL65QqT024+a4lAHNhs8uyl7jaKSGQmxGQNsBlQd/zP82INZZ7qPzeswpop0C8VrXMEFwrwEo9JvqTAkEAmVAwj/wLFy2wuMO0t6/8uw6L4wcBZ0RPJZ328/ngTUEzDBBcEPovLg4RaBXPnJuVmx9sPfgGpiLFjslXgwFTyQJAYzUrnA9eqmnLjTHLziCpuDuvaKa0Y/WMbieIGxnsIjXbMX1vtP3zIwr/ykrao5Ln+wv2yHwUSHeHlaxfO35xlg==&quot;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">supports</span><span class="params">(MethodParameter methodParameter, Type type, Class&lt;? extends HttpMessageConverter&lt;?&gt;&gt; aClass)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">handleEmptyBody</span><span class="params">(Object body, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class&lt;? extends HttpMessageConverter&lt;?&gt;&gt; aClass)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> body;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> HttpInputMessage <span class="title function_">beforeBodyRead</span><span class="params">(HttpInputMessage inputMessage, MethodParameter methodParameter, Type type, Class&lt;? extends HttpMessageConverter&lt;?&gt;&gt; aClass)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">encode</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (methodParameter.getMethod().isAnnotationPresent(SecurityParameter.class)) &#123;</span><br><span class="line">                <span class="comment">//获取注解配置的包含和去除字段</span></span><br><span class="line">                <span class="type">SecurityParameter</span> <span class="variable">serializedField</span> <span class="operator">=</span> methodParameter.getMethodAnnotation(SecurityParameter.class);</span><br><span class="line">                <span class="comment">//入参是否需要解密</span></span><br><span class="line">                encode = serializedField.inDecode();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (encode) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyHttpInputMessage</span>(inputMessage);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> inputMessage;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            logger.error(<span class="string">&quot;对方法method :【&quot;</span> + methodParameter.getMethod().getName() + <span class="string">&quot;】返回数据进行解密出现异常：&quot;</span>+e.getMessage());</span><br><span class="line">            <span class="keyword">return</span> inputMessage;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">afterBodyRead</span><span class="params">(Object body, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class&lt;? extends HttpMessageConverter&lt;?&gt;&gt; aClass)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> body;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">MyHttpInputMessage</span> <span class="keyword">implements</span> <span class="title class_">HttpInputMessage</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> HttpHeaders headers;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">private</span> InputStream body;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">MyHttpInputMessage</span><span class="params">(HttpInputMessage inputMessage)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">            <span class="built_in">this</span>.headers = inputMessage.getHeaders();</span><br><span class="line">            <span class="built_in">this</span>.body = IOUtils.toInputStream(easpString(IOUtils.toString(inputMessage.getBody(),<span class="string">&quot;utf-8&quot;</span>)));</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> InputStream <span class="title function_">getBody</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">            <span class="keyword">return</span> body;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> HttpHeaders <span class="title function_">getHeaders</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> headers;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> requestData</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> String <span class="title function_">easpString</span><span class="params">(String requestData)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(requestData != <span class="literal">null</span> &amp;&amp; !requestData.equals(<span class="string">&quot;&quot;</span>))&#123;</span><br><span class="line">                Map&lt;String,String&gt; map = <span class="keyword">new</span> <span class="title class_">Gson</span>().fromJson(requestData,<span class="keyword">new</span> <span class="title class_">TypeToken</span>&lt;Map&lt;String,String&gt;&gt;() &#123;</span><br><span class="line">                &#125;.getType());</span><br><span class="line">                <span class="comment">// 密文</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">data</span> <span class="operator">=</span> map.get(<span class="string">&quot;requestData&quot;</span>);</span><br><span class="line">                <span class="comment">// 加密的aes秘钥</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">encrypted</span> <span class="operator">=</span> map.get(<span class="string">&quot;encrypted&quot;</span>);</span><br><span class="line">                <span class="keyword">if</span>(StringUtils.isEmpty(data) || StringUtils.isEmpty(encrypted))&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;参数【requestData】缺失异常！&quot;</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="literal">null</span> ;</span><br><span class="line">                    <span class="type">String</span> <span class="variable">aseKey</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        aseKey = RSAUtils.decryptDataOnJava(encrypted,SERVER_PRIVATE_KEY);</span><br><span class="line">                    &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">                        <span class="keyword">throw</span>  <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;参数【aseKey】解析异常！&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        content  = AesEncryptUtils.decrypt(data, aseKey);</span><br><span class="line">                    &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">                        <span class="keyword">throw</span>  <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;参数【content】解析异常！&quot;</span>+e);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (StringUtils.isEmpty(content) || StringUtils.isEmpty(aseKey))&#123;</span><br><span class="line">                        <span class="keyword">throw</span>  <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;参数【requestData】解析参数空指针异常!&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> content;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;参数【requestData】不合法异常！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建EncodeResponseBodyAdvice.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wisdom.iotSystem.exception;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> com.wisdom.iotSystem.annotations.SecurityParameter;</span><br><span class="line"><span class="keyword">import</span> com.wisdom.iotSystem.utils.AesEncryptUtils;</span><br><span class="line"><span class="keyword">import</span> com.wisdom.iotSystem.utils.RSAUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.MethodParameter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.MediaType;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.server.ServerHttpRequest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.server.ServerHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> monkey</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 返回数据加密</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/10/25 20:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ControllerAdvice(basePackages = &quot;com.wisdom.iotSystem.controller&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EncodeResponseBodyAdvice</span> <span class="keyword">implements</span> <span class="title class_">ResponseBodyAdvice</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(EncodeResponseBodyAdvice.class);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//    @Value(&quot;$&#123;client.public.key&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">CLIENT_PUBLIC_KEY</span> <span class="operator">=</span> <span class="string">&quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC7NFH8t/vtZbmX+17bEIj1zkUbr+SgunnO6ZAKTXN3JBUH6Vo4QIjNMp+7ahpfMtc0UUfP4PHbFAqH0yzi9RCQfu8RL1AkpowekQ6MLVTsQPb0Qq68cFaDWPPNcfeBhPy59gOuMVbWxbKatLPYaT+BlNEF1iByjFf0swew7Dd+zwIDAQAB&quot;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">supports</span><span class="params">(MethodParameter methodParameter, Class aClass)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">beforeBodyWrite</span><span class="params">(Object body, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">encode</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (methodParameter.getMethod().isAnnotationPresent(SecurityParameter.class)) &#123;</span><br><span class="line">            <span class="comment">//获取注解配置的包含和去除字段</span></span><br><span class="line">            <span class="type">SecurityParameter</span> <span class="variable">serializedField</span> <span class="operator">=</span> methodParameter.getMethodAnnotation(SecurityParameter.class);</span><br><span class="line">            <span class="comment">//出参是否需要加密</span></span><br><span class="line">            encode = serializedField.outEncode();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (encode) &#123;</span><br><span class="line"><span class="comment">//            logger.info(&quot;对方法method :【&quot; + methodParameter.getMethod().getName() + &quot;】返回数据进行加密&quot;);</span></span><br><span class="line">            <span class="type">ObjectMapper</span> <span class="variable">objectMapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(body);</span><br><span class="line">                <span class="comment">// 生成aes秘钥</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">aseKey</span> <span class="operator">=</span> getRandomString(<span class="number">16</span>);</span><br><span class="line">                <span class="comment">// rsa加密</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">encrypted</span> <span class="operator">=</span> RSAUtils.encryptedDataOnJava(aseKey, CLIENT_PUBLIC_KEY);</span><br><span class="line">                <span class="comment">// aes加密</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">requestData</span> <span class="operator">=</span> AesEncryptUtils.encrypt(result, aseKey);</span><br><span class="line">                Map&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">                map.put(<span class="string">&quot;encrypted&quot;</span>, encrypted);</span><br><span class="line">                map.put(<span class="string">&quot;requestData&quot;</span>, requestData);</span><br><span class="line">                <span class="keyword">return</span> map;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                logger.error(<span class="string">&quot;对方法method :【&quot;</span> + methodParameter.getMethod().getName() + <span class="string">&quot;】返回数据进行解密出现异常：&quot;</span> + e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> body;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建指定位数的随机字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> length 表示生成字符串的长度</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 字符串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getRandomString</span><span class="params">(<span class="type">int</span> length)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">base</span> <span class="operator">=</span> <span class="string">&quot;abcdefghijklmnopqrstuvwxyz0123456789&quot;</span>;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> random.nextInt(base.length());</span><br><span class="line">            sb.append(base.charAt(number));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建接口：SecurityParameter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wisdom.iotSystem.annotations;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.Mapping;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wzw</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 请求数据解密</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/10/25 20:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Mapping</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SecurityParameter &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 入参是否解密，默认解密</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">inDecode</span><span class="params">()</span> <span class="keyword">default</span> <span class="literal">true</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 出参是否加密，默认加密</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">outEncode</span><span class="params">()</span> <span class="keyword">default</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * RSA+AES双重加密测试</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> object</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/testEncrypt&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="comment">// 数据加密注解</span></span><br><span class="line"><span class="meta">@SecurityParameter</span></span><br><span class="line"><span class="keyword">public</span> R <span class="title function_">testEncrypt</span><span class="params">(<span class="meta">@RequestBody</span> Map&lt;String,Object&gt; info)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;内容&quot;</span>;</span><br><span class="line">    info.put(<span class="string">&quot;name&quot;</span>,nameTest);</span><br><span class="line">    <span class="keyword">return</span> R.ok(<span class="string">&quot;请求成功&quot;</span>).put(<span class="string">&quot;info&quot;</span>,info);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.png" alt="Kuk">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Kuk
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/1212588131/" target="_blank">传输动态加密</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/posts/1426203022/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/1426203022/" title="发布于 2023-08-02 05:45">短信验证登录</a>
+                        <br>
+                    
+                    
+                        <a href="/posts/4026166152/" class="next-prefix">» </a> 下一篇：    <a href="/posts/4026166152/" title="发布于 2023-07-02 07:06">mongodb</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2020-2022 WorstOne. All Rights Reserved.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+            <div class="menu-notice">
+                <span class="iconfont icon-notice"></span>
+                <div class="notice">
+                    <span>简单地活着，肆意而又精彩！</span>
+                </div>
+            </div>
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.png">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span>Kuk</span></div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
+                    
+                        <li class=""><a href="/about" class="" target="_self"><span class="iconfont icon-about-fill"></span>关于</a></li>
+                    
+                        <li class=""><a href="/atom.xml" class="" target="_blank"><span class="iconfont icon-rss"></span>订阅</a></li>
+                    
+                        <li class=""><a href="javascript:;" class="search" target="_self"><span class="iconfont icon-search-menu"></span>搜索</a></li>
+                    
+                        <li class=""><a href="/comment" class="" target="_self"><span class="iconfont icon-comments-fill"></span>留言板</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq1.png"><span class="iconfont icon-qq"></span></a>
+                
+                    <a name="微信" href="javascript:;" class="image" target="_self" data="/image/sidebar/wechat.png"><span class="iconfont icon-wechat"></span></a>
+                
+                    <a name="GitHub" href="https://github.com/Kuk-W/Kuk-W.github.io.git" class="" target="_blank" data=""><span class="iconfont icon-github"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "first19326",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Kuk",
+        UserAvatar       : "/image/sidebar/avatar.png",
+        WebsiteStartDate : "2022-06-01",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Kuk",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.jpeg",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : true,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "赞赏",
+                    icon   : "icon-heart-fill",
+                    href   : "/donate",
+                    type   : "donate",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "关于",
+                    icon   : "icon-about-fill",
+                    href   : "/about",
+                    type   : "about",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "订阅",
+                    icon   : "icon-rss",
+                    href   : "/atom.xml",
+                    type   : "",
+                    class  : "",
+                    target : "_blank"
+                },
+            
+                {
+                    name   : "搜索",
+                    icon   : "icon-search-menu",
+                    href   : "javascript:;",
+                    type   : "",
+                    class  : "search",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "留言板",
+                    icon   : "icon-comments-fill",
+                    href   : "/comment",
+                    type   : "comment",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq1.png"
+                    },
+                
+                    {
+                        name   : "微信",
+                        icon   : "icon-wechat",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/wechat.png"
+                    },
+                
+                    {
+                        name   : "GitHub",
+                        icon   : "icon-github",
+                        href   : "https://github.com/Kuk-W/Kuk-W.github.io.git",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2020-2022 WorstOne. All Rights Reserved.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "简单地活着, 肆意又精彩."
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
