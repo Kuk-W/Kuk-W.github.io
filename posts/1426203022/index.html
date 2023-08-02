@@ -110,7 +110,7 @@ public class SMSUtils &#123;
      * @param param 参数
      */
     public static void sendMessage(String signName, String templateCode,String phoneNumbers,String param)&#123;
-        DefaultProfile profile = DefaultProfile.getProfile(&quot;cn-hangzhou&quot;, &quot;LTAI5tPirfdV4aLvdHGKraQf&quot;, &quot;d0qe2MXRF43jy7tsRAygc2hEhvrDIY&quot;);
+        DefaultProfile profile = DefaultProfile.getProfile(&quot;cn-hangzhou&quot;, &quot;AccessKey&quot;, &quot;d0qe2MXRF43jy7tsRAygc2hEhvrDIY&quot;);
         IAcsClient client = new DefaultAcsClient(profile);
 
         SendSmsRequest request = new SendSmsRequest();
