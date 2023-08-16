@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            标签 - a
+            计算机网络
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,15 +32,32 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">标签归档</h1>
+                <h1 class="header-subtitle">计算机网络</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-08-16
+                        </span>
+                        
+                            
+                                <span id="/posts/3797262602/" class="leancloud_visitors" data-flag-title="计算机网络">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/3797262602/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
                 </div>
             
         </div>
@@ -49,37 +66,439 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
-                        
-                            当前标签：<span class="tag">a</span>
-                        
-                    </span>
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="计算机网络基础"><a href="#计算机网络基础" class="headerlink" title="计算机网络基础"></a>计算机网络基础</h2><ul>
+<li>计算机之间的通信 ：主机A的某个进程和主机B的某个进程之间进行通信<ul>
+<li>C&#x2F;S（client、server）</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算机网络分类"><a href="#计算机网络分类" class="headerlink" title="计算机网络分类"></a>计算机网络分类</h4><h5 id="按照作用范围划分"><a href="#按照作用范围划分" class="headerlink" title="按照作用范围划分"></a>按照作用范围划分</h5><ul>
+<li>广域网 也叫远程网<ul>
+<li>作用范围：几十到几千公里</li>
+</ul>
+</li>
+<li>地域网<ul>
+<li>作用范围：5~50公里 一般一个城市的范围</li>
+</ul>
+</li>
+<li>局域网<ul>
+<li>类似一个网吧</li>
+</ul>
+</li>
+<li>个人区域网PAN<ul>
+<li>手机和电脑通过蓝牙连接</li>
+</ul>
+</li>
+</ul>
+<h5 id="按照线路接结构划分"><a href="#按照线路接结构划分" class="headerlink" title="按照线路接结构划分"></a>按照线路接结构划分</h5><ul>
+<li>星型（也称拓扑结构）在局域网中使用较多<ul>
+<li>优点</li>
+<li>缺点</li>
+</ul>
+</li>
+<li>总线型<ul>
+<li>材料：同轴电缆、光缆</li>
+<li>通知方式：广播式</li>
+<li>优点<ul>
+<li>结构简单</li>
+<li>走线量小</li>
+<li>成本低</li>
+<li>扩充灵活</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>故障诊断和隔离比较困难</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>环形（令牌环网）<ul>
+<li>令牌：一组特殊格式的帧</li>
+<li>材料：电缆</li>
+<li>优点<ul>
+<li>布线简单</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>效率低</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网状型<ul>
+<li>优点<ul>
+<li>可靠性高</li>
+<li>效率高</li>
+<li>延迟小</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>控制复杂、软件复杂</li>
+<li>线路费用高、不以扩充</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h4><ul>
+<li>速率<ul>
+<li>1B &#x3D; 8b  B：Byte  字节，b：bit 位</li>
+<li>100(bit&#x2F;s)</li>
+<li>表示大小时  1MB &#x3D; 2^10*8 bit</li>
+<li>表示速率时 1MB&#x2F;s &#x3D; 10^3 bit&#x2F;s （又叫数据率或者）</li>
+</ul>
+</li>
+<li>带宽<ul>
+<li>用来表示网络中某通道的输出传输能力   &#x3D;&#x3D;最高&#x3D;&#x3D;数据率</li>
+<li>单位b&#x2F;s</li>
+<li>宽带100兆：出口网速是100Mb&#x2F;s</li>
+</ul>
+</li>
+<li>吞吐量<ul>
+<li>表示在单位时间内某个通道通过的数据量 表示&#x3D;&#x3D;实际&#x3D;&#x3D;数据率</li>
+</ul>
+</li>
+<li>时延<ul>
+<li>数据从一端发向另一端所需要的时间</li>
+<li><img src="/posts/3797262602/19.png"></li>
+<li>发送时延<ul>
+<li>主机或路由器发送数据帧所需要的时间</li>
+<li>发送公式 ： 发送时延 &#x3D; 数据帧长度（bit）&#x2F;发送速率（bit&#x2F;s）</li>
+</ul>
+</li>
+<li>传播时延<ul>
+<li>电磁波在信道中传播一定的距离所需要花费的时间</li>
+<li>公式：传播时延 &#x3D; 信道长度（m）&#x2F;电磁波在信道上传输的速率（m&#x2F;s）</li>
+<li>自由空间 ：3* 10^8 m&#x2F;s</li>
+<li>铜线：2.3* 10^8 m&#x2F;s</li>
+<li>光纤：2* 10^8 m&#x2F;s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>往返时间<ul>
+<li>表示发送端将数据发送到传输媒介开始，  到   发送端接收到接收端确认 的总共经历时间(不包含发送延时)</li>
+<li>RRT：包括三部分 链路传播时间（固定）+末端系处理时间（固定）+路由器缓存排队时间和处理时间</li>
+</ul>
+</li>
+<li>利用率<ul>
+<li>分为网络利用率和信道利用率两种</li>
+<li>信道利用率：表示某信道有百分之几的时间是被利用的（有数据通过的时候）</li>
+<li>网络利用率：全网络的信道利用率的加权平均值</li>
+<li>排队论：当某信道的利用率增大时，改信道的&#x3D;&#x3D;时延&#x3D;&#x3D;会增大</li>
+<li>公式：D &#x3D; D0&#x2F;1-U   <ul>
+<li>其中D表示当前网络的时延</li>
+<li>D0表示网络空闲的时延</li>
+<li>U表示网络的利用率</li>
+<li><img src="/posts/3797262602/20.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>丢包率<ul>
+<li>又叫分组丢失率，在一定时间范围内，传输过程中丢失的分组数量与总分组数量的比率</li>
+<li>分组丢失的情况<ul>
+<li>分组在传输过程中出现&#x3D;&#x3D;误码&#x3D;&#x3D;，被节点丢弃。</li>
+<li>分组到达一个  分组已满  的交换主时被丢弃，在通信较大是会造成网络拥塞</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h4><h5 id="OSI体系结构"><a href="#OSI体系结构" class="headerlink" title="OSI体系结构"></a>OSI体系结构</h5><p><img src="/posts/3797262602/21.png"></p>
+<p><img src="/posts/3797262602/22.png"></p>
+<p>透明传输：数据链路层对上层交付的传输数据没有任何限制，</p>
+<p>封装成帧：</p>
+<p>差错校验：也叫误码</p>
+<p>以太网：是一种计算机局域网技术，以太网是应用最普遍的局域网技术  取代了令牌环等</p>
+<p>MAC地址：用来标识特定的计算机或设备接口，通过这种方法来表示数据传输的源地址和目的地址</p>
+<ol>
+<li>大小 6个字节 48位    三个字节由注册机构（RA）分配+三个字节自己分配</li>
+</ol>
+<h6 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h6><p>主要材质有：电缆、光纤</p>
+<p>在OSI参考模型中，物理层是参考模型的最低层，也是OSI模型的第一层。&#x3D;&#x3D;物理层的主要功能是&#x3D;&#x3D;：<strong>利用传输介质为数据链路层提供物理连接，实现比特流的透明传输。</strong>物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异，使其上面的数据链路层不必考虑网络的具体传输介质是什么。</p>
+<h6 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h6><p>数据链路层会封装好MAC帧，将其交付给物理层 </p>
+<p>数据链路层（Data Link Layer）是OSI模型的第二层，负责建立和管理节点间的链路。在计算机网络中由于各种干扰的存在，导致物理链路是不可靠的。因此这一层的&#x3D;&#x3D;主要功能是&#x3D;&#x3D;：<strong>在物理层提供的比特流的基础上，通过差错控制、流量控制方法，使有差错的物理线路变为无差错的数据链路，即提供可靠的通过物理介质传输数据的方法。</strong></p>
+<h6 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h6><p> 网络层（Network Layer）是OSI模型的第三层，它是OSI参考模型中最复杂的一层，也是通信子网的最高一层，它在下两层的基础上向资源子网提供服务。&#x3D;&#x3D;其主要功能是&#x3D;&#x3D;：<strong>在数据链路层提供的两个相邻端点之间的数据帧的传送功能上，进一步管理网络中的数据通信，控制数据链路层与传输层之间的信息转发，建立、维持和终止网络的连接，将数据设法从源端经过若干个中间节点传送到目的端（点到点），从而向传输层提供最基本的端到端的数据传输服务。</strong>具体地说，数据链路层的数据在这一层被转换为数据包，然后通过路径选择、分段组合、顺序、进&#x2F;出路由等控制，将信息从一个网络设备传送到另一个网络设备。数据链路层和网络层的区别为：数据链路层的目的是解决同一网络内节点之间的通信，而网络层主要解决不同子网间的通信。</p>
+<h6 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h6><p> OSI下3层的任务是数据通信，上3层的任务是数据处理。而传输层（Transport Layer）是OSI模型的第4层。该层提供建立、维护和拆除传输连接的功能，起到承上启下的作用。该层的&#x3D;&#x3D;主要功能是&#x3D;&#x3D;：<strong>向用户提供可靠的端到端的差错和流量控制，保证报文的正确传输，同时向高层屏蔽下层数据通信的细节，即向用户透明地传送报文。</strong></p>
+<h6 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h6><p> 会话层是OSI模型的第5层，是用户应用程序和网络之间的接口，&#x3D;&#x3D;该层的主要功能是&#x3D;&#x3D;：<strong>组织和协调两个会话进程之间的通信  ，并对数据交换进行管理</strong>。当建立会话时，用户必须提供他们想要连接的远程地址。而这些地址与MAC地址或网络层的逻辑地址不同，它们是为用户专门设计的，更便于用户记忆。域名就是一种网络上使用的远程地址。&#x3D;&#x3D;具体功能如下：&#x3D;&#x3D;</p>
+<ol>
+<li><strong>会话管理：</strong>允许用户在两个实体设备之间建立、维持和终止会话，并支持它们之间的数据交换。</li>
+<li><strong>会话流量控制：</strong>提供会话流量控制和交叉会话功能。</li>
+<li><strong>寻址：</strong>使用远程地址建立会话连接。</li>
+<li><strong>出错控制：</strong>从逻辑上讲会话层主要负责数据交换的建立、保持和终止，但实际的工作却是接收来自传输层的数据，并负责纠正错误。</li>
+</ol>
+<h6 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h6><p> 表示层是OSI模型的第六层，它对来自应用层的命令和数据进行解释，对各种语法赋予相应的含义，并按照一定的格式传送给会话层。&#x3D;&#x3D;该层的主要功能是&#x3D;&#x3D;：<strong>处理用户信息的表示问题，如编码、数据格式转换和加密解密等</strong>。&#x3D;&#x3D;具体功能如下：&#x3D;&#x3D;</p>
+<ol>
+<li><strong>数据格式处理：</strong>协商和建立数据交换的格式，解决各应用程序之间在数据格式表示上的差异。</li>
+<li><strong>数据的编码：</strong>处理字符集和数字的转换。</li>
+<li><strong>压缩和解压缩：</strong>为了减少数据的传输量，这一层还负责数据的压缩与恢复。</li>
+<li><strong>数据的加密和解密：</strong>可以提高网络的安全性。</li>
+</ol>
+<p>  应用层是OSI参考模型的最高层，它是计算机用户，以及各种应用程序和网络之间的接口，&#x3D;&#x3D;该层的主要功能是：&#x3D;&#x3D;<strong>直接向用户提供服务，完成用户希望在网络上完成的各种工作。</strong>它在其他6层工作的基础上，负责完成网络中应用程序与网络操作系统之间的联系，建立与结束使用者之间的联系，并完成网络用户提出的各种网络服务及应用所需的监督、管理和服务等各种协议。此外该层还负责协调各个应用程序间的工作。&#x3D;&#x3D;应用层的具体功能如下：&#x3D;&#x3D;</p>
+<ol>
+<li><strong>用户接口：</strong>应用层是用户与网络，以及应用程序与网络间的直接接口，使得用户能够与网络进行交互式联系。</li>
+<li><strong>实现各种服务：</strong>该层具有的各种应用程序可以完成和实现用户请求的各种服务。</li>
+</ol>
+<p>OSI七层模型总结<br>应用层：产生网络流量的程序</p>
+<p>表示层：传输之前是否进行加密或者压缩处理</p>
+<p> 会话层：查看会话，查木马  netstat-n</p>
+<p>传输层：可靠传输、流量控制、不可靠传输   </p>
+<p>网络层：负责选择最佳路径、规划ip地址</p>
+<p>数据链路层：帧的开始和结束、透明传输、差错校验</p>
+<p>物理层：接口标准、电器标准、如何更快传输数据</p>
+<p><img src="/posts/3797262602/1.png" alt="		"></p>
+<p>传输层：tcp协议、udp协议、TLS.&#x2F;SSL、SCTP等</p>
+<p>网络层：ip协议（IPV4和IPV6）、ICMP协议、IPSce协议 </p>
+<p>主要解决五个问题</p>
+<p>1、报文拆分</p>
+<p>2、增加协议头</p>
+<p>3、解决相邻接点之间的传输</p>
+<p>4、解决路由和寻址问题</p>
+<p>5、数据重组</p>
+<h4 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h4><p>def：TCP全名是(Transport Control Protocol)，是一个可以提供可靠的、支持全双工、连接导向的协议，因此在客户端和服务端之间传输数据的时候，是必须先建立一个连接的</p>
+<ul>
+<li>连接<ul>
+<li>是虚拟、抽象的概念</li>
+<li>也会被成为<strong>会话</strong></li>
+<li>使用通信更<strong>稳定、安全</strong></li>
+</ul>
+</li>
+<li>双工<ul>
+<li>单工：任何时刻数据只能<strong>单向</strong>发送</li>
+<li>半双工：允许数据在两个方向上传输，<strong>在某时刻</strong>只允许数据在一个方向上传输</li>
+<li>全双工：任何时刻都能双向发送数据</li>
+</ul>
+</li>
+<li>可靠<ul>
+<li>无损传输：多播、无序数据恢复有序</li>
+</ul>
+</li>
+</ul>
+<h5 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45393094/article/details/104965561">https://blog.csdn.net/weixin_45393094/article/details/104965561</a></p>
+<p>为什么握手是三次 挥手是四次</p>
+<p>断开连接的过程中 客户端发送FIN后 服务端没有办法直接将FIN和ACK包同时返回给客户端 （因为此时服务端可能之前的 资源还没有释放、数据还没处理完毕）</p>
+<h5 id="传输数据的过程"><a href="#传输数据的过程" class="headerlink" title="传输数据的过程"></a>传输数据的过程</h5><ul>
+<li><p>TCP协议</p>
+<ul>
+<li>报文拆分<ul>
+<li>应用层数据很大无法一次传输完成</li>
+<li>拆分完后可实现并行传输</li>
+</ul>
+</li>
+<li>增加TCP头</li>
+<li>数据重组</li>
+</ul>
+</li>
+<li><p>顺序保证</p>
+<ul>
+<li><p>TCP序号：发送序号Seq、接受序号Ack	</p>
+<ul>
+<li>一端的发送序号是另一段的接收序号</li>
+<li><img src="/posts/3797262602/2.png"></li>
+</ul>
+</li>
+<li><p>时间窗口</p>
+<ul>
+<li>在改时间段内发送的数据完整的话接受否则抛弃该时间窗口的所有有数据</li>
+</ul>
+</li>
+<li><p>TCP头</p>
+<ul>
+<li>源端口：描述发送方机器上的应用</li>
+<li>目标端口：描述接收方服务器上的应用</li>
+<li>发送序号seq和接受序号ack</li>
+</ul>
+</li>
+<li><p>TCP标志位</p>
+<ul>
+<li>ECN：显示拥塞协议，有助于帮助解决延迟和丢包问题</li>
+<li>URG：紧急标志位（置1 会被优先执行）</li>
+<li><strong>SYN</strong>：同步序号</li>
+<li><strong>FIN</strong>：终止连接</li>
+<li><strong>ACK</strong>：响应（确认包）</li>
+<li>PSH：传送数据</li>
+<li>RST：重置连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TCP报文</p>
+<ul>
+<li><img src="/posts/3797262602/3.png"></li>
+<li><strong>校验和</strong>（16位）<ul>
+<li>纠错能力：保证数据的可靠性</li>
+<li>16位的Checksum字段<ul>
+<li>是一个函数，可以把原文映射到一个不可逆的16bit 编码（可以知道传输过程中有没有发生变化）</li>
+</ul>
+</li>
+<li>流控能力：控制发送速率（利用滑动窗口）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>TCP协议原理</p>
+<ol>
+<li>可靠的传输机制<ol>
+<li>确认应答机制</li>
+<li>超时重传机制</li>
+<li>连接管理机制</li>
+<li>流量控制</li>
+<li>拥塞控制</li>
+</ol>
+</li>
+<li>效率机制<ol>
+<li>滑动窗口</li>
+<li>延迟应答</li>
+<li>捎带应答</li>
+</ol>
+</li>
+</ol>
+<h5 id="TCP协议特点总结"><a href="#TCP协议特点总结" class="headerlink" title="TCP协议特点总结"></a>TCP协议特点总结</h5><ul>
+<li>有连接：通过三次握手建立连接后才可接发数据，TCP协议是全双工的，即每端既可以发也可以收</li>
+<li>可靠传输：网络数据传输是一跳一跳的，经过路途中的设备可能发生数据丢失，可靠传输是可能发生数据丢失但有机制保证对方能接收到</li>
+<li>面向字节流：可以多次的收发数据（连接没有关闭时，可以多次的接收和发送数据）</li>
+<li>有接收缓冲区和发送缓冲区：发送数据时，是先写到发送缓冲区，再刷新缓冲区（flush）</li>
+<li>大小不受限制：多次的收发数据，每次的数据可以很大 </li>
+<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_16077445/6203225">计算机网络之TCP协议详解51CTO博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58710208/article/details/126042653">计算机网络之TCP协议详解</a></li>
+</ul>
+<h4 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h4><p>不保证数据的可靠性 、由他的上方协议去保证比如 TCP协议</p>
+<p>主要处理封包损坏、丢包、重发、乱序的问题</p>
+<h5 id="IP协议工作原理"><a href="#IP协议工作原理" class="headerlink" title="IP协议工作原理"></a>IP协议工作原理</h5><ul>
+<li>分片（封包）<ul>
+<li>把数据切片  去适配地城传输网络</li>
+</ul>
+</li>
+<li>增加头协议<ul>
+<li><img src="/posts/3797262602/4.png"></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44135544/article/details/103203716">https://blog.csdn.net/weixin_44135544/article/details/103203716</a></li>
+</ul>
+</li>
+<li>延迟、吞吐量、丢包率<ul>
+<li><img src="/posts/3797262602/5.png"></li>
+</ul>
+</li>
+<li>寻址<ul>
+<li>IPV4地址（32位）：逐级寻址</li>
+<li><img src="/posts/3797262602/6.png"></li>
+<li><img src="/posts/3797262602/7.png"></li>
+<li><img src="/posts/3797262602/8.png"></li>
+<li><img src="/posts/3797262602/9.png"></li>
+</ul>
+</li>
+<li>路由<ul>
+<li><img src="/posts/3797262602/10.png"></li>
+</ul>
+</li>
+</ul>
+<p>IPV4和IPV6区别</p>
+<ul>
+<li>地址<ul>
+<li>地址数量：IPV4有4个8位 <strong>共32位</strong> IPV6有8个16位，<strong>共128位</strong></li>
+<li>分隔符号：<ul>
+<li>IPV4:：例如：192.168.2.22用.去分隔用0-255去表示</li>
+<li>IPV6：例如:0123:4567:89ab:cdef:0123:4567:89ab:cdef用，分隔 每个是一个16位的16进制数字 。四个字符</li>
+</ul>
+</li>
+<li>书写方式：<ul>
+<li><img src="/posts/3797262602/11.png"></li>
+</ul>
+</li>
+<li>寻址<ul>
+<li>全局单播<ul>
+<li>站点前缀：48位，一般由ISP分发运营商</li>
+<li>子网号：16bit用于站点内部区分子网</li>
+<li>接口号：64位用于站点内部区分设备</li>
+</ul>
+</li>
+<li>本地单播<ul>
+<li><img src="/posts/3797262602/12.png"></li>
+</ul>
+</li>
+<li>分组多播<ul>
+<li><img src="/posts/3797262602/13.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>传统的ARP协议</p>
+<p><img src="/posts/3797262602/15.png"></p>
+<p>邻居发现协议</p>
+<p><img src="/posts/3797262602/14.png"></p>
+<p>总结</p>
+<p>IPV6的好处</p>
+<ol>
+<li>解决地址不够用的问题</li>
+<li>解决网络区域地址划分问题</li>
+<li>对多播的支持更好（因为空间足够大）</li>
+<li>在数据链路层 和ip的对应关系上 ——新设备接入时 <strong>邻居发现协议</strong>更先进 做到无状态的设备计入</li>
+</ol>
+<h4 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h4><p>def：在传输层提供直接发送报文的能力 Datagram是数据传输的最小点位</p>
+<p><img src="/posts/3797262602/16.png"></p>
+<h5 id="UDP报文"><a href="#UDP报文" class="headerlink" title="UDP报文"></a>UDP报文</h5><p><img src="/posts/3797262602/17.png"></p>
+<h5 id="UDP和TCP区别"><a href="#UDP和TCP区别" class="headerlink" title="UDP和TCP区别"></a>UDP和TCP区别</h5><p><img src="/posts/3797262602/18.png"></p>
+<h4 id="Socket编程"><a href="#Socket编程" class="headerlink" title="Socket编程"></a>Socket编程</h4><h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p>def：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51367845/article/details/123313047">HTTP 协议详解</a>————————–<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36894974/article/details/103930478">HTTP</a></p>
+<ul>
+<li><p>HTTP（Hyper Text Transfer Protocol）： 全称&#x3D;&#x3D;超文本传输协议&#x3D;&#x3D;，是用于从万维网（WWW:World Wide Web ）&#x3D;&#x3D;服务器传输超文本到本地浏览器&#x3D;&#x3D;的传送协议。</p>
+</li>
+<li><p>HTTP 是一种&#x3D;&#x3D;应用层协议&#x3D;&#x3D;，是基于 &#x3D;&#x3D;TCP&#x2F;IP 通信协议&#x3D;&#x3D;来传递数据的，其中 HTTP1.0、HTTP1.1、HTTP2.0 均为 TCP 实现，HTTP3.0 基于 UDP 实现。现主流使用 HTTP1.0 和 HTTP3.0</p>
+</li>
+<li><p>协议： 为了使数据在网络上从源头到达目的，&#x3D;&#x3D;网络通&#x3D;&#x3D;信的参与方必须遵循相同的&#x3D;&#x3D;规则&#x3D;&#x3D;，这套规则称为协议，它最终体现为在网络上传输的数&#x3D;&#x3D;据包的格式&#x3D;&#x3D;。</p>
+</li>
+</ul>
+<h4 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h4>
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.png" alt="Kuk">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Kuk
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/3797262602/" target="_blank">计算机网络</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/1774397340/"><span>Git</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-30</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/1426203022/" class="next-prefix">» </a> 下一篇：    <a href="/posts/1426203022/" title="发布于 2023-08-02 05:45">短信验证登录</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
