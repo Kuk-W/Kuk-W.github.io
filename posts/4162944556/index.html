@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            归档
+            Spring源码
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,15 +32,32 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">归档</h1>
+                <h1 class="header-subtitle">Spring源码</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-08-29
+                        </span>
+                        
+                            
+                                <span id="/posts/4162944556/" class="leancloud_visitors" data-flag-title="Spring源码">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/4162944556/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
                 </div>
             
         </div>
@@ -49,57 +66,192 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
-                        
-                            目前共计 10 篇日志，继续加油！
-                        
-                    </span>
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="Spring源码学习"><a href="#Spring源码学习" class="headerlink" title="Spring源码学习"></a>Spring源码学习</h2><h3 id="一、涉及的设计模式"><a href="#一、涉及的设计模式" class="headerlink" title="一、涉及的设计模式"></a>一、涉及的设计模式</h3><ol>
+<li><strong>单例模式（Singleton）</strong>：单例模式确保一个类只有一个实例，并提供全局访问点。在Spring中，Bean默认使用单例模式，这意味着Spring容器中的Bean只会被创建一次，并在整个应用程序中共享。通过单例模式，可以确保各个组件之间共享同一实例，提高性能和资源的利用率。</li>
+<li><strong>工厂模式（Factory）</strong>：工厂模式是一种创建型设计模式，通过工厂类来创建和管理对象实例。在Spring中，Bean工厂（如ApplicationContext）充当工厂角色，负责根据配置或注解创建和管理Bean对象。工厂模式可以实现对象的解耦，将对象的创建和使用分离开来，提供更高的灵活性和可扩展性。</li>
+<li><strong>代理模式（Proxy）</strong>：代理模式允许通过代理对象控制对真实对象的访问，并在访问前后添加额外的逻辑。在Spring中，AOP基于动态代理实现，通过代理模式可以在方法执行前后插入切面逻辑，实现事务管理、日志记录、性能监控等功能。</li>
+<li><strong>观察者模式（Observer）</strong>：观察者模式定义了一种一对多的依赖关系，当被观察对象状态发生改变时，所有依赖于它的观察者都会收到通知并自动更新。在Spring中，事件机制就是基于观察者模式实现的，通过定义事件发布者和事件监听器，可以实现模块之间的解耦和通信。</li>
+<li><strong>模板方法模式（Template Method）</strong>：模板方法模式定义了一个算法的骨架，将具体实现延迟到子类中。在Spring中，JdbcTemplate和HibernateTemplate等模板类使用了模板方法模式。它们定义了通用的操作流程，在抽象类中封装了基本的算法逻辑，而具体的实现则由子类提供。</li>
+<li><strong>装饰器模式（Decorator）</strong>：装饰器模式动态地将责任附加到对象上，扩展其功能。在Spring中，装饰器模式在AOP中广泛应用。通过动态代理和切面编程，可以在不改变原始对象的情况下，通过装饰器给对象增加额外的行为。</li>
+<li><strong>适配器模式（Adapter）</strong>：适配器模式将一个类的接口转换成客户端所期望的另一个接口，使得原本不兼容的类可以一起工作。在Spring MVC中，处理器适配器（HandlerAdapter）充当适配器的角色，负责将请求适配到不同类型的处理器方法上，实现处理器和框架之间的解耦。</li>
+<li><strong>策略模式（Strategy）</strong>：策略模式定义了一系列算法，并将每个算法封装起来，使它们可以相互替换。在Spring中，策略模式在事务管理中应用广泛。通过定义不同的事务策略（如声明式事务、编程式事务），在运行时可以选择合适的策略来进行事务管理。</li>
+<li><strong>建造者模式（Builder）</strong>：建造者模式将一个复杂对象的构建过程与其表示分离，使得同样的构建过程可以创建不同的表示。在Spring中，BeanDefinitionBuilder和BeanDefinitionReader等类使用了建造者模式，通过链式调用和配置方法来构建复杂的对象。</li>
+</ol>
+<h3 id="二、类的分析"><a href="#二、类的分析" class="headerlink" title="二、类的分析"></a>二、类的分析</h3><hr>
+<ul>
+<li>ClassPathXmlApplicationContext：读取配置文件 xml</li>
+<li>BeanDefinition:    由xml等配置文件 解析的bean定义信息  存到BeanDefinition</li>
+<li>BeanDefinitionReader：抽象接口 定义配置文件读取器（可以自定以读取配置文件 主要是体现spring的扩展性）</li>
+<li></li>
+<li></li>
+<li>PostProcessor: 增强器(建议)&#x2F;后置处理器   为了扩展实现<ul>
+<li>BeanPostProceessor:操作对象是 —–Bean<ul>
+<li>BeanFactoryPostProcessor: (BFPP) 增强 读取配置文件 也可以扩展 PlaceholderConfigurerSupport这个方法 对${}里的东西进行替换</li>
+</ul>
+</li>
+<li>BeanFactoryProcessor:操作对象是 —–BeanFactory<ul>
+<li>BeanFactoryRegistryPostProcessor ： 功能 注册Bean</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BeanFactory:  用来访问spring容器的跟接口 <ul>
+<li>ApplicationContext：继承了BeanFactory</li>
+</ul>
+</li>
+<li></li>
+<li>a<ul>
+<li>:star: Environment:包含 两个东西 env&amp;properties（作用为了方便使用，在容器创建时提前加载系统的相关属性–加载到StandardEnvironment对象中，方便后续使用）<ul>
+<li>观察者模式就调用此接口（监听器、监听事件）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h3><p>对Spring流程分析</p>
+<ol>
+<li><p>创建BeanFactory通过prepareRefresh方法创建<br>1. </p>
+</li>
+<li><p>加载配置文件</p>
+</li>
+<li><p>对文件中的东西进行bean创建</p>
+</li>
+</ol>
+<p><strong>Bean生命周期</strong></p>
+<ol>
+<li>实例化bean（调用createBeanInstance方法（里面是放射））<ol>
+<li>在堆内存中申请内存空间吗，此时对象属性一般是默认值</li>
+</ol>
+</li>
+<li>初始化  根据使用者可以将对象分为两类  1、自定义对象 2、 容器对象<ol>
+<li>自定义属性赋值（调用populateBean方法 通过set方法完成赋值）</li>
+<li>容器对象属性赋值 （invokeAwareMethords该方法去赋值的）容器对象会实现Aware接口 调用invokeAwareMethod方法是会先判断该对象是否是Aware的子类</li>
+</ol>
+</li>
+<li>补充 上面步骤完成后就可以使用对象了  但是spring考虑到扩展性 </li>
+<li>执行前置处理方法（做Bean对象的扩展实现）<ol>
+<li>BeanPostProcessor—改接口有一个方法postProcessorBeforeInitialization()–AOP–其实就动态代理 jdk、cglib</li>
+</ol>
+</li>
+<li>执行初始化方法<ol>
+<li>调用invokeInitMethod() — 检测bean是否实现了InitalizingBean接口– 如果实现了 会调用 afterPropertiesSet()方法</li>
+</ol>
+</li>
+<li>执行后置处理方法（做Bean对象的扩展实现）<ol>
+<li>BeanPostProcessor—-改接口有一个方法postProcessorAfterInitialization()</li>
+</ol>
+</li>
+<li>使用Bean对象</li>
+<li>销毁Bean对象<ol>
+<li>关闭容器的时候才会销毁</li>
+</ol>
+</li>
+</ol>
+<p>重要的方法</p>
+<p>AbstractApplicationContext中refresh方法</p>
+<p><img src="/posts/4162944556/springSource.jpg" alt="springSource"></p>
+<h3 id="四、面试题"><a href="#四、面试题" class="headerlink" title="四、面试题"></a>四、面试题</h3><p><strong>BeanFactory是什么？</strong></p>
+<p>BeanFactory是一个访问spring容器的根接口</p>
+<p><strong>说一说bean的生命周期？</strong></p>
+<ol>
+<li>实例化bean（调用createBeanInstance方法（里面是放射））<ol>
+<li>在堆内存中申请内存空间吗，此时对象属性一般是默认值</li>
+</ol>
+</li>
+<li>初始化  根据使用者可以将对象分为两类  1、自定义对象 2、 容器对象<ol>
+<li>自定义属性赋值（调用populateBean方法 通过set方法完成赋值）</li>
+<li>容器对象属性赋值 （invokeAwareMethords该方法去赋值的）容器对象会实现Aware接口 调用invokeAwareMethod方法是会先判断该对象是否是Aware的子类</li>
+</ol>
+</li>
+<li>补充 上面步骤完成后就可以使用对象了  但是spring考虑到扩展性 </li>
+<li>执行前置处理方法（做Bean对象的扩展实现）<ol>
+<li>BeanPostProcessor—改接口有一个方法postProcessorBeforeInitialization()–AOP–其实就动态代理 jdk、cglib</li>
+</ol>
+</li>
+<li>执行初始化方法<ol>
+<li>调用invokeInitMethod() — 检测bean是否实现了InitalizingBean接口– 如果实现了 会调用 afterPropertiesSet()方法</li>
+</ol>
+</li>
+<li>执行后置处理方法（做Bean对象的扩展实现）<ol>
+<li>BeanPostProcessor—-改接口有一个方法postProcessorAfterInitialization()</li>
+</ol>
+</li>
+<li>使用Bean对象</li>
+<li>销毁Bean对象<ol>
+<li>关闭容器的时候才会销毁</li>
+</ol>
+</li>
+</ol>
+<p><strong>谈谈你对spring的理解？</strong></p>
+<p>总分的方式回答</p>
+<p>总：spring是一个容器 AOP是IOC的一个扩展点、 主要有AOP（面向切）和IOC（控制反转、简单讲就是创建对象时不需要在手动new 而是由spring容器提供）spring是一个基石、springboot和springcloud都是在spring上做的扩展</p>
+<p>分：</p>
+<ul>
+<li>IOC</li>
+<li>AOP</li>
+<li>IOC如何实现</li>
+<li>生命周期</li>
+<li>循环依赖</li>
+</ul>
+<p><strong>反射的效率低为什么创建bean对象还采用反射？</strong></p>
+<p>反射效率低的条件是<strong>通过反射创建的对象特别多的时候才会很慢</strong></p>
+<p>反射的使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;包名+类名&quot;</span>);</span><br><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> 对象.getClass();</span><br><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> 类名.class;</span><br><span class="line"><span class="comment">//获取构造器</span></span><br><span class="line"><span class="type">Constructor</span> <span class="variable">ctor</span> <span class="operator">=</span> clazz.getDeclareConstructor();</span><br><span class="line"><span class="comment">//创建对象</span></span><br><span class="line"><span class="type">Object</span> <span class="variable">object</span> <span class="operator">=</span> ctor.newInstance();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="五、扩展"><a href="#五、扩展" class="headerlink" title="五、扩展"></a>五、扩展</h3><p>接口和抽象类的区别</p>
+<p>接口：自上而下  描述  接口的方法 子类都需要实现   即接口设计的无需参考子类而是</p>
+<p>抽象类：自下而上 描述 所有类里面抽出公共的属性  即设计抽象类需要参考子类的属性（举例 抽象类是“动物”，子类是”猫“、”狗“、”猪“ 其中他们都有相同的属性 年龄 肤色 等 ）</p>
+<p>springBoot在内嵌TomCat的时候是在onRefresh方法里内嵌的</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.png" alt="Kuk">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Kuk
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/4162944556/" target="_blank">Spring源码</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/4026166152/"><span>mongodb</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">07-02</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/1426203022/"><span>短信验证登录</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">07-02</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/1212588131/"><span>传输动态加密</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">07-02</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/3797262602/" class="next-prefix">» </a> 下一篇：    <a href="/posts/3797262602/" title="发布于 2023-08-03 03:23">计算机网络</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
@@ -133,7 +285,7 @@
                     
                         <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
                     
-                        <li class=" active "><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
                     
                         <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
                     
