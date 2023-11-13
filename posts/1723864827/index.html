@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            归档
+            JVM
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -33,15 +33,32 @@
 </head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">归档</h1>
+                <h1 class="header-subtitle">JVM</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-10-11
+                        </span>
+                        
+                            
+                                <span id="/posts/1723864827/" class="leancloud_visitors" data-flag-title="JVM">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/1723864827/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
                 </div>
             
         </div>
@@ -50,77 +67,151 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
-                        
-                            目前共计 17 篇日志，继续加油！
-                        
-                    </span>
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p><img src="/posts/1723864827/JVM%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" alt="JVM精讲"></p>
+<h2 id="硬件层数据一致性"><a href="#硬件层数据一致性" class="headerlink" title="硬件层数据一致性"></a>硬件层数据一致性</h2><p>现代CPU的数据一致性实现 &#x3D; 缓存锁（MESI）+锁总线</p>
+<p>LoadStore屏障</p>
+<p>对于语句 load1；LoadStore；Store2；</p>
+<p>在Store2及以后续写入操作被刷前，保证Load1要读取的数据被读取完毕</p>
+<p>StoreLoad屏障</p>
+<p>对于语句Store1；StoreLoad；Load2</p>
+<p>在Load2及后续所有读取操作之前，保证Store1的写入  对所有处理器可见</p>
+<p>Volatile的实现细节</p>
+<p>1、字节码层面</p>
+<p>ACC_VOLATILE</p>
+<p>2、JVM</p>
+<p>StoreStoreBarrier					LoadLoadBarrier</p>
+<p>volatie	写操作						volatile   读操作</p>
+<p>StoreLoadBarrier					LoadStoreBarrier</p>
+<p>3、硬件和OS</p>
+<p>hsdis - HotSpot Dis Assembler</p>
+<h2 id="汇编笔记"><a href="#汇编笔记" class="headerlink" title="汇编笔记"></a>汇编笔记</h2><ol>
+<li>最开始出现的语言是机器语言，由二进制组成 即：01010 由于程序员容易出错还需要记大量的0101 由此引入了汇编语言指令有两部分组成  操作数+操作码</li>
+<li>进制越小，表示相同的数据量，需要的位数就越多</li>
+<li>内存扩张方向，可以自上而下，也可以下而上</li>
+<li>字节序用于规定数据在内存中如何存放，intel用的小端序</li>
+<li>方法调用等于入栈出栈的过程，满足先进后出</li>
+<li>汇编中用sp寄存器和bp寄存器用于保存栈底和栈顶</li>
+<li>16位机器码中sp为16，esp为32，rsp为64位</li>
+</ol>
+<p>类加载器</p>
+<ol>
+<li>当静态变量为整形时 ，在clinit中对其进行初始化，整形值将会放在字节码中， 通过操作数栈来保存，当我们调用float、double、对象时， 那么将会放入常量池中，在运行时通过idc指令，（将他们的地址放入操作数栈中来操作）（切记：是Idc、iconst、fconst、dconst、bipush等，都是基于赋值的值的大小来在编译是处理）</li>
+</ol>
+<h2 id="GC调优前置"><a href="#GC调优前置" class="headerlink" title="GC调优前置"></a>GC调优前置</h2><p>Garbage Collector</p>
+<p>GC Tuning（调优）</p>
+<h3 id="java-VS-C"><a href="#java-VS-C" class="headerlink" title="java VS C++"></a>java VS C++</h3><ol>
+<li>java<ol>
+<li>GC处理垃圾</li>
+<li>开发效率高，执行效率低</li>
+</ol>
+</li>
+<li>C++<ol>
+<li>手工处理垃圾</li>
+<li>忘记回收<ol>
+<li>内存泄漏</li>
+</ol>
+</li>
+<li>回收多次<ol>
+<li>非法访问</li>
+</ol>
+</li>
+<li>开发效率低，执行效率高</li>
+</ol>
+</li>
+</ol>
+<h3 id="JVM内存分代模型（用于分代垃圾回收算法）"><a href="#JVM内存分代模型（用于分代垃圾回收算法）" class="headerlink" title="JVM内存分代模型（用于分代垃圾回收算法）"></a>JVM内存分代模型（用于分代垃圾回收算法）</h3><ol>
+<li>部分垃圾回收器使用的模型<ol>
+<li>除 Epsilon ZGC Shenandoah之外的GC都是使用逻辑分代模型</li>
+</ol>
+</li>
+<li>新生代 + 老年代 + 永久代(1.7)&#x2F;元数据区（1.8）Metaspace<ol>
+<li>永久代   元数据 - class</li>
+<li>永久代必须指定大小限制，元数据可以设置大小，也可以不设置，无上限（受限于物理内存）</li>
+<li>字符串常量 1.7  - 永久代，1.8 - 堆</li>
+<li>MethodArea逻辑概念  -  永久代  -  元数据</li>
+</ol>
+</li>
+<li>新生代 &#x3D; Eden + 2个suvivor区</li>
+</ol>
+<h2 id="GC和GC-Tuning"><a href="#GC和GC-Tuning" class="headerlink" title="GC和GC Tuning"></a>GC和GC Tuning</h2><h3 id="GC-Algorithms（GC算法）"><a href="#GC-Algorithms（GC算法）" class="headerlink" title="GC Algorithms（GC算法）"></a>GC Algorithms（GC算法）</h3><p>什么是垃圾呢？</p>
+<p>没有根对象去引用的对象</p>
+<h4 id="判断垃圾算法"><a href="#判断垃圾算法" class="headerlink" title="判断垃圾算法"></a>判断垃圾算法</h4><h5 id="reference-count（引用计数）"><a href="#reference-count（引用计数）" class="headerlink" title="reference count（引用计数）"></a>reference count（引用计数）</h5><p>缺点</p>
+<p>无法解决循环依赖问题  （整个循环都没有人依赖的时候）</p>
+<h5 id="Root-Searching（根可达算法）"><a href="#Root-Searching（根可达算法）" class="headerlink" title="Root Searching（根可达算法）"></a>Root Searching（根可达算法）</h5><p>根：线程栈变量、静态变量、常量池、JNI指针</p>
+<h4 id="清除算法"><a href="#清除算法" class="headerlink" title="清除算法"></a>清除算法</h4><ul>
+<li>Mark-Sweep（标记清除）<ul>
+<li>在对象存活较多的情况下效率会比较高</li>
+<li>会产生碎片（空间不连续）</li>
+<li>需要扫描两遍（1、扫描不可回收对象，2 扫描可回收对象）</li>
+</ul>
+</li>
+<li>Copying（拷贝）<ul>
+<li>在存活对象较少的情况</li>
+<li>没有碎片、效率高只扫描一遍</li>
+<li>浪费空间</li>
+</ul>
+</li>
+<li>Mark-Compact（标记压缩）<ul>
+<li>扫描两次、需要移动对象，效率偏低</li>
+</ul>
+</li>
+</ul>
+<h3 id="触发机制"><a href="#触发机制" class="headerlink" title="触发机制"></a>触发机制</h3><p>MinorGC&#x2F;YGC: 年轻代空间耗尽时  触发</p>
+<p>MajorGC&#x2F;FullGC: 在老年代无法继续分配空间时触发，新生代老年代同时进行回收</p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><strong>对象什么时候进入老年代</strong>？</p>
+<p>Parallel Scavenge 15</p>
+<p>CMS  6</p>
+<p>G1    15 动态年龄 （YGC）s1 -&gt;  s2时 超过了50% 把年龄最大的放入old区中</p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>为什么使用双亲委派模型</p>
+<p>一定程度上防止了库被窜改</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.png" alt="Kuk">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Kuk
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/1723864827/" target="_blank">JVM</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/1774397340/"><span>Git</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-30</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/2180991710/"><span>liunx命令</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-30</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3424359953/"><span>JavaScript</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-06</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3098602189/"><span>java基础</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-05</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3417644953/"><span>博客</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-02</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/3304966413/" class="next-prefix">» </a> 下一篇：    <a href="/posts/3304966413/" title="发布于 2023-09-01 05:54">技术tips</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
@@ -154,7 +245,7 @@
                     
                         <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
                     
-                        <li class=" active "><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
                     
                         <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
                     

@@ -161,18 +161,15 @@
 <h5 id="AbstractApplicationContext中refresh方法"><a href="#AbstractApplicationContext中refresh方法" class="headerlink" title="AbstractApplicationContext中refresh方法"></a>AbstractApplicationContext中refresh方法</h5><p>refresh方法中有13个重要的方法</p>
 <p>对Spring流程分析</p>
 <ol>
-<li><p>先执行refresh方法</p>
-<ol>
-<li><p>&#x3D;&#x3D;prepareRefresh()&#x3D;&#x3D;方法创建BeanFactory</p>
-<ol>
+<li>先执行refresh方法<ol>
+<li>&#x3D;&#x3D;prepareRefresh()&#x3D;&#x3D;方法创建BeanFactory<ol>
 <li>设置容器开关状态 设置容器启动时间、设置容器活跃  加载当前环境属性 设置set集合监听器、监听事件</li>
 <li>初始化属性资源initPropertySources()  默认为空                  为后续扩展做准备</li>
 <li>获取环境对象和所需要的值getEnviromant().validateRequiredProperties</li>
 <li>创建一系列的set集合(注册一些监听器集合  监听事件 集合  为观察者模式准备)—可扩展</li>
 </ol>
 </li>
-<li><p>&#x3D;&#x3D;obtainFreshBeanFactory()&#x3D;&#x3D;获取最新的Bean工厂  返回一个beanFactory对象名为 defaultlaizeBeanFactory 同时加载配置文件是</p>
-<ol>
+<li>&#x3D;&#x3D;obtainFreshBeanFactory()&#x3D;&#x3D;获取最新的Bean工厂  返回一个beanFactory对象名为 defaultlaizeBeanFactory 同时加载配置文件是<ol>
 <li>刷新 refreshBeanFactory() Bean工厂<ol>
 <li><p>判断是否有bean工厂 hashBeanFactory 有则销毁 并且关闭 </p>
 </li>
@@ -185,33 +182,25 @@
 </li>
 </ol>
 </li>
+<li>getBeanFactory() 返回刚才GenericApplocationContext创建的BeanFactory对象</li>
 </ol>
 </li>
-<li><p>&#x3D;&#x3D;perpareBeanFactory(beanFactory)&#x3D;&#x3D; 对BeanFactory进行初实话 （给BeanFactory进行赋值）</p>
-<ol>
+<li>&#x3D;&#x3D;perpareBeanFactory(beanFactory)&#x3D;&#x3D; 对BeanFactory进行初实话 （给BeanFactory进行赋值）<ol>
 <li>设置SPEL</li>
 <li>设置忽略Aware接口</li>
 </ol>
 </li>
-<li><p>&#x3D;&#x3D;postProcessBeanFactory(beanFactory)&#x3D;&#x3D;  为扩展做准备 本身 里面是空方法</p>
-</li>
-<li><p>&#x3D;&#x3D;invokeBeanFactoryPostProcessros(beanFactory)&#x3D;&#x3D; 调用执行BeanFactoryPostProcessor方法</p>
-<ol>
+<li>&#x3D;&#x3D;postProcessBeanFactory(beanFactory)&#x3D;&#x3D;  为扩展做准备 本身 里面是空方法  </li>
+<li>&#x3D;&#x3D;invokeBeanFactoryPostProcessros(beanFactory)&#x3D;&#x3D; 调用执行BeanFactoryPostProcessor方法<ol>
 <li>给BeanFactoryPostProcessor排序  按顺序执行</li>
 </ol>
 </li>
-<li><p>&#x3D;&#x3D;registerBeanPostProcessros(beanFactory)&#x3D;&#x3D;只注册BeanBeanPostProcessros方法 并不执行</p>
-</li>
-<li><p>&#x3D;&#x3D;initMessageSource()&#x3D;&#x3D;做国际化处理</p>
-</li>
-<li><p>&#x3D;&#x3D;initApplicationEventMulticaster()&#x3D;&#x3D; 初始化应用事件多播器</p>
-</li>
-<li><p>&#x3D;&#x3D;onRefresh()&#x3D;&#x3D; </p>
-</li>
-<li><p>&#x3D;&#x3D;registerListeners()&#x3D;&#x3D; 注册监听器</p>
-</li>
-<li><p>&#x3D;&#x3D;finshBeanFactoryInitialiation(beanFactory)&#x3D;&#x3D; 实例化所有单例的非懒加载的Bean对象</p>
-<ol>
+<li>&#x3D;&#x3D;registerBeanPostProcessros(beanFactory)&#x3D;&#x3D;只注册BeanBeanPostProcessros方法 并不执行</li>
+<li>&#x3D;&#x3D;initMessageSource()&#x3D;&#x3D;做国际化处理</li>
+<li>&#x3D;&#x3D;initApplicationEventMulticaster()&#x3D;&#x3D; 初始化应用事件多播器</li>
+<li>&#x3D;&#x3D;onRefresh()&#x3D;&#x3D; </li>
+<li>&#x3D;&#x3D;registerListeners()&#x3D;&#x3D; 注册监听器</li>
+<li>&#x3D;&#x3D;finshBeanFactoryInitialiation(beanFactory)&#x3D;&#x3D; 实例化所有单例的非懒加载的Bean对象<ol>
 <li>preInstantiateSingletons();核心的实例化方法<ol>
 <li>beanDefinitionNames放入List  – beanName的List–&gt;getMergedLocalBeanDefinition(beanName)获取bean信息</li>
 <li>循环(for ecah)创建bean之前会调用getBean(beanNames)<ol>
@@ -238,10 +227,8 @@
 <li></li>
 </ol>
 </li>
-<li><p>加载配置文件</p>
-</li>
-<li><p>对文件中的东西进行bean创建</p>
-</li>
+<li>加载配置文件</li>
+<li>对文件中的东西进行bean创建</li>
 </ol>
 <h5 id="循环依赖问题源码模式"><a href="#循环依赖问题源码模式" class="headerlink" title="循环依赖问题源码模式"></a><strong>循环依赖问题源码模式</strong></h5><p>最重要的6方法</p>
 <p>refresh—&gt;finishBeanFactoryInitialization()—&gt;preInstantiateSingletons—&gt;开始六个方法</p>
