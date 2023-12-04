@@ -58,6 +58,14 @@
                         
                     </p>
                     
+                        
+                            <span class="category-color">java</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">JVM</span>
+                        
                     
                 </div>
             
@@ -72,6 +80,13 @@
             <div class="toc"></div>
             <div class="article-body">
                 <p><img src="/posts/1723864827/JVM%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" alt="JVM精讲"></p>
+<p>bootstrap：加载最核心的类库 比如JDK的一些类</p>
+<p>Excel：扩展类加载器 一般加载额外导的依赖的类</p>
+<p>App：一般是加载加载classpath的指定的内容</p>
+<p>Cuton : 处理自定义 的类加载器 </p>
+<p>连接中</p>
+<p>验证：  </p>
+<p>准备：给静态变量赋值</p>
 <h2 id="硬件层数据一致性"><a href="#硬件层数据一致性" class="headerlink" title="硬件层数据一致性"></a>硬件层数据一致性</h2><p>现代CPU的数据一致性实现 &#x3D; 缓存锁（MESI）+锁总线</p>
 <p>LoadStore屏障</p>
 <p>对于语句 load1；LoadStore；Store2；</p>
@@ -167,7 +182,10 @@
 <p>CMS  6</p>
 <p>G1    15 动态年龄 （YGC）s1 -&gt;  s2时 超过了50% 把年龄最大的放入old区中</p>
 <h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>为什么使用双亲委派模型</p>
-<p>一定程度上防止了库被窜改</p>
+<ul>
+<li>主要是为了安全问题，防止类库被修改</li>
+<li>其次防止资源浪费 多加载一遍</li>
+</ul>
 
                 
                 <p class="end">__END__</p>
@@ -192,11 +210,28 @@
     <div style="clear: both;"></div>
 </div>
                 
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/java/">java</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/JVM/">JVM</a>
+                        
+                    </div>
                 
                 <div class="article-prev-next">
                     
+                        <a href="/posts/1174978411/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/1174978411/" title="发布于 2023-10-30 11:40">日志模块</a>
+                        <br>
                     
-                        <a href="/posts/3304966413/" class="next-prefix">» </a> 下一篇：    <a href="/posts/3304966413/" title="发布于 2023-09-01 05:54">技术tips</a>
+                    
+                        <a href="/posts/2654339327/" class="next-prefix">» </a> 下一篇：    <a href="/posts/2654339327/" title="发布于 2023-09-21 05:42">HashMap源码</a>
                     
                 </div>
             </div>

@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            标签 - code
+            服务器
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -33,15 +33,42 @@
 </head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">标签归档</h1>
+                <h1 class="header-subtitle">服务器</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-12-04
+                        </span>
+                        
+                            
+                                <span id="/posts/2707722979/" class="leancloud_visitors" data-flag-title="服务器">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/2707722979/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">liunx</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">liunx</span>
+                        
+                            <span class="tag-color">软件安装</span>
+                        
+                    
                 </div>
             
         </div>
@@ -50,47 +77,125 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h1><h2 id="挂载硬盘"><a href="#挂载硬盘" class="headerlink" title="挂载硬盘"></a>挂载硬盘</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">查看当前挂载情况</span><br><span class="line">fdisk -l</span><br><span class="line">挂载</span><br><span class="line">mkfs -t ext4 /dev/vb1</span><br><span class="line">执行以下命令，新建挂载点。</span><br><span class="line">mkdir &lt;挂载点&gt;</span><br><span class="line">执行以下命令，将新建分区挂载至新建的挂载点。</span><br><span class="line">mount /dev/vdb &lt;挂载点&gt;</span><br><span class="line"> mount /dev/vdb /root/read-disk/</span><br><span class="line"> mount /dev/vdc /root/write-disk/</span><br><span class="line">查看挂载结</span><br><span class="line">df -TH</span><br></pre></td></tr></table></figure>
+
+<h2 id="liunx安装maven"><a href="#liunx安装maven" class="headerlink" title="liunx安装maven"></a>liunx安装maven</h2><ol>
+<li><p>下载tar包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="attr">https</span>:<span class="comment">//archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压tar包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-maven-<span class="number">3.6</span><span class="number">.3</span>-bin.<span class="property">tar</span>.<span class="property">gz</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置maven环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入配置文件目录</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将一下内容添加到文件中</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">maven</span></span><br><span class="line">export MAVEN_HOME=/usr/local/apache-maven-3.6.3</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;MAVEN_HOME&#125;/bin</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新编译</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证mavne</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -version/mvn -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建maven仓库并配置settings.xml</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个文件夹用来存储：</span></span><br><span class="line">mkdir -p /usr/local/apache-maven-3.6.3/repository</span><br><span class="line">找到setting文件</span><br><span class="line">vim /usr/local/apache-maven-3.6.3/conf/settings.xml</span><br><span class="line"></span><br><span class="line">&lt;!-- 本地仓库路径--&gt;</span><br><span class="line">&lt;localRepository&gt;/usr/local/apache-maven-3.6.3/repository&lt;/localRepository&gt;</span><br><span class="line"></span><br><span class="line"> &lt;!--阿里云镜像--&gt;</span><br><span class="line">    	&lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">          &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </span><br><span class="line">      &lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="liunx安装git"><a href="#liunx安装git" class="headerlink" title="liunx安装git"></a>liunx安装git</h2><ol>
+<li><p>下载tar包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://Github.com/Git/Git/archive/v2.9.5.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">也可以通过yum方法下载</span></span><br><span class="line"> yum -y install git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压tar包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf v2.9.5.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">更改名称</span></span><br><span class="line">mv git-2.9.5 git</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入git目录</span></span><br><span class="line">cd git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在安装git之前，需要安装对应的依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openss1-devel zlib-devel gcc perl-Extutils-MakeMaker</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">行完后一定要删除一下</span></span><br><span class="line">sudo yum remove git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成之后，安装git</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译</span></span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">下载</span></span><br><span class="line">make prefix=/usr/local/git install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">git</span></span><br><span class="line">export PATH=$PATH:/usr/local/git/bin</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新编译</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove git</span><br><span class="line">rm -rf ~/.gitconfig ~/.gitignore</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置名字邮箱</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Name&quot;</span><br><span class="line">git config --global user.email &quot;youremail@163.com&quot;</span><br><span class="line">#可以查看</span><br><span class="line">git config --list </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="自定义liunxshell"><a href="#自定义liunxshell" class="headerlink" title="自定义liunxshell"></a>自定义liunxshell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pkill -9 java</span><br><span class="line"></span><br><span class="line">cd /root/test-project</span><br><span class="line"></span><br><span class="line">mvn clean</span><br><span class="line"></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">mvn package -Dmaven.test.skip=true</span><br><span class="line"></span><br><span class="line">nohup java \</span><br><span class="line">-jar -Xss20m -Xms24g -Xmx24g /root/test-project/target/kuk-test--1.jar &gt; /root/spring-boot.log  2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="可能用到的shell"><a href="#可能用到的shell" class="headerlink" title="可能用到的shell"></a>可能用到的shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">虚拟机修改ip</span><br><span class="line">sudo vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">压缩</span></span><br><span class="line">tar -czvf shards-2.tar.gz shards-2</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">递归文件</span></span><br><span class="line">tar -cvf mongodb-4.0.7.tar.gz /mongodb-4.0.7</span><br><span class="line">tar -xvf mongodb-4.0.7.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除文件夹中所有的文件</span></span><br><span class="line">rm -r</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">内网传输数据</span></span><br><span class="line">scp /root/mingxi.csv root@172.21.0.141:/root/mingxi.csv</span><br><span class="line">scp /root/mingxi.csv root@172.21.0.141:/root/mingxi.fields</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scp conf-2.tar.gz root@172.21.0.141:/root</span><br><span class="line">scp log-2.tar.gz root@172.21.0.141:/root</span><br><span class="line">scp mongodb-linux-x86_64-4.0.7.tgz root@172.21.0.141:/root</span><br><span class="line">scp data-2.tar.gz root@172.21.0.141:/root</span><br><span class="line"></span><br><span class="line">修改密码</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.png" alt="Kuk">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Kuk
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/2707722979/" target="_blank">服务器</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
                         
-                            当前标签：<span class="tag">code</span>
+                            <a href="/category/liunx/">liunx</a>
                         
-                    </span>
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/liunx/">liunx</a>
+                        
+                            <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/1174978411/"><span>日志模块</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">10-30</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3304966413/"><span>技术tips</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">09-01</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/2127092991/" class="next-prefix">» </a> 下一篇：    <a href="/posts/2127092991/" title="发布于 2023-11-27 05:35">MongoDB性能测试</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
