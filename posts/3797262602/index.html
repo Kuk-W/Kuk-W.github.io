@@ -464,7 +464,102 @@
 <li><p>协议： 为了使数据在网络上从源头到达目的，&#x3D;&#x3D;网络通&#x3D;&#x3D;信的参与方必须遵循相同的&#x3D;&#x3D;规则&#x3D;&#x3D;，这套规则称为协议，它最终体现为在网络上传输的数&#x3D;&#x3D;据包的格式&#x3D;&#x3D;。</p>
 </li>
 </ul>
-<h4 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h4>
+<h4 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h4><h3 id="计网知识总结面试题"><a href="#计网知识总结面试题" class="headerlink" title="计网知识总结面试题"></a>计网知识总结面试题</h3><h4 id="1、什么是TCP网络分层"><a href="#1、什么是TCP网络分层" class="headerlink" title="1、什么是TCP网络分层"></a>1、什么是TCP网络分层</h4><p>优点：</p>
+<ul>
+<li>各层独立</li>
+<li>灵活性好</li>
+<li>易于维护和测试</li>
+<li>能促进标准化</li>
+</ul>
+<p><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231212180819384.png" alt="image-20231212180819384"></p>
+<h4 id="2、TCP的三次握手中为什么是三次？而不是两次"><a href="#2、TCP的三次握手中为什么是三次？而不是两次" class="headerlink" title="2、TCP的三次握手中为什么是三次？而不是两次"></a>2、TCP的三次握手中为什么是三次？而不是两次</h4><p>假如由客户端(Client)发起服务端接收(Server)</p>
+<p>第一次报文  客户端  ——&gt; 服务端   (我准备请求你的资源)</p>
+<p>第二次报文  服务端   ——&gt; 客户端  (我可以接收到你的请求   我也准备请求你的资源)</p>
+<p>此时就需要第三次握手  服务端也需要确认  客户端能够成功收到请求</p>
+<p>第三次报文  客户端   ——&gt; 服务端  (我可以接收到你的请求)</p>
+<p>四次就有点浪费资源了</p>
+<h4 id="3、TCP的四次挥手为什么是四次？不能是三次"><a href="#3、TCP的四次挥手为什么是四次？不能是三次" class="headerlink" title="3、TCP的四次挥手为什么是四次？不能是三次"></a>3、TCP的四次挥手为什么是四次？不能是三次</h4><p>如果是三次的话  释放资源时间过长会导致客户端断开连接的请求重发（因为TCP是安全的必须保证报文的可达性）</p>
+<h4 id="4、为什么SYN-x2F-FIN不包含数据-，但是需要消耗一个序列号"><a href="#4、为什么SYN-x2F-FIN不包含数据-，但是需要消耗一个序列号" class="headerlink" title="4、为什么SYN&#x2F;FIN不包含数据 ，但是需要消耗一个序列号"></a>4、为什么SYN&#x2F;FIN不包含数据 ，但是需要消耗一个序列号</h4><p>凡是需要对端确认的都需要消耗一个序列号</p>
+<p>原因  可能由于网络的原因会重发 导致资源浪费</p>
+<h4 id="5、什么是半连接队列？什么是SYN-Flood攻击"><a href="#5、什么是半连接队列？什么是SYN-Flood攻击" class="headerlink" title="5、什么是半连接队列？什么是SYN Flood攻击"></a>5、什么是半连接队列？什么是SYN Flood攻击</h4><p>半连接状态：处于  三次握手中第二次握手的时候   第二次握手客户端一直是拒绝的状态</p>
+<p>SYN Flood攻击：伪造源地址发送SYN请求 导致半连接队列阻塞  从而影响正常的求情（也称之为 洪范攻击）</p>
+<p><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213155851726.png" alt="image-20231213155851726"></p>
+<h4 id="6、TFO（TCP-Fast-Open）TCP快速打开"><a href="#6、TFO（TCP-Fast-Open）TCP快速打开" class="headerlink" title="6、TFO（TCP Fast Open）TCP快速打开"></a>6、TFO（TCP Fast Open）TCP快速打开</h4><p>TFO优点：</p>
+<ul>
+<li>利用握手减少一个RTT(Round-Trip time)</li>
+<li>可以防止SYN攻击（因为携带了cookie所以可以防止因为发现如果cookie不对会选择丢弃包）</li>
+</ul>
+<h4 id="7、TCP中的时间戳有什么用"><a href="#7、TCP中的时间戳有什么用" class="headerlink" title="7、TCP中的时间戳有什么用"></a>7、TCP中的时间戳有什么用</h4><ol>
+<li>计算往返的时延（可以有效的解决重传带来的计算时延问题）</li>
+<li>防止序列号的回绕问题 （判断重传数据包还是原来发送的数据包）</li>
+</ol>
+<h4 id="8、TCP的超时重传时间是如何计算的"><a href="#8、TCP的超时重传时间是如何计算的" class="headerlink" title="8、TCP的超时重传时间是如何计算的"></a>8、TCP的超时重传时间是如何计算的</h4><ol>
+<li>RTO(Retransmission TimeOut)超时重传时间</li>
+<li>RTT(Round-Trip Time)往返时延</li>
+<li>RTT是实时更新的（引入算法来更新这个RTT值）<ol>
+<li>SRTT（新的重传时间）&#x3D; 80%的旧SRTT + 20%（新的SRTT）</li>
+<li><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213162101884.png" alt="image-20231213162101884"></li>
+</ol>
+</li>
+</ol>
+<h4 id="9、TCP流量控制"><a href="#9、TCP流量控制" class="headerlink" title="9、TCP流量控制"></a>9、TCP流量控制</h4><p>TCP报文中会有一个叫窗口大小的区域（20个字节）</p>
+<p>每次发送请求都会收到这个窗口的大小</p>
+<ol>
+<li>发送端和客户端都会有缓冲区（窗口大小决定）<ol>
+<li><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213162952829.png" alt="image-20231213162952829"></li>
+</ol>
+</li>
+<li>发送端的数据状态<ol>
+<li>已发送-已确认</li>
+<li>已发送-未确认（滑动窗口部分）</li>
+<li>未发送-可以接收（滑动窗口部分）</li>
+<li>未发送-不可以接收<ol>
+<li><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213163250513.png" alt="image-20231213163250513"></li>
+<li><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213163349993.png" alt="image-20231213163349993"></li>
+<li><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213163425912.png" alt="image-20231213163425912"></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="10、如何理解TCP中keep-alive的原理"><a href="#10、如何理解TCP中keep-alive的原理" class="headerlink" title="10、如何理解TCP中keep-alive的原理"></a>10、如何理解TCP中keep-alive的原理</h4><p>背景：正常交互（客户端和服务端）的状态（没有数据包的传输），客户端突然宕机 连接还一直存在</p>
+<p>针对于死链接所设计的</p>
+<ul>
+<li>通过定时发送探测包来确定连接是否失效（心跳机制）</li>
+</ul>
+<h4 id="11、TCP中的端口号"><a href="#11、TCP中的端口号" class="headerlink" title="11、TCP中的端口号"></a>11、TCP中的端口号</h4><ul>
+<li>端口号是在传输层（在TCP中会有两个端口一个是源端口（自己的端口号）还有一个是目标端口号（服务端端口号）（都是刘两个字节大小所以端口高最大值是65536））</li>
+<li>端口号划分<ul>
+<li>熟知的端口号（0-1023）<ul>
+<li>HTTP：80      HTTPS：443   SSH：22</li>
+</ul>
+</li>
+<li>已登记端口号（1024-49151）<ul>
+<li>MySQL：3306    MongoDB：27017    Redis：6379</li>
+</ul>
+</li>
+<li>临时端口（49152-65535）<ul>
+<li>一般是发送求请的临时端口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="12、收到IP数据包后-如何区分是什么协议呢"><a href="#12、收到IP数据包后-如何区分是什么协议呢" class="headerlink" title="12、收到IP数据包后  如何区分是什么协议呢"></a>12、收到IP数据包后  如何区分是什么协议呢</h4><ul>
+<li>IP 头的报文信息中会有一个协议（8位）</li>
+<li>协议是1：ICMP    2：TCP  17：UDP<ul>
+<li><img src="/posts/3797262602/Users\kuida\AppData\Roaming\Typora\typora-user-images\image-20231213165154343.png" alt="image-20231213165154343"></li>
+</ul>
+</li>
+</ul>
+<h4 id="13、telnet的用法"><a href="#13、telnet的用法" class="headerlink" title="13、telnet的用法"></a>13、telnet的用法</h4><ol>
+<li>检查端口是否打开   检查端口是否可达<code>telnet www.baidu.com 80</code></li>
+<li>telnet模拟发送HTTP请求  <code>telnet www.baidu.com 80</code>后粘贴一个 HTTP的连接<code>GET / HTTP/1.1 \n Host:www.bai...</code></li>
+</ol>
+<h4 id="14、tcpdump用法"><a href="#14、tcpdump用法" class="headerlink" title="14、tcpdump用法"></a>14、tcpdump用法</h4><p>用来抓包的</p>
+<h4 id="15、TCP和UDP的区别"><a href="#15、TCP和UDP的区别" class="headerlink" title="15、TCP和UDP的区别"></a>15、TCP和UDP的区别</h4><p>TCP是一个面向连接的、可靠的、基于字节流的传输层协议</p>
+<p>UDP是一个面向无连接的传输层协议</p>
+
                 
                 <p class="end">__END__</p>
             </div>
