@@ -79,7 +79,78 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                <h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>Mong<strong>oDB</strong></h1><p><strong>liunx安装MongoDB</strong></p>
+                <h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>Mong<strong>oDB</strong></h1><h2 id="一、MongoDB的引擎"><a href="#一、MongoDB的引擎" class="headerlink" title="一、MongoDB的引擎"></a>一、MongoDB的引擎</h2><h3 id="WiredTiger"><a href="#WiredTiger" class="headerlink" title="WiredTiger"></a>WiredTiger</h3><p>WiredTiger 是 MongoDB 默认的存储引擎，它提供了高性能、高度可扩展和高效的数据管理能力。WiredTiger 以其先进的存储技术而闻名，并在 MongoDB 中扮演着重要的角色。</p>
+<h4 id="WiredTiger-的特点："><a href="#WiredTiger-的特点：" class="headerlink" title="WiredTiger 的特点："></a>WiredTiger 的特点：</h4><ol>
+<li><strong>高性能：</strong> WiredTiger 使用了多种优化技术，包括数据压缩、多线程处理、缓存管理等，以提供高性能的数据读写操作。它采用了 MVCC（多版本并发控制）来处理事务，支持并发访问和高效的写入。</li>
+<li><strong>支持事务：</strong> WiredTiger 是支持事务的存储引擎，允许 MongoDB 在事务中执行多个操作并确保数据的一致性和原子性。这对于要求数据完整性和可靠性的应用程序特别重要。</li>
+<li><strong>数据压缩：</strong> WiredTiger 支持数据压缩，可以降低存储空间的使用，提高磁盘利用率。它使用了多种压缩算法来减少数据的存储大小，同时保持高效的读写性能。</li>
+<li><strong>多版本并发控制（MVCC）：</strong> WiredTiger 使用 MVCC 来管理数据版本，允许read不会被写入操作所阻塞。这种并发控制技术提高了数据库的并发性能。</li>
+<li><strong>支持大规模数据集：</strong> WiredTiger 可以处理大规模数据集，并具有较好的水平扩展性，能够适应高负载和大容量的数据存储需求。</li>
+<li><strong>可配置性：</strong> WiredTiger 提供了多种配置选项，允许管理员根据具体需求进行调整和优化，以达到最佳的性能和稳定性。</li>
+</ol>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>WiredTiger 的引入极大地改善了 MongoDB 的存储引擎性能和功能，使其能够更好地适应各种应用场景和业务需求。其优化的存储和管理能力对于处理大规模数据、支持高并发以及保证数据完整性和可靠性非常有帮助。</p>
+<h4 id="官方文档总结"><a href="#官方文档总结" class="headerlink" title="官方文档总结"></a>官方文档总结</h4><ol>
+<li><p>Document Level Concurrency（文档级并发）对于大多数的读写的操作，使用optimistic concurrency control（乐观并发控制）只有在全局、数据库和集合级别才使用only intent locks（意向锁）</p>
+</li>
+<li><p><strong>操作和限制：</strong></p>
+<ul>
+<li>不允许将文档固定在 WiredTiger 缓存中。</li>
+<li>WiredTiger 不会为读和写分别保留缓存，它会优先缓存索引。</li>
+<li>重写工作量较大时会影响性能，但 WiredTiger 会在这种情况下优先缓存索引。</li>
+<li>WiredTiger 将其缓存分配给整个 mongod 实例，不会按数据库或集合级别分配缓存。</li>
+</ul>
+</li>
+<li><p><strong>并发控制：</strong></p>
+<ul>
+<li>WiredTiger 使用文档级别的并发控制，允许多个客户端同时修改集合中的不同文档。</li>
+<li>大多数读和写操作使用乐观并发控制。</li>
+<li>某些全局操作仍然需要全局锁。</li>
+</ul>
+</li>
+<li><p><strong>快照和检查点：</strong></p>
+<ul>
+<li>WiredTiger 使用多版本并发控制（MVCC）(MultiVersion Concurrency  Control)。</li>
+<li>在写入磁盘时，WiredTiger 以一致的方式写入快照的所有数据到磁盘。</li>
+<li>检查点确保数据文件在最后一个检查点之前都是一致的，检查点可作为恢复点。</li>
+<li>从 MongoDB 3.6 开始，WiredTiger 在 60 秒间隔内创建检查点。</li>
+</ul>
+</li>
+<li><p><strong>日志和持久性：</strong></p>
+<ul>
+<li>WiredTiger 使用预写日志（日志）和检查点来确保数据的持久性。</li>
+<li>日志持久化了检查点之间的所有数据修改。</li>
+<li>可以通过 <code>storage.journal.enabled</code> 设置禁用日志。</li>
+</ul>
+</li>
+<li><p><strong>压缩和内存使用：</strong></p>
+<ul>
+<li>MongoDB 支持所有集合和索引的压缩。</li>
+<li>默认使用 Snappy 块压缩和索引前缀压缩。</li>
+<li>会减少内存的压力 但是会加大cpu的压力</li>
+</ul>
+</li>
+</ol>
+<h3 id="journal"><a href="#journal" class="headerlink" title="journal"></a>journal</h3><p>define：是指用于持久化数据的一种机制，用于记录和保护数据库的事务性操作。在 MongoDB 中，journal 是指写入操作日志文件（Write-Ahead Logging）的过程和文件本身。</p>
+<p>journal作用 来确保数据库的可靠性和一致性。</p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><ol>
+<li><strong>写入日志：</strong> 当执行数据更新操作时（如插入、更新、删除等），MongoDB 首先将这些操作记录到 journal 文件中，而不是直接写入数据文件。这样做是为了确保即使在发生意外情况时（如服务器崩溃），也可以通过 journal 文件来恢复数据。</li>
+<li><strong>保证原子性和一致性：</strong> 在执行事务性操作时，MongoDB 会先将操作记录到 journal 文件，然后再将其应用到实际的数据文件中。这确保了即使在写入数据文件之前出现故障，数据库也可以通过 journal 文件的恢复机制来保证操作的原子性和一致性。</li>
+<li><strong>性能影响：</strong> 使用 journal 机制会对性能产生一定影响，因为每个写入操作都要先写入 journal 文件，然后再写入数据文件。但是这种性能开销相对于数据一致性和可靠性所带来的好处是值得的。</li>
+</ol>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>journal 是 MongoDB 保障数据持久性和一致性的关键机制之一，它确保了即使在发生系统崩溃或异常情况时，数据库也能够恢复到一致的状态。</p>
+<h3 id="GridFS"><a href="#GridFS" class="headerlink" title="GridFS"></a>GridFS</h3><p>def：GridFS 是 MongoDB 的一种文件存储机制，用于存储大型文件（通常大于16MB）或者大量文件的方式。它将大文件分割成多个部分进行存储，能够更有效地管理和检索这些文件。</p>
+<h4 id="主要特点："><a href="#主要特点：" class="headerlink" title="主要特点："></a>主要特点：</h4><ol>
+<li><strong>适用于大文件：</strong> MongoDB 存储的文档大小有限制（通常为16MB），对于超出这个大小的文件，GridFS 将其分割成多个部分存储在多个文档中，允许存储非常大的文件。</li>
+<li><strong>分块存储：</strong> GridFS 将大文件分成多个小块（Chunk），每个块默认大小为255KB，以二进制数据形式存储在 MongoDB 集合中。</li>
+<li><strong>元数据存储：</strong> 每个文件会有一个对应的元数据文档，存储文件的元信息（如文件名、类型、大小等）。这个元数据文档也会保存在 MongoDB 集合中。</li>
+<li><strong>支持索引：</strong> GridFS 可以为文件内容和元数据创建索引，从而提高文件检索的效率。</li>
+</ol>
+<h4 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h4><ul>
+<li>存储大型多媒体文件，如视频、音频等。</li>
+<li>存储超过16MB的文件。</li>
+<li>保留文件的元数据信息，并能够以高效的方式进行检索</li>
+</ul>
+<h2 id="二、MongoDB使用"><a href="#二、MongoDB使用" class="headerlink" title="二、MongoDB使用"></a>二、MongoDB使用</h2><p><strong>liunx安装MongoDB</strong></p>
 <p>命令</p>
 <p><strong>进入客户端</strong>bin目录下（例：指定端口27017端口进入）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongo port=27017</span><br></pre></td></tr></table></figure>
@@ -256,7 +327,7 @@
 <p>总结：</p>
 <p><code>$project</code> 是 MongoDB 聚合管道中非常常用的操作符之一，能够在聚合过程中控制输出文档的字段，是进行数据清洗和格式化的有力工具。</p>
 <h5 id="cond"><a href="#cond" class="headerlink" title="$cond"></a><code>$cond</code></h5><p>def:用于根据条件进行逻辑判断，并返回不同的值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">数据结构</span><br><span class="line">&#123;</span><br><span class="line">  $cond: &#123;</span><br><span class="line">    if: &lt;booleanExpression&gt;, // 条件表达式</span><br><span class="line">    then: &lt;trueExpression&gt;, // 条件为真时返回的值</span><br><span class="line">    else: &lt;falseExpression&gt; // 条件为假时返回的值</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;booleanExpression&gt;：一个返回布尔值的表达式，用于进行条件判断。</span><br><span class="line">&lt;trueExpression&gt;：如果 &lt;booleanExpression&gt; 为真，将返回的值。</span><br><span class="line">&lt;falseExpression&gt;：如果 &lt;booleanExpression&gt; 为假，将返回的值</span><br><span class="line">示例</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  name: &quot;Alice&quot;,</span><br><span class="line">  score: 85</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  _id: 2,</span><br><span class="line">  name: &quot;Bob&quot;,</span><br><span class="line">  score: 78</span><br><span class="line">&#125;</span><br><span class="line">// 更多文档...</span><br><span class="line">[</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Alice&quot;, &quot;grade&quot;: &quot;A&quot; &#125;,</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Bob&quot;, &quot;grade&quot;: &quot;B&quot; &#125;,</span><br><span class="line">  // 其他文档...</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">数据结构</span><br><span class="line">&#123;</span><br><span class="line"><span class="meta prompt_">  $</span><span class="language-bash">cond: &#123;</span></span><br><span class="line">    if: &lt;booleanExpression&gt;, // 条件表达式</span><br><span class="line">    then: &lt;trueExpression&gt;, // 条件为真时返回的值</span><br><span class="line">    else: &lt;falseExpression&gt; // 条件为假时返回的值</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;booleanExpression&gt;：一个返回布尔值的表达式，用于进行条件判断。</span><br><span class="line">&lt;trueExpression&gt;：如果 &lt;booleanExpression&gt; 为真，将返回的值。</span><br><span class="line">&lt;falseExpression&gt;：如果 &lt;booleanExpression&gt; 为假，将返回的值</span><br><span class="line">示例</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  name: &quot;Alice&quot;,</span><br><span class="line">  score: 85</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  _id: 2,</span><br><span class="line">  name: &quot;Bob&quot;,</span><br><span class="line">  score: 78</span><br><span class="line">&#125;</span><br><span class="line">// 更多文档...</span><br><span class="line">[</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Alice&quot;, &quot;grade&quot;: &quot;A&quot; &#125;,</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Bob&quot;, &quot;grade&quot;: &quot;B&quot; &#125;,</span><br><span class="line">  // 其他文档...</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>注意事项：</p>
 <ul>
@@ -266,7 +337,11 @@
 <p>总结：</p>
 <p><code>$cond</code> 条件表达式是 MongoDB 聚合管道中用于逻辑判断的重要操作符之一，可以根据条件返回不同的值，对数据进行灵活的处理和转换。</p>
 <h5 id="match"><a href="#match" class="headerlink" title="$match"></a><code>$match</code></h5><p>def:用于筛选文档。它类似于查询中的 <code>find</code> 操作，可以根据指定的条件筛选文档并将符合条件的文档传递给下一个阶段</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $match: &#123;</span><br><span class="line">      field1: value1, // 匹配 field1 等于 value1 的文档</span><br><span class="line">      field2: value2, // 匹配 field2 等于 value2 的文档</span><br><span class="line">      // 可以根据需要添加更多字段和条件</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">db.collection.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $match: &#123;</span><br><span class="line">      field1: value1, // 匹配 field1 等于 value1 的文档</span><br><span class="line">      field2: value2, // 匹配 field2 等于 value2 的文档</span><br><span class="line">      // 可以根据需要添加更多字段和条件</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line">&quot;$match&quot;: &#123;</span><br><span class="line">        &quot;$or&quot;: [</span><br><span class="line">            &#123; &quot;danjuleixing_1&quot;: &quot;会议费办公报销单&quot; &#125;,</span><br><span class="line">            &#123; &quot;danjuleixing_1&quot;: &quot;会议费办公报销单a&quot; &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>$group</code></p>
+<p>def:是 MongoDB 聚合管道中的一个操作符，用于对文档进行分组并执行聚合操作。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;$group&quot;: &#123;</span><br><span class="line">        &quot;_id&quot;: &quot;$category&quot;,</span><br><span class="line">        &quot;totalSales&quot;: &#123; &quot;$sum&quot;: &quot;$amount&quot; &#125;,</span><br><span class="line">        &quot;averageAmount&quot;: &#123; &quot;$avg&quot;: &quot;$amount&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -314,6 +389,17 @@
 <p>ex:(查看根据userid查询数据的情况：)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.comment.find(&#123;userid:&quot;1003&quot;&#125;).explain()</span><br><span class="line">&#123;</span><br><span class="line">	&quot;queryPlanner&quot; : &#123;</span><br><span class="line">		&quot;plannerVersion&quot; : 1,</span><br><span class="line">		&quot;namespace&quot; : &quot;articledb.comment&quot;,</span><br><span class="line">		&quot;indexFilterSet&quot; : false,</span><br><span class="line">		&quot;parsedQuery&quot; : &#123;</span><br><span class="line">				&quot;userid&quot; : &#123;</span><br><span class="line">					&quot;$eq&quot; : &quot;1003&quot;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;winningPlan&quot; : &#123;</span><br><span class="line">			&quot;stage&quot; : &quot;COLLSCAN&quot;,</span><br><span class="line">			&quot;filter&quot; : &#123;</span><br><span class="line">				&quot;userid&quot; : &#123;</span><br><span class="line">					&quot;$eq&quot; : &quot;1003&quot;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				&quot;direction&quot; : &quot;forward&quot;</span><br><span class="line">			&#125;,</span><br><span class="line">			&quot;rejectedPlans&quot; : [ ]</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;serverInfo&quot; : &#123;</span><br><span class="line">				&quot;host&quot; : &quot;9ef3740277ad&quot;,</span><br><span class="line">				&quot;port&quot; : 27017,</span><br><span class="line">				&quot;version&quot; : &quot;4.0.10&quot;,</span><br><span class="line">				&quot;gitVersion&quot; : &quot;c389e7f69f637f7a1ac3cc9fae843b635f20b766&quot;</span><br><span class="line">		&#125;,</span><br><span class="line">	&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="MongoDB的事务"><a href="#MongoDB的事务" class="headerlink" title="MongoDB的事务"></a>MongoDB的事务</h4><h3 id="MongoDB日志"><a href="#MongoDB日志" class="headerlink" title="MongoDB日志"></a>MongoDB日志</h3><p>ASIO： 表示异步输入输出（ASIO）相关的事件，通常与网络操作有关。</p>
+<p>REPL： 表示与复制（Replication）相关的事件，例如主从复制或副本集的操作。</p>
+<p>SHARDING： 与分片（Sharding）相关的事件，通常与分布式数据库架构有关。</p>
+<p>COMMAND： 表示MongoDB命令的执行，如数据库操作和查询。</p>
+<p>MONGOD： 表示Mongod进程的日志事件，通常是MongoDB的核心组件。</p>
+<p>NETWORK： 与网络通信相关的事件，例如连接和断开连接。</p>
+<p>QUERY： 表示查询相关的事件，通常包括查询性能和索引操作。</p>
+<p>STORAGE： 与存储引擎相关的事件，例如WiredTiger或MMAPv1存储引擎的操作。</p>
+<p>WRITE： 与写入操作相关的事件，例如插入、更新和删除文档的操作。</p>
+<p>ACCESS： 表示访问控制和权限相关的事件，包括用户身份验证和授权操作。</p>
+<p>TENANT_M： 与多租户（Tenant）相关的事件，可能包括租户划分和管理。</p>
 
                 
                 <p class="end">__END__</p>
