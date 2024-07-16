@@ -25,11 +25,12 @@
 
   
 
-<link rel="canonical" href="http://example.com/categories/">
+<link rel="canonical" href="http://example.com/2024/07/16/%E8%A5%BF%E5%AE%89%E7%BA%BF%E4%B8%8ABUG/">
 
 
 
-  <title>AllCategory |
+  <title>
+西安线上BUG |
 Kuk = Hexo</title>
 <meta name="generator" content="Hexo 7.2.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -57,8 +58,19 @@ Kuk = Hexo</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">AllCategory
+  <h1 itemprop="name headline">西安线上BUG
   </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-07-16 08:52:10">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-16T08:52:10+08:00">2024-07-16</time>
+  </span>
+</div>
+
 
           </div>
         </div>
@@ -88,12 +100,12 @@ Kuk = Hexo</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?503891"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?679881"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?266740"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?835515"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?695253"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?293680"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?124132"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?462209"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?793620"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?746053"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?608393"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?989039"></li>
         </ul>
       </div>
     </header>
@@ -114,10 +126,156 @@ Kuk = Hexo</title>
       <div class="inner">
         <div id="main" class="pjax">
           
-  <div class="collapse wrap">
-    <h2 class="item title"><a href="/">Home</a> <small>/</small> No categories</h2>
+  <div class="article wrap">
     
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/16/%E8%A5%BF%E5%AE%89%E7%BA%BF%E4%B8%8ABUG/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><strong>BUG描述：</strong></p>
+<p>在修改人员信息的岗位时，出现报错信息：”该岗位id非隶属于该组织”。</p>
+<p>报错环境：西安内网。</p>
+<p><strong>排查思路：</strong></p>
+<ol>
+<li>查看本地代码，尝试复现BUG。</li>
+<li>抓取一次请求，分析岗位ID和组织ID是否与数据库中的数据一致。</li>
+<li>由于无法进行断点调试，通过在代码中添加打印语句输出到控制台进行排查。</li>
+</ol>
+<p><strong>实际排查过程：</strong></p>
+<ol>
+<li>查阅西安内网日志，查看报错原因和位置。</li>
+<li>检查本地代码是否存在逻辑错误。</li>
+<li>尝试在本地环境复现BUG。</li>
+<li>在西安内网抓取一次请求，分析传递的组织ID和岗位ID是否正确。检查前端传参是否有误。</li>
+<li>使用Compass检查数据是否存在且有效。</li>
+<li>分析可能与问题相关的代码，例如岗位是否与组织正确关联，岗位接口是否正常。</li>
+<li>在代码中添加打印语句，将组织ID和岗位ID输出到日志中。将代码打包上传至西安内网。</li>
+<li>在日志中检查数据，看是否存在错误。</li>
+</ol>
+<p><strong>最终在日志中发现</strong>，在查询岗位时没有使用前端传递的组织ID，而是使用了人员修改前的组织ID进行岗位查询。</p>
+<p>最后发现该BUG的触发条件是，如果在同一组织下进行岗位调整，则不会触发该BUG，但是当进行跨组织调岗时才会触发。</p>
+<p>修正描述：根据排查结果，发现在岗位查询时未使用前端传递的组织ID，而是使用了人员修改前的组织ID进行查询。因此，针对岗位查询时的组织ID应使用前端传参，以解决该BUG。</p>
+<p><strong>个人总结：</strong></p>
+<ol>
+<li>修复bug时间总供用了4个小时<ol>
+<li>主要原因是查看西安内网数据是只能通过todesk工具连接 ，中间耗费了 2个小时</li>
+<li>排查错误时同时看本地是否能复现bug 在本地修改的时间成本 会小很多</li>
+</ol>
+</li>
+</ol>
+
   </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-07-16 09:31:41" itemprop="dateModified" datetime="2024-07-16T09:31:41+08:00">2024-07-16</time>
+  </span>
+  <span id="2024/07/16/西安线上BUG/" class="item leancloud_visitors" data-flag-title="西安线上BUG" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/07/16/%E8%A5%BF%E5%AE%89%E7%BA%BF%E4%B8%8ABUG/" title="西安线上BUG">http://example.com/2024/07/16/西安线上BUG/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/16/%E6%8A%80%E6%9C%AFtips/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?501111" title="技术tips">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>技术tips</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/07/16/%E5%AD%A6%E7%94%9F%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?691557" title="学生一键导入功能">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>学生一键导入功能</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
 
         </div>
         <div id="sidebar">
@@ -209,10 +367,12 @@ Kuk = Hexo</title>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/2024/07/16/%E6%8A%80%E6%9C%AFtips/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/2024/07/16/%E5%AD%A6%E7%94%9F%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -236,70 +396,7 @@ Kuk = Hexo</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">JVM学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2024/07/16/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="单点登录">单点登录</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/16/%E8%A5%BF%E5%AE%89%E7%BA%BF%E4%B8%8ABUG/" title="西安线上BUG">西安线上BUG</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/16/Liunx%E5%AE%89%E8%A3%85/" title="Liunx安装">Liunx安装</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/16/Vue/" title="Vue">Vue</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/16/%E6%8A%80%E6%9C%AFtips/" title="技术tips">技术tips</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/16/Git/" title="Git">Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/04/27/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -317,7 +414,70 @@ Kuk = Hexo</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/07/16/HashMap%E6%BA%90%E7%A0%81/" title="HashMap源码">HashMap源码</a></span>
+    <span><a href="/2024/07/16/Git/" title="Git">Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/%E6%8A%80%E6%9C%AFtips/" title="技术tips">技术tips</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Vue/" title="Vue">Vue</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx命令">Liunx命令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/04/27/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
   </ul>
@@ -348,7 +508,7 @@ Kuk = Hexo</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'categories/',
+    path: '2024/07/16/西安线上BUG/',
     favicon: {
       show: "（●´3｀●）Goooood",
       hide: "(´Д｀)Booooom"
