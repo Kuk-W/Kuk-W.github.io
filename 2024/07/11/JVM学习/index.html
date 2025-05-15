@@ -1,0 +1,566 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/">
+
+
+
+  <title>
+JVM学习 |
+Kuk = Hexo</title>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JVM学习
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-07-11 09:31:32">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-11T09:31:32+08:00">2024-07-11</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Kuk</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?102869"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?973279"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?5753"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?454447"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?362992"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?556783"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>bootstrap：加载最核心的类库 比如JDK的一些类</p>
+<p>Excel：扩展类加载器 一般加载额外导的依赖的类</p>
+<p>App：一般是加载加载classpath的指定的内容</p>
+<p>Cuton : 处理自定义 的类加载器</p>
+<p>连接中</p>
+<p>验证：</p>
+<p>准备：给静态变量赋值</p>
+<h2 id="硬件层数据一致性"><a href="#硬件层数据一致性" class="headerlink" title="硬件层数据一致性"></a>硬件层数据一致性</h2><p>现代CPU的数据一致性实现 &#x3D; 缓存锁（MESI）+锁总线</p>
+<p>LoadStore屏障</p>
+<p>对于语句 load1；LoadStore；Store2；</p>
+<p>在Store2及以后续写入操作被刷前，保证Load1要读取的数据被读取完毕</p>
+<p>StoreLoad屏障</p>
+<p>对于语句Store1；StoreLoad；Load2</p>
+<p>在Load2及后续所有读取操作之前，保证Store1的写入 对所有处理器可见</p>
+<p>Volatile的实现细节</p>
+<p>1、字节码层面</p>
+<p>ACC_VOLATILE</p>
+<p>2、JVM</p>
+<p>StoreStoreBarrier LoadLoadBarrier</p>
+<p>volatie 写操作 volatile 读操作</p>
+<p>StoreLoadBarrier LoadStoreBarrier</p>
+<p>3、硬件和OS</p>
+<p>hsdis - HotSpot Dis Assembler</p>
+<h2 id="汇编笔记"><a href="#汇编笔记" class="headerlink" title="汇编笔记"></a>汇编笔记</h2><ol>
+<li>最开始出现的语言是机器语言，由二进制组成 即：01010 由于程序员容易出错还需要记大量的0101 由此引入了汇编语言指令有两部分组成 操作数+操作码</li>
+<li>进制越小，表示相同的数据量，需要的位数就越多</li>
+<li>内存扩张方向，可以自上而下，也可以下而上</li>
+<li>字节序用于规定数据在内存中如何存放，intel用的小端序</li>
+<li>方法调用等于入栈出栈的过程，满足先进后出</li>
+<li>汇编中用sp寄存器和bp寄存器用于保存栈底和栈顶</li>
+<li>16位机器码中sp为16，esp为32，rsp为64位</li>
+</ol>
+<p>类加载器</p>
+<ol>
+<li>当静态变量为整形时 ，在clinit中对其进行初始化，整形值将会放在字节码中， 通过操作数栈来保存，当我们调用float、double、对象时， 那么将会放入常量池中，在运行时通过idc指令，（将他们的地址放入操作数栈中来操作）（切记：是Idc、iconst、fconst、dconst、bipush等，都是基于赋值的值的大小来在编译是处理）</li>
+</ol>
+<h2 id="GC调优前置"><a href="#GC调优前置" class="headerlink" title="GC调优前置"></a>GC调优前置</h2><p>Garbage Collector</p>
+<p>GC Tuning（调优）</p>
+<h3 id="java-VS-C"><a href="#java-VS-C" class="headerlink" title="java VS C++"></a>java VS C++</h3><ol>
+<li>java<ol>
+<li>GC处理垃圾</li>
+<li>开发效率高，执行效率低</li>
+</ol>
+</li>
+<li>C++<ol>
+<li>手工处理垃圾</li>
+<li>忘记回收<ol>
+<li>内存泄漏</li>
+</ol>
+</li>
+<li>回收多次<ol>
+<li>非法访问</li>
+</ol>
+</li>
+<li>开发效率低，执行效率高</li>
+</ol>
+</li>
+</ol>
+<h3 id="JVM内存分代模型（用于分代垃圾回收算法）"><a href="#JVM内存分代模型（用于分代垃圾回收算法）" class="headerlink" title="JVM内存分代模型（用于分代垃圾回收算法）"></a>JVM内存分代模型（用于分代垃圾回收算法）</h3><ol>
+<li>部分垃圾回收器使用的模型<ol>
+<li>除 Epsilon ZGC Shenandoah之外的GC都是使用逻辑分代模型</li>
+</ol>
+</li>
+<li>新生代 + 老年代 + 永久代(1.7)&#x2F;元数据区（1.8）Metaspace<ol>
+<li>永久代 元数据 - class</li>
+<li>永久代必须指定大小限制，元数据可以设置大小，也可以不设置，无上限（受限于物理内存）</li>
+<li>字符串常量 1.7 - 永久代，1.8 - 堆</li>
+<li>MethodArea逻辑概念 - 永久代 - 元数据</li>
+</ol>
+</li>
+<li>新生代 &#x3D; Eden + 2个suvivor区</li>
+</ol>
+<h2 id="GC和GC-Tuning"><a href="#GC和GC-Tuning" class="headerlink" title="GC和GC Tuning"></a>GC和GC Tuning</h2><h3 id="GC-Algorithms（GC算法）"><a href="#GC-Algorithms（GC算法）" class="headerlink" title="GC Algorithms（GC算法）"></a>GC Algorithms（GC算法）</h3><p>什么是垃圾呢？</p>
+<p>没有根对象去引用的对象</p>
+<h4 id="判断垃圾算法"><a href="#判断垃圾算法" class="headerlink" title="判断垃圾算法"></a>判断垃圾算法</h4><h5 id="reference-count（引用计数）"><a href="#reference-count（引用计数）" class="headerlink" title="reference count（引用计数）"></a>reference count（引用计数）</h5><p>缺点</p>
+<p>无法解决循环依赖问题 （整个循环都没有人依赖的时候）</p>
+<h5 id="Root-Searching（根可达算法）"><a href="#Root-Searching（根可达算法）" class="headerlink" title="Root Searching（根可达算法）"></a>Root Searching（根可达算法）</h5><p>根：线程栈变量、静态变量、常量池、JNI指针</p>
+<h4 id="清除算法"><a href="#清除算法" class="headerlink" title="清除算法"></a>清除算法</h4><ul>
+<li>Mark-Sweep（标记清除）<ul>
+<li>在对象存活较多的情况下效率会比较高</li>
+<li>会产生碎片（空间不连续）</li>
+<li>需要扫描两遍（1、扫描不可回收对象，2 扫描可回收对象）</li>
+</ul>
+</li>
+<li>Copying（拷贝）<ul>
+<li>在存活对象较少的情况</li>
+<li>没有碎片、效率高只扫描一遍</li>
+<li>浪费空间</li>
+</ul>
+</li>
+<li>Mark-Compact（标记压缩）<ul>
+<li>扫描两次、需要移动对象，效率偏低</li>
+</ul>
+</li>
+</ul>
+<h3 id="触发机制"><a href="#触发机制" class="headerlink" title="触发机制"></a>触发机制</h3><p>MinorGC&#x2F;YGC: 年轻代空间耗尽时 触发</p>
+<p>MajorGC&#x2F;FullGC: 在老年代无法继续分配空间时触发，新生代老年代同时进行回收</p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><strong>对象什么时候进入老年代</strong>？</p>
+<p>Parallel Scavenge 15</p>
+<p>CMS 6</p>
+<p>G1 15 动态年龄 （YGC）s1 -&gt; s2时 超过了50% 把年龄最大的放入old区中</p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>为什么使用双亲委派模型</p>
+<ul>
+<li>主要是为了安全问题，防止类库被修改</li>
+<li>其次防止资源浪费 多加载一遍</li>
+</ul>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-07-11 09:32:09" itemprop="dateModified" datetime="2024-07-11T09:32:09+08:00">2024-07-11</time>
+  </span>
+  <span id="2024/07/11/JVM学习/" class="item leancloud_visitors" data-flag-title="JVM学习" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">http://example.com/2024/07/11/JVM学习/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?298143" title="平台登录信息API加密传输">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>平台登录信息API加密传输</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/07/15/hello-world/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?909639" title="Hello World">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Hello World</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%B1%82%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">硬件层数据一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0"><span class="toc-number">2.</span> <span class="toc-text">汇编笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC%E8%B0%83%E4%BC%98%E5%89%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">GC调优前置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-VS-C"><span class="toc-number">3.1.</span> <span class="toc-text">java VS C++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM%E5%86%85%E5%AD%98%E5%88%86%E4%BB%A3%E6%A8%A1%E5%9E%8B%EF%BC%88%E7%94%A8%E4%BA%8E%E5%88%86%E4%BB%A3%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">JVM内存分代模型（用于分代垃圾回收算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC%E5%92%8CGC-Tuning"><span class="toc-number">4.</span> <span class="toc-text">GC和GC Tuning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GC-Algorithms%EF%BC%88GC%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">GC Algorithms（GC算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%9E%83%E5%9C%BE%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">判断垃圾算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#reference-count%EF%BC%88%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%EF%BC%89"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">reference count（引用计数）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Root-Searching%EF%BC%88%E6%A0%B9%E5%8F%AF%E8%BE%BE%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">Root Searching（根可达算法）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.2.</span> <span class="toc-text">清除算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">4.2.</span> <span class="toc-text">触发机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM"><span class="toc-number">6.</span> <span class="toc-text">JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">双亲委派模型</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Kuk"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Kuk</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">4</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/07/15/hello-world/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">JVM学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/15/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" title="短信验证码登录">短信验证码登录</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kuk @ Kuk</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/07/11/JVM学习/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
