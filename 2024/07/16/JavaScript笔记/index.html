@@ -1,0 +1,1031 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="JavaScript" />
+
+
+<link rel="canonical" href="http://example.com/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/">
+
+
+
+  <title>
+JavaScript笔记 |
+Kuk = Hexo</title>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">JavaScript笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-07-16 08:53:19">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-16T08:53:19+08:00">2024-07-16</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Kuk</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?248538"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?74635"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?471081"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?250251"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?572995"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?793032"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="javascript学习笔记"><a class="markdownIt-Anchor" href="#javascript学习笔记">#</a> JavaScript 学习笔记</h1>
+<h2 id="第一章简介"><a class="markdownIt-Anchor" href="#第一章简介">#</a> 第一章 — 简介</h2>
+<h3 id="javascript是什么"><a class="markdownIt-Anchor" href="#javascript是什么">#</a> JavaScript 是什么</h3>
+<p>是一个<strong>运行在网页</strong>的<strong>编程</strong>语言</p>
+<h3 id="javascript三中书写位置"><a class="markdownIt-Anchor" href="#javascript三中书写位置">#</a> JavaScript 三中书写位置</h3>
+<ul>
+<li>内部</li>
+<li>外部</li>
+<li>行内</li>
+</ul>
+<h3 id="javascript注释方式"><a class="markdownIt-Anchor" href="#javascript注释方式">#</a> JavaScript 注释方式</h3>
+<ul>
+<li>单行注释 //</li>
+<li>多行注释 /**/</li>
+</ul>
+<h3 id="javascript结束语"><a class="markdownIt-Anchor" href="#javascript结束语">#</a> JavaScript 结束语</h3>
+<p>可以有分号也可以没有分号</p>
+<h3 id="javascript输入输出语句"><a class="markdownIt-Anchor" href="#javascript输入输出语句">#</a> JavaScript 输入输出语句</h3>
+<ul>
+<li>输入 prompt ()</li>
+<li>输入 alert ()、document.write ()、console.log ()</li>
+</ul>
+<h3 id="javascript字面量"><a class="markdownIt-Anchor" href="#javascript字面量">#</a> JavaScript 字面量</h3>
+<ul>
+<li>[] 数组字面量</li>
+<li>{} 对象字面量</li>
+</ul>
+<h2 id="第二章变量"><a class="markdownIt-Anchor" href="#第二章变量">#</a> 第二章 — 变量</h2>
+<h3 id="变量的声明"><a class="markdownIt-Anchor" href="#变量的声明">#</a> 变量的声明</h3>
+<p>声明变量： 要想使用变量，首先需要创建变量（也称为声明变量或者定义变量）</p>
+<p>语法：声明变量有两部分构成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let 变量名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>声明关键字、变量名（标识</li>
+<li>let 即关键字 (let: 允许、许可、让、要)，所谓关键字是系统提供的专门用来声明（定义）变量的词语</li>
+</ul>
+<h3 id="变量的赋值"><a class="markdownIt-Anchor" href="#变量的赋值">#</a> 变量的赋值</h3>
+<p>定义了一个变量后，你就能够初始化它（赋值）。在变量名之后跟上一个 “=”，然后是数值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let age</span><br><span class="line">age = 18</span><br></pre></td></tr></table></figure>
+<h3 id="声明多个变量"><a class="markdownIt-Anchor" href="#声明多个变量">#</a> 声明多个变量</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let age = 18 , uname = &#x27;kuk&#x27;</span><br></pre></td></tr></table></figure>
+<p>，</p>
+<h3 id="变量的本质"><a class="markdownIt-Anchor" href="#变量的本质">#</a> 变量的本质</h3>
+<p>内存：计算机存储数据的地方</p>
+<p>在内存中开辟一块地址</p>
+<h3 id="变量的声明的规则"><a class="markdownIt-Anchor" href="#变量的声明的规则">#</a> 变量的声明的规则</h3>
+<ul>
+<li>不能使用关键字</li>
+<li>只能使用数字、字母、下划线、$</li>
+<li>严格区分大小写</li>
+<li>不能以数字开头</li>
+<li>遵循小驼峰</li>
+</ul>
+<h3 id="️let和var的区别"><a class="markdownIt-Anchor" href="#️let和var的区别">#</a> ⭐️let 和 var 的区别</h3>
+<p>var 声明</p>
+<ul>
+<li>可以先使用 在声明</li>
+<li>可以重复声明变量</li>
+<li>没有块级作用域等等</li>
+</ul>
+<h3 id="数组"><a class="markdownIt-Anchor" href="#数组">#</a> 数组</h3>
+<p><strong>def</strong>：(Array) 是一种可以按顺序保存数据的数据类型</p>
+<p><strong>语法声明</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let 数组名 = [数据1,数据2.....]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组是按顺序保存，所以每个数据都有自己的编号</li>
+<li>计算机中的编号从 0 开始，所以小明的编号为 0，小刚编号为 1，以此类推</li>
+<li>在数组中，数据的编号也叫索引或下标</li>
+<li>数组可以存储任意类型的数据</li>
+</ul>
+<h3 id="数组的操作"><a class="markdownIt-Anchor" href="#数组的操作">#</a> 🔥数组的操作</h3>
+<ul>
+<li>arr.push (新增内容)
+<ul>
+<li>方法将一个或多个元素添加到数组的<strong>末尾</strong>，并返回该数组的新长度</li>
+<li><code>arr.push(元素1，元素2，元素3...) - arr.unshift(新增内容)  - 方法将一个或多个元素添加到数组的**开头**，并返回该数组的新长度  - ```js    arr.unshift(元素1，元素2，元素3...) </code></li>
+</ul>
+</li>
+<li>arr.pop()
+<ul>
+<li>方法从数组中删除最后一个元素，并返回该元素的值</li>
+<li><code>arr.pop() - arr. shift()   - 方法从数组中删除第一个元素，并返回该元素的  - ```js    arr.shift() </code></li>
+</ul>
+</li>
+<li>arr.splice(start,deleteCount)
+<ul>
+<li>start： 起始位置：指定修改的开始位置（从 0 计数</li>
+<li>deleteCount：表示要移除的数组元素的个数、可选的。 如果省略则默认从指定的起始位置删 除到最后</li>
+</ul>
+</li>
+</ul>
+<h3 id="常量"><a class="markdownIt-Anchor" href="#常量">#</a> 常量</h3>
+<p><strong>def</strong> 使用<strong> const</strong> 声明的变量成为常量</p>
+<p><strong>命名规范</strong>：变量一致</p>
+<h3 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型">#</a> 数据类型</h3>
+<p><strong>基本数据类型</strong></p>
+<ul>
+<li>number 数字型</li>
+<li>string 字符串型</li>
+<li>boolean 布尔型</li>
+<li>undefined 未定义型（声明变量，未给值）</li>
+<li>null 空类型（在存放对象的时候可以给 null）</li>
+</ul>
+<p><strong>detail</strong></p>
+<p>当计算出错误的值是时 会返回一个 NAN</p>
+<p>NAN===NAN flase</p>
+<p>🔥<strong>模板字符串</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//``使用反引号包裹</span><br><span class="line">document.write(`姓名：$&#123;uname1&#125;年龄：$&#123;age&#125;性别：$&#123;gender&#125;`)</span><br></pre></td></tr></table></figure>
+<p><strong>引用数据类型</strong></p>
+<ul>
+<li>object</li>
+</ul>
+<h3 id="检测数据类型"><a class="markdownIt-Anchor" href="#检测数据类型">#</a> 检测数据类型</h3>
+<p>通过 typeof 关键字检测数据类型</p>
+<p>typeof 运算符可以返回被检测的数据类型。它支持两种语法形式：</p>
+<ul>
+<li>作为运算符： typeof x （常用的写法）</li>
+<li>函数形式： typeof (x）</li>
+</ul>
+<h3 id="类型转换"><a class="markdownIt-Anchor" href="#类型转换">#</a> 类型转换</h3>
+<p><strong>隐式转换</strong></p>
+<p>某些运算符被执行时，系统内部自动将数据类型进行转换，这种转换称为隐式转换。</p>
+<p>规则：</p>
+<ul>
+<li>号两边只要有一个是字符串，都会把另外一个转成字符串</li>
+<li>除了 + 以外的算术运算符 比如 - * / 等都会把数据转成数字类型</li>
+</ul>
+<p>缺点：</p>
+<p>转换类型不明确，靠经验才能总结</p>
+<p>小技巧：</p>
+<ul>
+<li>号作为正号解析可以转换成数字型</li>
+<li>任何数据和字符串相加结果都是字符串</li>
+</ul>
+<p><strong>显式转换</strong></p>
+<p>编写程序时过度依靠系统内部的隐式转换是不严禁的，因为隐式转换规律并不清晰，大多是靠经验总结的规律。 为了避免因隐式转换带来的问题，通常根逻辑需要对数据进行显示转换。</p>
+<p>概念： 自己写代码告诉系统该转成什么类型 转换为数字型</p>
+<ul>
+<li>Number (数据)
+<ul>
+<li>转成数字类型</li>
+<li>如果字符串内容里有非数字，转换失败时结果为 NaN（Not a Number）即不是一个数字</li>
+<li>NaN 也是 number 类型的数据，代表非数字</li>
+</ul>
+</li>
+<li>parseInt (数据) 只保留整数</li>
+<li>parseFloat (数据) 可以保留小</li>
+</ul>
+<h2 id="第三章运算符"><a class="markdownIt-Anchor" href="#第三章运算符">#</a> 第三章 — 运算符</h2>
+<h3 id="赋值运算符"><a class="markdownIt-Anchor" href="#赋值运算符">#</a> 赋值运算符</h3>
+<ul>
+<li>=</li>
+<li>+=、*=、-=、/=、%=</li>
+<li></li>
+</ul>
+<h3 id="一元运算符"><a class="markdownIt-Anchor" href="#一元运算符">#</a> 一元运算符</h3>
+<ul>
+<li>正负号</li>
+<li>++</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let num = 1</span><br><span class="line">单独使用</span><br><span class="line">num++       //2</span><br><span class="line">++num		//2</span><br><span class="line">参与运算后</span><br><span class="line">和java一样</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="比较运算符"><a class="markdownIt-Anchor" href="#比较运算符">#</a> 比较运算符</h3>
+<ul>
+<li>=== 左右两边值和类型是否相等</li>
+<li>== 左右两边值是否相等</li>
+</ul>
+<p><strong>detail</strong></p>
+<ol>
+<li>字符串比较
+<ol>
+<li>从左往右一次比较</li>
+<li>如果第一位一样在比第二位，以此类推</li>
+</ol>
+</li>
+<li>NaN 不等于任何值，包括它本身</li>
+<li>尽量不要比较小数，因为小数有精度问题</li>
+<li>不同类型之间会发生隐式转换
+<ol>
+<li>最终会把隐式数据转换为 number 类型再去比较</li>
+<li>开发中经常使用 <strong>=<mark>*<em> 或者 *</em>!</mark></strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="逻辑运算符"><a class="markdownIt-Anchor" href="#逻辑运算符">#</a> 逻辑运算符</h3>
+<p>0-b bbbbbbbbbbbbbbbbbbbbb<img data-src="/posts/3424359953/1.png" alt="img"></p>
+<h3 id="运算符的优先级"><a class="markdownIt-Anchor" href="#运算符的优先级">#</a> 运算符的优先级</h3>
+<p><img data-src="/posts/3424359953/2.png" alt="img"></p>
+<p>“+” 加号</p>
+<ul>
+<li>可以做转化数字型</li>
+<li>字符串拼接</li>
+<li>任何数据和字符串相加的结果都是字符串</li>
+</ul>
+<h2 id="第四章语句"><a class="markdownIt-Anchor" href="#第四章语句">#</a> 第四章 — 语句</h2>
+<h3 id="表达式和语句"><a class="markdownIt-Anchor" href="#表达式和语句">#</a> 表达式和语句</h3>
+<p>区别</p>
+<p>表达式：是可以被求值的代码，JavaScript 引擎会将其计算出一个结果</p>
+<p>语句： 是一段可以执行的代码</p>
+<p>表达式一定有值但是语句不一定有值</p>
+<h3 id="分支语句"><a class="markdownIt-Anchor" href="#分支语句">#</a> 分支语句</h3>
+<p><strong>if 分支语句</strong></p>
+<ul>
+<li>括号内的条件为 true 时，进入大括号里执行代码</li>
+<li>小括号内的结果若不是布尔类型时，会发生隐式转换转为布尔类型</li>
+<li>如果大括号只有一个语句，大括号可以省略</li>
+</ul>
+<p><strong>三元运算符</strong></p>
+<p>其实是比 if 双分支 更简单的写法，可以使用 三元表</p>
+<p>符号：? 与：配合使用</p>
+<p><strong>switch 语句</strong></p>
+<p>找到跟小括号里数据全等的 case 值，并执行里面对应的代码</p>
+<p>若没有全等 === 的则执行 default 里的代码</p>
+<p><strong>while 循环</strong></p>
+<p>重复执行一些操作， while : 在…. 期间， 所以 while 循环 就是在满足条件期间，重复执行某些代</p>
+<ul>
+<li>跟 if 语句很像，都要满足小括号里的条件为 true 才会进入 循环体 执行代码</li>
+<li>while 大括号里代码执行完毕后不会跳出，而是继续回到小括号里判断条件是否满足，若满足又执行大括号里的代码，然后再回到 小括判断条件，直到括号内条件不满足，即跳出</li>
+</ul>
+<p>while 循环需要具备三要素：</p>
+<ol>
+<li>变量起始值</li>
+<li>终止条件（没有终止条件，循环会一直执行，造成死循环）</li>
+<li>变量变化量（用自增或者自减）</li>
+</ol>
+<h3 id="continue和break的区别"><a class="markdownIt-Anchor" href="#continue和break的区别">#</a> continue 和 break 的区别</h3>
+<p>循环结束：</p>
+<ul>
+<li>break：退出循环</li>
+<li>continue：结束本次循环，继续下次循环</li>
+</ul>
+<p>区别：</p>
+<ul>
+<li>continue 退出本次循环，一般用于排除或者跳过某一个选项的时候，可以使用 continue</li>
+<li>break 退出整个循环，一般用于结果已经得到，后续的循环不需要的时候可以使用</li>
+</ul>
+<h3 id="for循环语句"><a class="markdownIt-Anchor" href="#for循环语句">#</a> for 循环语句</h3>
+<p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(变量起始值;终止条件;变量变化量)&#123;</span><br><span class="line">	//循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第五章函数"><a class="markdownIt-Anchor" href="#第五章函数">#</a> 第五章 — 函数</h2>
+<h3 id="def"><a class="markdownIt-Anchor" href="#def">#</a> def:</h3>
+<h3 id="function是被设计为执行特定任务的代码块"><a class="markdownIt-Anchor" href="#function是被设计为执行特定任务的代码块">#</a> function，是被设计为执行特定任务的代码块</h3>
+<h3 id="函数名命名规范"><a class="markdownIt-Anchor" href="#函数名命名规范">#</a> 函数名命名规范</h3>
+<ul>
+<li>和变量命名基本一致</li>
+<li>尽量小驼峰式命名法</li>
+<li>前缀应该为动词</li>
+<li>命名建议：常用动词</li>
+</ul>
+<h3 id="函数传参1"><a class="markdownIt-Anchor" href="#函数传参1">#</a> 函数传参 1</h3>
+<p><img data-src="/posts/3424359953/3.png" alt="img"></p>
+<h3 id="detail"><a class="markdownIt-Anchor" href="#detail">#</a> Detail</h3>
+<p><img data-src="/posts/3424359953/4.png" alt="img"></p>
+<ul>
+<li>形参：声明函数时写在函数名右边小括号里的叫形参（形式上的参数）</li>
+<li>实参：调用函数时写在函数名右边小括号里的叫实参（实际上的参数）</li>
+<li>形参可以理解为是在这个函数内声明的变量（比如 num1 = 10）实参可以理解为是给这个变量赋值</li>
+<li>开发中尽量保持形参和实参个数一致</li>
+<li>我们曾经使用过的 alert (‘打印’), parseInt (‘11’), Number (‘11’) 本质上都是函数调用的传参</li>
+</ul>
+<h3 id="函数传参-参数默认值"><a class="markdownIt-Anchor" href="#函数传参-参数默认值">#</a> 函数传参 - 参数默认值</h3>
+<ul>
+<li>undefined</li>
+<li>NaN</li>
+</ul>
+<p>说明：这个默认值只会在缺少实参参数传递时 才会被执行，所以有参数会优先执行传递过来的实参，否则默认为 undefined</p>
+<p>一般为了会设置默认值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function getsum(star = 0,end = 0)&#123;</span><br><span class="line">//</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数返回值"><a class="markdownIt-Anchor" href="#函数返回值">#</a> 函数返回值</h3>
+<p><img data-src="/posts/3424359953/5.png" alt="img"></p>
+<p>Detail:</p>
+<ul>
+<li>在函数体中使用 return 关键字能将内部的执行结果交给函数外部使用</li>
+<li>return 后面代码不会再被执行，会立即结束当前函数，所以 return 后面的数据不要换行写</li>
+<li>return 函数可以没有 return，这种情况函数默认返回值为 undefine</li>
+</ul>
+<h3 id="作用域"><a class="markdownIt-Anchor" href="#作用域">#</a> 作用域</h3>
+<p>变量有一个坑， 特殊情况：</p>
+<p>如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐</p>
+<p>但是有一种情况，函数内部的形参可以看做是局部变量。</p>
+<h3 id="变量的访问原则"><a class="markdownIt-Anchor" href="#变量的访问原则">#</a> 变量的访问原则</h3>
+<ul>
+<li>只要是代码，就至少有一个作用域</li>
+<li>写在函数内部的局部作用域</li>
+<li>如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域</li>
+<li>访问原则：在能够访问到的情况下 先局部， <strong>局部没有在找全局</strong></li>
+</ul>
+<h3 id="匿名函数"><a class="markdownIt-Anchor" href="#匿名函数">#</a> 匿名函数</h3>
+<p>没有名字的函数，无法直接使用。</p>
+<p>使用方式：</p>
+<ul>
+<li>函数表达式</li>
+<li>立即执行函</li>
+</ul>
+<p><img data-src="/posts/3424359953/6.png" alt="img"></p>
+<p><img data-src="/posts/3424359953/7.png" alt="img"></p>
+<p>总结</p>
+<p>立即执行函数有什么作用？</p>
+<ul>
+<li>防止变量污染</li>
+</ul>
+<p>立即执行函数需要调用吗？ 有什么注意事项呢？</p>
+<ul>
+<li>无需调用，立即执行，其实本质已经调用了</li>
+<li>多个立即执行函数之间用分号隔</li>
+</ul>
+<h3 id="逻辑中断img"><a class="markdownIt-Anchor" href="#逻辑中断img">#</a> 逻辑中断<img data-src="/posts/3424359953/8.png" alt="img"></h3>
+<p><strong>特殊情况</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 11 &amp;&amp; 22 //  结果为22  如果两边都为真则返回最后一个真值</span><br><span class="line">let a = 11 || 22 // 结果为11  因为 11 已经为真了 就不会去执行后面的代码了</span><br></pre></td></tr></table></figure>
+<h3 id="转换为boolean型img"><a class="markdownIt-Anchor" href="#转换为boolean型img">#</a> ** 转换为 Boolean 型<img data-src="/posts/3424359953/9.png" alt="img"></h3>
+<p><img data-src="/posts/3424359953/10.png" alt="img"></p>
+<h2 id="第六章对象"><a class="markdownIt-Anchor" href="#第六章对象">#</a> 第六章 — 对象</h2>
+<h3 id="对象object"><a class="markdownIt-Anchor" href="#对象object">#</a> <strong>对象（object）：</strong></h3>
+<ul>
+<li>JavaScript 里的一种数据类型</li>
+<li>无序的数据集合， 注意数组是有序的数据集合</li>
+</ul>
+<h3 id="对象的特点"><a class="markdownIt-Anchor" href="#对象的特点">#</a> <strong>对象的特点</strong></h3>
+<ul>
+<li>无序的数据的集合</li>
+<li>可以详细的描述描述某个事物</li>
+</ul>
+<h3 id="声明以及使用"><a class="markdownIt-Anchor" href="#声明以及使用">#</a> <strong>声明以及使用</strong></h3>
+<p><img data-src="/posts/3424359953/11.png" alt="img"></p>
+<p><img data-src="/posts/3424359953/12.png" alt="img"></p>
+<p><img data-src="/posts/3424359953/13.png" alt="img"></p>
+<p><img data-src="/posts/3424359953/14.png" alt="img"><img data-src="/posts/3424359953/15.png" alt="img"></p>
+<h3 id="遍历对象"><a class="markdownIt-Anchor" href="#遍历对象">#</a> 遍历对象</h3>
+<p>for 遍历对象的问题：</p>
+<ul>
+<li>对象没有像数组一样的 length 属性，所以无法确定长度</li>
+<li>对象里面是无序的键值对，没有规律。不像数组里面有规律的下标</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">    uname: &#x27;andy&#x27;,</span><br><span class="line">    age: 18,</span><br><span class="line">    sex: &#x27;男&#x27;</span><br><span class="line">&#125;</span><br><span class="line">for(let k in obj)&#123;</span><br><span class="line">    console.log(K)//打印属性名</span><br><span class="line">    console.log(obj[K])//打印属性值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一般不用这种方式遍历数组、主要是用来遍历对象</li>
+<li>for in 语法中的 k 是一个变量，在循环的过程中依次代表对象的属性名</li>
+<li>由于 k 是变量，所以必须使用 [ ] 语法解析</li>
+<li>一定记住： k 是获得对象的属性名， 对象名 [k] 是获得 属性值</li>
+</ul>
+<p><img data-src="/posts/3424359953/16.png" alt="img"></p>
+<h3 id="内置对象"><a class="markdownIt-Anchor" href="#内置对象">#</a> 内置对象</h3>
+<p>Math 对象包含的方法有：</p>
+<ol>
+<li>random：生成 0-1 之间的随机数（包含 0 不包括 1）</li>
+<li>ceil：向上取整</li>
+<li>floor：向下取整</li>
+<li>round：四舍五入</li>
+<li>max：找最大数</li>
+<li>min：找最小数</li>
+<li>pow：幂运算</li>
+<li>abs：绝对值</li>
+<li>sqrt：平方根</li>
+</ol>
+<h3 id="关键字"><a class="markdownIt-Anchor" href="#关键字">#</a> 关键字</h3>
+<p><img data-src="/posts/3424359953/17.png" alt="img"></p>
+<p><strong>复引用类型（复杂数据类型）：</strong></p>
+<ul>
+<li>通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date 等</li>
+<li>引用类型变量（栈空间）里存放的是地址，真正的对象实例存放在堆空间中</li>
+<li>undefined</li>
+<li>NaN</li>
+</ul>
+<p>说明：这个默认值只会在缺少实参参数传递时 才会被执行，所以有参数会优先执行传递过来的实参，否则默认为 undefined</p>
+<h2 id="第七章api"><a class="markdownIt-Anchor" href="#第七章api">#</a> 第七章 —API</h2>
+<h3 id="变量声明"><a class="markdownIt-Anchor" href="#变量声明">#</a> 变量声明</h3>
+<p>有 var、let 和 const</p>
+<p>建议：const 优先，尽量使用 const，</p>
+<ul>
+<li>const 语义化更</li>
+<li>很多变量我们声明的时候就知道他不会被更改了</li>
+<li>实际开发中也是，比如 react 框架，基本 const</li>
+</ul>
+<p>const 声明的值不能更改，而且 const 声明变量的时候需要里面进行初始化</p>
+<p>但是对于引用数据类型，const 声明的变量，里面存的不是 值，不是值，不是值，是</p>
+<p><strong>为什么 const 声明的对象可以修改里面的属性？</strong></p>
+<ul>
+<li>因为对象是引用类型，里面存储的是地址，只要地址不变，就不会报错</li>
+<li>建议数组和对象使用 const 来声明</li>
+</ul>
+<p><strong>什么时候使用 let 声明变量？</strong></p>
+<ul>
+<li>如果基本数据类型的值或者引用类型的地址发生变化的时候，需要用 let</li>
+<li>比如 一个变量进行加减运算，比如 for 循环中的 i++</li>
+</ul>
+<h3 id="dom文档对象模型"><a class="markdownIt-Anchor" href="#dom文档对象模型">#</a> DOM（文档对象模型）</h3>
+<p>def：DOM（Document Object Model—— 文档对象模型）是用来呈现以及与任意 HTML 或 XML 文档交互的 API</p>
+<p><strong>DOM 是浏览器提供的一套专门用来 操作网页内容的功能</strong></p>
+<p>DOM 树是什么</p>
+<ul>
+<li>将 HTML 文档以树状结构直观的表现出来，我们称之为文档树或 DOM 树</li>
+<li>描述网页内容关系的名词</li>
+<li>作用：文档树直观的体现了标签与标签之间的关</li>
+</ul>
+<p>DOM 对象（重要）</p>
+<p>DOM 对象：浏览器根据 html 标签生成的 JS 对象</p>
+<ul>
+<li>所有的标签属性都可以在这个对象上面找到</li>
+<li>修改这个对象的属性会自动映射到标签身上</li>
+</ul>
+<p>DOM 的核心思想</p>
+<ul>
+<li>把网页内容当做对象来处理</li>
+</ul>
+<p>document 对象</p>
+<ul>
+<li>是 DOM 里提供的一个对象</li>
+<li>所以它提供的属性和方法都是用来访问和操作网页内容的 ü 例：document.write ()</li>
+<li>网页所有内容都在 document 里面</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>1.DOM 树是什么？</p>
+<ul>
+<li>将 HTML 文档以树状结构直观的表现出来，我们称之为文档树或 DOM 树</li>
+<li>作用：文档树直观的体现了标签与标签之间的关系</li>
+</ul>
+<p>2.DOM 对象怎么创建的？</p>
+<ul>
+<li>浏览器根据 html 标签生成的 JS 对象（DOM 对象）’</li>
+<li>DOM 的核心就是把内容当对象来处理 \</li>
+</ul>
+<p>3.document 是什么？</p>
+<ul>
+<li>是 DOM 里提供的一个对象</li>
+<li>网页所有内容都在 document 里面</li>
+</ul>
+<h3 id="获取dom元素"><a class="markdownIt-Anchor" href="#获取dom元素">#</a> 获取 DOM 元素</h3>
+<p>根据 css 选择器来获取 DOM 元素</p>
+<p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&#x27;css选择器&#x27;)</span><br></pre></td></tr></table></figure>
+<p>参数：包含一个或者多个有效的 CSS 选择器字符串</p>
+<p>返回值：CSS 选择器匹配的<strong>第一个元素</strong>一个 HTMLElement 对象。 如果没有匹配到，则返回 nul</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//举例</span><br><span class="line">const box = document.querySelector(&#x27;.box&#x27;)</span><br><span class="line">const asd = document.querySelector(&#x27;#nav&#x27;)</span><br><span class="line">document.querySelectorAll(&#x27;css选择器&#x27;)</span><br></pre></td></tr></table></figure>
+<p>参数：包含一个或者多个有效的 CSS 选择器 <strong>字符串</strong></p>
+<p>返回值：CSS 选择器的 NodeList 对象集合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const li = document.querySelector(&#x27;ul li:first-child&#x27;)</span><br></pre></td></tr></table></figure>
+<p><img data-src="/posts/3424359953/18.png" alt="img"></p>
+<p>其他获取 DOM 元素的方法（了解）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 根据id获取第一个元素</span><br><span class="line">document.getElementById(&#x27;nav&#x27;)</span><br><span class="line">// 根据标签获取第一类元素 获取页面 所有id</span><br><span class="line">document.getElementsByClassName(&#x27;nav&#x27;)</span><br><span class="line">// 根据类名获取元素  获取页面 所有类名为 nav的</span><br><span class="line">document.getElementsByTagName(&#x27;nav&#x27;)</span><br></pre></td></tr></table></figure>
+<h3 id="操作元素内容"><a class="markdownIt-Anchor" href="#操作元素内容">#</a> 操作元素内容</h3>
+<p>1、元素.innerText 属性</p>
+<ul>
+<li>将文本内容添加或更新到任意标签位置</li>
+<li>显示纯文本，不解析标签</li>
+</ul>
+<p>2、元素.innerHTML 属性</p>
+<ul>
+<li>将文本内容添加或者更新到任意标签的位置</li>
+<li>会解析标签，多标签建议使用模板字符</li>
+</ul>
+<p>总结</p>
+<p>1、设置 / 修改 DOM 元素内容有哪 2 钟方式？</p>
+<ul>
+<li>元素.innerText 属性</li>
+<li>元素.innerHTML 属性</li>
+</ul>
+<p>2、三者的区别是什么？</p>
+<ul>
+<li>元素.innerText 属性，只识别文本，不能解析 Tag（标签）</li>
+<li>元素.innerHTML 属性 能识别文本，能够解析 Tag</li>
+<li>如果还在纠结到底用谁，你可以选择 innerHTML</li>
+</ul>
+<h3 id="操作元素属性"><a class="markdownIt-Anchor" href="#操作元素属性">#</a> 操作元素属性</h3>
+<h4 id="通过style属性操作css"><a class="markdownIt-Anchor" href="#通过style属性操作css">#</a> 通过 style 属性操作 css</h4>
+<p><img data-src="/posts/3424359953/19.png" alt="img"></p>
+<h4 id="操作类名classname操作css"><a class="markdownIt-Anchor" href="#操作类名classname操作css">#</a> 操作类名（className）操作 CSS</h4>
+<p><img data-src="/posts/3424359953/20.png" alt="img"></p>
+<p>使用 className 有什么好处？</p>
+<p>可以同时修改多个样式</p>
+<p>使用 className 有什么注意事项？</p>
+<p>直接使用 className 赋值会覆盖以前的类名</p>
+<h4 id="通过-classlist-操作类控制css"><a class="markdownIt-Anchor" href="#通过-classlist-操作类控制css">#</a> 通过 classList 操作类控制 CSS</h4>
+<p><img data-src="/posts/3424359953/21.png" alt="img"></p>
+<p>使用 className 和 classList 的区别？</p>
+<ul>
+<li>修改大量样式的更方便</li>
+<li>修改不多样式的时候方便</li>
+<li>classList 是追加和删除不影响以前类名</li>
+</ul>
+<h3 id="操作表单元素-属性"><a class="markdownIt-Anchor" href="#操作表单元素-属性">#</a> 操作表单元素 属性</h3>
+<p><img data-src="/posts/3424359953/22.png" alt="img"></p>
+<h3 id="自定义属性"><a class="markdownIt-Anchor" href="#自定义属性">#</a> 自定义属性</h3>
+<p><img data-src="/posts/3424359953/23.png" alt="img"></p>
+<h3 id="间歇型函数"><a class="markdownIt-Anchor" href="#间歇型函数">#</a> 间歇型函数</h3>
+<p><img data-src="/posts/3424359953/24.png" alt="img"></p>
+<p><img data-src="/posts/3424359953/25.png" alt="img"></p>
+<p><img data-src="/posts/3424359953/26.png" alt="img"></p>
+<h3 id="事件监听"><a class="markdownIt-Anchor" href="#事件监听">#</a> 事件监听</h3>
+<p>语法</p>
+<p><img data-src="/posts/3424359953/27.png" alt="img"></p>
+<p>注意：</p>
+<p>事件类型要加引号</p>
+<p>函数是点击之后再去执行，每 次点击都会执行一次</p>
+<p><img data-src="/posts/3424359953/28.png" alt="img"></p>
+<h3 id="事件类型"><a class="markdownIt-Anchor" href="#事件类型">#</a> 事件类型</h3>
+<p><img data-src="/posts/3424359953/29.png" alt="img"></p>
+<h3 id="事件对象"><a class="markdownIt-Anchor" href="#事件对象">#</a> 事件对象</h3>
+<p>事件对象：也是个对象，这个对象里有事件触发时的相关信息</p>
+<p><img data-src="/posts/3424359953/30.png" alt="img"></p>
+<h3 id="事件监听版本"><a class="markdownIt-Anchor" href="#事件监听版本">#</a> 事件监听版本</h3>
+<p><img data-src="/posts/3424359953/31.png" alt="img"></p>
+<h3 id="事件对象的常用属性"><a class="markdownIt-Anchor" href="#事件对象的常用属性">#</a> 事件对象的常用属性</h3>
+<p><img data-src="/posts/3424359953/32.png" alt="img"></p>
+<h3 id="️环境对象"><a class="markdownIt-Anchor" href="#️环境对象">#</a> ⭐️环境对象</h3>
+<p>环境对象：指的是函数内部特殊的变量 this ，它代表着当前函数运行时所处的环境</p>
+<p>作用：弄清楚 this 的指向，</p>
+<ul>
+<li>函数的调用方式不同，this 指代的对象也不同</li>
+<li>【谁调用， this 就是谁】 是判断 this 指向的粗略规</li>
+<li>直接调用函数，其实相当于是 window. 函数，所以 this 指代 window</li>
+</ul>
+<h3 id="回调函数"><a class="markdownIt-Anchor" href="#回调函数">#</a> 回调函数</h3>
+
+      <div class="tags">
+          <a href="/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2025-05-15 21:44:49" itemprop="dateModified" datetime="2025-05-15T21:44:49+08:00">2025-05-15</time>
+  </span>
+  <span id="2024/07/16/JavaScript笔记/" class="item leancloud_visitors" data-flag-title="JavaScript笔记" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记">http://example.com/2024/07/16/JavaScript笔记/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?14118" title="Java基础">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Java基础</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?565139" title="Liunx安装">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Liunx安装</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> JavaScript 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text"> 第一章 — 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.1.</span> <span class="toc-text"> JavaScript 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript%E4%B8%89%E4%B8%AD%E4%B9%A6%E5%86%99%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text"> JavaScript 三中书写位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript%E6%B3%A8%E9%87%8A%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text"> JavaScript 注释方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="toc-number">1.1.4.</span> <span class="toc-text"> JavaScript 结束语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.1.5.</span> <span class="toc-text"> JavaScript 输入输出语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-number">1.1.6.</span> <span class="toc-text"> JavaScript 字面量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text"> 第二章 — 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 变量的声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E8%B5%8B%E5%80%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 变量的赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%A4%9A%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 声明多个变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 变量的本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 变量的声明的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8Flet%E5%92%8Cvar%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.6.</span> <span class="toc-text"> ⭐️let 和 var 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.7.</span> <span class="toc-text"> 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.8.</span> <span class="toc-text"> 🔥数组的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">1.2.9.</span> <span class="toc-text"> 常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.10.</span> <span class="toc-text"> 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.11.</span> <span class="toc-text"> 检测数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.12.</span> <span class="toc-text"> 类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text"> 第三章 — 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 一元运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 运算符的优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.4.</span> <span class="toc-text"> 第四章 — 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 表达式和语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 分支语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue%E5%92%8Cbreak%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.4.3.</span> <span class="toc-text"> continue 和 break 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.4.4.</span> <span class="toc-text"> for 循环语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text"> 第五章 — 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#def"><span class="toc-number">1.5.1.</span> <span class="toc-text"> def:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function%E6%98%AF%E8%A2%AB%E8%AE%BE%E8%AE%A1%E4%B8%BA%E6%89%A7%E8%A1%8C%E7%89%B9%E5%AE%9A%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.5.2.</span> <span class="toc-text"> function，是被设计为执行特定任务的代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%90%8D%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">1.5.3.</span> <span class="toc-text"> 函数名命名规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%821"><span class="toc-number">1.5.4.</span> <span class="toc-text"> 函数传参 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#detail"><span class="toc-number">1.5.5.</span> <span class="toc-text"> Detail</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82-%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">1.5.6.</span> <span class="toc-text"> 函数传参 - 参数默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">1.5.7.</span> <span class="toc-text"> 函数返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.5.8.</span> <span class="toc-text"> 作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BF%E9%97%AE%E5%8E%9F%E5%88%99"><span class="toc-number">1.5.9.</span> <span class="toc-text"> 变量的访问原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.10.</span> <span class="toc-text"> 匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E4%B8%AD%E6%96%ADimg"><span class="toc-number">1.5.11.</span> <span class="toc-text"> 逻辑中断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E4%B8%BAboolean%E5%9E%8Bimg"><span class="toc-number">1.5.12.</span> <span class="toc-text"> ** 转换为 Boolean 型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.6.</span> <span class="toc-text"> 第六章 — 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1object"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 对象（object）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 对象的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="toc-number">1.6.3.</span> <span class="toc-text"> 声明以及使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.6.4.</span> <span class="toc-text"> 遍历对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.6.5.</span> <span class="toc-text"> 内置对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.6.6.</span> <span class="toc-text"> 关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0api"><span class="toc-number">1.7.</span> <span class="toc-text"> 第七章 —API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 变量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dom%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.2.</span> <span class="toc-text"> DOM（文档对象模型）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96dom%E5%85%83%E7%B4%A0"><span class="toc-number">1.7.3.</span> <span class="toc-text"> 获取 DOM 元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9"><span class="toc-number">1.7.4.</span> <span class="toc-text"> 操作元素内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.5.</span> <span class="toc-text"> 操作元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87style%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9Ccss"><span class="toc-number">1.7.5.1.</span> <span class="toc-text"> 通过 style 属性操作 css</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%90%8Dclassname%E6%93%8D%E4%BD%9Ccss"><span class="toc-number">1.7.5.2.</span> <span class="toc-text"> 操作类名（className）操作 CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-classlist-%E6%93%8D%E4%BD%9C%E7%B1%BB%E6%8E%A7%E5%88%B6css"><span class="toc-number">1.7.5.3.</span> <span class="toc-text"> 通过 classList 操作类控制 CSS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.6.</span> <span class="toc-text"> 操作表单元素 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.7.</span> <span class="toc-text"> 自定义属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E6%AD%87%E5%9E%8B%E5%87%BD%E6%95%B0"><span class="toc-number">1.7.8.</span> <span class="toc-text"> 间歇型函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-number">1.7.9.</span> <span class="toc-text"> 事件监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.7.10.</span> <span class="toc-text"> 事件类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.7.11.</span> <span class="toc-text"> 事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E7%89%88%E6%9C%AC"><span class="toc-number">1.7.12.</span> <span class="toc-text"> 事件监听版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.13.</span> <span class="toc-text"> 事件对象的常用属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8F%E7%8E%AF%E5%A2%83%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.7.14.</span> <span class="toc-text"> ⭐️环境对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.7.15.</span> <span class="toc-text"> 回调函数</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Kuk"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Kuk</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">19</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Liunx软件安装">Liunx软件安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="单点登录">单点登录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx安装">Liunx安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" title="西安分公司线上bug">西安分公司线上bug</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kuk @ Kuk</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/07/16/JavaScript笔记/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

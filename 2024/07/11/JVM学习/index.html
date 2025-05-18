@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -100,12 +100,12 @@ Kuk = Hexo</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?102869"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?973279"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?5753"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?454447"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?362992"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?556783"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?250408"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?846788"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?301316"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?368728"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?595246"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?968015"></li>
         </ul>
       </div>
     </header>
@@ -133,7 +133,7 @@ Kuk = Hexo</title>
 <span><a href="/">Home</a></span>
 </div>
 
-    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
   <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -149,57 +149,65 @@ Kuk = Hexo</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>bootstrap：加载最核心的类库 比如JDK的一些类</p>
+    <p>bootstrap：加载最核心的类库 比如 JDK 的一些类</p>
 <p>Excel：扩展类加载器 一般加载额外导的依赖的类</p>
-<p>App：一般是加载加载classpath的指定的内容</p>
+<p>App：一般是加载加载 classpath 的指定的内容</p>
 <p>Cuton : 处理自定义 的类加载器</p>
 <p>连接中</p>
 <p>验证：</p>
 <p>准备：给静态变量赋值</p>
-<h2 id="硬件层数据一致性"><a href="#硬件层数据一致性" class="headerlink" title="硬件层数据一致性"></a>硬件层数据一致性</h2><p>现代CPU的数据一致性实现 &#x3D; 缓存锁（MESI）+锁总线</p>
-<p>LoadStore屏障</p>
+<h2 id="硬件层数据一致性"><a class="markdownIt-Anchor" href="#硬件层数据一致性">#</a> 硬件层数据一致性</h2>
+<p>现代 CPU 的数据一致性实现 = 缓存锁（MESI）+ 锁总线</p>
+<p>LoadStore 屏障</p>
 <p>对于语句 load1；LoadStore；Store2；</p>
-<p>在Store2及以后续写入操作被刷前，保证Load1要读取的数据被读取完毕</p>
-<p>StoreLoad屏障</p>
-<p>对于语句Store1；StoreLoad；Load2</p>
-<p>在Load2及后续所有读取操作之前，保证Store1的写入 对所有处理器可见</p>
-<p>Volatile的实现细节</p>
+<p>在 Store2 及以后续写入操作被刷前，保证 Load1 要读取的数据被读取完毕</p>
+<p>StoreLoad 屏障</p>
+<p>对于语句 Store1；StoreLoad；Load2</p>
+<p>在 Load2 及后续所有读取操作之前，保证 Store1 的写入 对所有处理器可见</p>
+<p>Volatile 的实现细节</p>
 <p>1、字节码层面</p>
 <p>ACC_VOLATILE</p>
 <p>2、JVM</p>
 <p>StoreStoreBarrier LoadLoadBarrier</p>
 <p>volatie 写操作 volatile 读操作</p>
 <p>StoreLoadBarrier LoadStoreBarrier</p>
-<p>3、硬件和OS</p>
+<p>3、硬件和 OS</p>
 <p>hsdis - HotSpot Dis Assembler</p>
-<h2 id="汇编笔记"><a href="#汇编笔记" class="headerlink" title="汇编笔记"></a>汇编笔记</h2><ol>
-<li>最开始出现的语言是机器语言，由二进制组成 即：01010 由于程序员容易出错还需要记大量的0101 由此引入了汇编语言指令有两部分组成 操作数+操作码</li>
+<h2 id="汇编笔记"><a class="markdownIt-Anchor" href="#汇编笔记">#</a> 汇编笔记</h2>
+<ol>
+<li>最开始出现的语言是机器语言，由二进制组成 即：01010 由于程序员容易出错还需要记大量的 0101 由此引入了汇编语言指令有两部分组成 操作数 + 操作码</li>
 <li>进制越小，表示相同的数据量，需要的位数就越多</li>
 <li>内存扩张方向，可以自上而下，也可以下而上</li>
-<li>字节序用于规定数据在内存中如何存放，intel用的小端序</li>
+<li>字节序用于规定数据在内存中如何存放，intel 用的小端序</li>
 <li>方法调用等于入栈出栈的过程，满足先进后出</li>
-<li>汇编中用sp寄存器和bp寄存器用于保存栈底和栈顶</li>
-<li>16位机器码中sp为16，esp为32，rsp为64位</li>
+<li>汇编中用 sp 寄存器和 bp 寄存器用于保存栈底和栈顶</li>
+<li>16 位机器码中 sp 为 16，esp 为 32，rsp 为 64 位</li>
 </ol>
 <p>类加载器</p>
 <ol>
-<li>当静态变量为整形时 ，在clinit中对其进行初始化，整形值将会放在字节码中， 通过操作数栈来保存，当我们调用float、double、对象时， 那么将会放入常量池中，在运行时通过idc指令，（将他们的地址放入操作数栈中来操作）（切记：是Idc、iconst、fconst、dconst、bipush等，都是基于赋值的值的大小来在编译是处理）</li>
+<li>当静态变量为整形时 ，在 clinit 中对其进行初始化，整形值将会放在字节码中， 通过操作数栈来保存，当我们调用 float、double、对象时， 那么将会放入常量池中，在运行时通过 idc 指令，（将他们的地址放入操作数栈中来操作）（切记：是 Idc、iconst、fconst、dconst、bipush 等，都是基于赋值的值的大小来在编译是处理）</li>
 </ol>
-<h2 id="GC调优前置"><a href="#GC调优前置" class="headerlink" title="GC调优前置"></a>GC调优前置</h2><p>Garbage Collector</p>
+<h2 id="gc调优前置"><a class="markdownIt-Anchor" href="#gc调优前置">#</a> GC 调优前置</h2>
+<p>Garbage Collector</p>
 <p>GC Tuning（调优）</p>
-<h3 id="java-VS-C"><a href="#java-VS-C" class="headerlink" title="java VS C++"></a>java VS C++</h3><ol>
-<li>java<ol>
-<li>GC处理垃圾</li>
+<h3 id="java-vs-c"><a class="markdownIt-Anchor" href="#java-vs-c">#</a> java VS C++</h3>
+<ol>
+<li>java
+<ol>
+<li>GC 处理垃圾</li>
 <li>开发效率高，执行效率低</li>
 </ol>
 </li>
-<li>C++<ol>
+<li>C++
+<ol>
 <li>手工处理垃圾</li>
-<li>忘记回收<ol>
+<li>忘记回收
+<ol>
 <li>内存泄漏</li>
 </ol>
 </li>
-<li>回收多次<ol>
+<li>回收多次
+<ol>
 <li>非法访问</li>
 </ol>
 </li>
@@ -207,50 +215,66 @@ Kuk = Hexo</title>
 </ol>
 </li>
 </ol>
-<h3 id="JVM内存分代模型（用于分代垃圾回收算法）"><a href="#JVM内存分代模型（用于分代垃圾回收算法）" class="headerlink" title="JVM内存分代模型（用于分代垃圾回收算法）"></a>JVM内存分代模型（用于分代垃圾回收算法）</h3><ol>
-<li>部分垃圾回收器使用的模型<ol>
-<li>除 Epsilon ZGC Shenandoah之外的GC都是使用逻辑分代模型</li>
+<h3 id="jvm内存分代模型用于分代垃圾回收算法"><a class="markdownIt-Anchor" href="#jvm内存分代模型用于分代垃圾回收算法">#</a> JVM 内存分代模型（用于分代垃圾回收算法）</h3>
+<ol>
+<li>部分垃圾回收器使用的模型
+<ol>
+<li>除 Epsilon ZGC Shenandoah 之外的 GC 都是使用逻辑分代模型</li>
 </ol>
 </li>
-<li>新生代 + 老年代 + 永久代(1.7)&#x2F;元数据区（1.8）Metaspace<ol>
+<li>新生代 + 老年代 + 永久代 (1.7)/ 元数据区（1.8）Metaspace
+<ol>
 <li>永久代 元数据 - class</li>
 <li>永久代必须指定大小限制，元数据可以设置大小，也可以不设置，无上限（受限于物理内存）</li>
 <li>字符串常量 1.7 - 永久代，1.8 - 堆</li>
-<li>MethodArea逻辑概念 - 永久代 - 元数据</li>
+<li>MethodArea 逻辑概念 - 永久代 - 元数据</li>
 </ol>
 </li>
-<li>新生代 &#x3D; Eden + 2个suvivor区</li>
+<li>新生代 = Eden + 2 个 suvivor 区</li>
 </ol>
-<h2 id="GC和GC-Tuning"><a href="#GC和GC-Tuning" class="headerlink" title="GC和GC Tuning"></a>GC和GC Tuning</h2><h3 id="GC-Algorithms（GC算法）"><a href="#GC-Algorithms（GC算法）" class="headerlink" title="GC Algorithms（GC算法）"></a>GC Algorithms（GC算法）</h3><p>什么是垃圾呢？</p>
+<h2 id="gc和gc-tuning"><a class="markdownIt-Anchor" href="#gc和gc-tuning">#</a> GC 和 GC Tuning</h2>
+<h3 id="gc-algorithmsgc算法"><a class="markdownIt-Anchor" href="#gc-algorithmsgc算法">#</a> GC Algorithms（GC 算法）</h3>
+<p>什么是垃圾呢？</p>
 <p>没有根对象去引用的对象</p>
-<h4 id="判断垃圾算法"><a href="#判断垃圾算法" class="headerlink" title="判断垃圾算法"></a>判断垃圾算法</h4><h5 id="reference-count（引用计数）"><a href="#reference-count（引用计数）" class="headerlink" title="reference count（引用计数）"></a>reference count（引用计数）</h5><p>缺点</p>
+<h4 id="判断垃圾算法"><a class="markdownIt-Anchor" href="#判断垃圾算法">#</a> 判断垃圾算法</h4>
+<h5 id="reference-count引用计数"><a class="markdownIt-Anchor" href="#reference-count引用计数">#</a> reference count（引用计数）</h5>
+<p>缺点</p>
 <p>无法解决循环依赖问题 （整个循环都没有人依赖的时候）</p>
-<h5 id="Root-Searching（根可达算法）"><a href="#Root-Searching（根可达算法）" class="headerlink" title="Root Searching（根可达算法）"></a>Root Searching（根可达算法）</h5><p>根：线程栈变量、静态变量、常量池、JNI指针</p>
-<h4 id="清除算法"><a href="#清除算法" class="headerlink" title="清除算法"></a>清除算法</h4><ul>
-<li>Mark-Sweep（标记清除）<ul>
+<h5 id="root-searching根可达算法"><a class="markdownIt-Anchor" href="#root-searching根可达算法">#</a> Root Searching（根可达算法）</h5>
+<p>根：线程栈变量、静态变量、常量池、JNI 指针</p>
+<h4 id="清除算法"><a class="markdownIt-Anchor" href="#清除算法">#</a> 清除算法</h4>
+<ul>
+<li>Mark-Sweep（标记清除）
+<ul>
 <li>在对象存活较多的情况下效率会比较高</li>
 <li>会产生碎片（空间不连续）</li>
 <li>需要扫描两遍（1、扫描不可回收对象，2 扫描可回收对象）</li>
 </ul>
 </li>
-<li>Copying（拷贝）<ul>
+<li>Copying（拷贝）
+<ul>
 <li>在存活对象较少的情况</li>
 <li>没有碎片、效率高只扫描一遍</li>
 <li>浪费空间</li>
 </ul>
 </li>
-<li>Mark-Compact（标记压缩）<ul>
+<li>Mark-Compact（标记压缩）
+<ul>
 <li>扫描两次、需要移动对象，效率偏低</li>
 </ul>
 </li>
 </ul>
-<h3 id="触发机制"><a href="#触发机制" class="headerlink" title="触发机制"></a>触发机制</h3><p>MinorGC&#x2F;YGC: 年轻代空间耗尽时 触发</p>
-<p>MajorGC&#x2F;FullGC: 在老年代无法继续分配空间时触发，新生代老年代同时进行回收</p>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><strong>对象什么时候进入老年代</strong>？</p>
+<h3 id="触发机制"><a class="markdownIt-Anchor" href="#触发机制">#</a> 触发机制</h3>
+<p>MinorGC/YGC: 年轻代空间耗尽时 触发</p>
+<p>MajorGC/FullGC: 在老年代无法继续分配空间时触发，新生代老年代同时进行回收</p>
+<h2 id="面试题"><a class="markdownIt-Anchor" href="#面试题">#</a> 面试题</h2>
+<p><strong>对象什么时候进入老年代</strong>？</p>
 <p>Parallel Scavenge 15</p>
 <p>CMS 6</p>
-<p>G1 15 动态年龄 （YGC）s1 -&gt; s2时 超过了50% 把年龄最大的放入old区中</p>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>为什么使用双亲委派模型</p>
+<p>G1 15 动态年龄 （YGC）s1 -&gt; s2 时 超过了 50% 把年龄最大的放入 old 区中</p>
+<h2 id="jvm"><a class="markdownIt-Anchor" href="#jvm">#</a> JVM</h2>
+<h3 id="双亲委派模型"><a class="markdownIt-Anchor" href="#双亲委派模型">#</a> 双亲委派模型</h3>
+<p>为什么使用双亲委派模型</p>
 <ul>
 <li>主要是为了安全问题，防止类库被修改</li>
 <li>其次防止资源浪费 多加载一遍</li>
@@ -266,7 +290,7 @@ Kuk = Hexo</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2024-07-11 09:32:09" itemprop="dateModified" datetime="2024-07-11T09:32:09+08:00">2024-07-11</time>
+    <time title="Modified: 2025-05-15 21:45:33" itemprop="dateModified" datetime="2025-05-15T21:45:33+08:00">2025-05-15</time>
   </span>
   <span id="2024/07/11/JVM学习/" class="item leancloud_visitors" data-flag-title="JVM学习" title="Views">
       <span class="icon">
@@ -329,20 +353,20 @@ Kuk = Hexo</title>
     <div class="item left">
       
 
-  <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?298143" title="平台登录信息API加密传输">
+  <a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?200870" title="服务器">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>平台登录信息API加密传输</h3>
+  <h3>服务器</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2024/07/15/hello-world/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?909639" title="Hello World">
+  <a href="/2024/07/16/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?224498" title="单点登录">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>Hello World</h3>
+  <h3>单点登录</h3>
   </a>
 
     </div>
@@ -361,7 +385,7 @@ Kuk = Hexo</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%B1%82%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">硬件层数据一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0"><span class="toc-number">2.</span> <span class="toc-text">汇编笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC%E8%B0%83%E4%BC%98%E5%89%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">GC调优前置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-VS-C"><span class="toc-number">3.1.</span> <span class="toc-text">java VS C++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM%E5%86%85%E5%AD%98%E5%88%86%E4%BB%A3%E6%A8%A1%E5%9E%8B%EF%BC%88%E7%94%A8%E4%BA%8E%E5%88%86%E4%BB%A3%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">JVM内存分代模型（用于分代垃圾回收算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC%E5%92%8CGC-Tuning"><span class="toc-number">4.</span> <span class="toc-text">GC和GC Tuning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GC-Algorithms%EF%BC%88GC%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">GC Algorithms（GC算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%9E%83%E5%9C%BE%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">判断垃圾算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#reference-count%EF%BC%88%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%EF%BC%89"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">reference count（引用计数）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Root-Searching%EF%BC%88%E6%A0%B9%E5%8F%AF%E8%BE%BE%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">Root Searching（根可达算法）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.2.</span> <span class="toc-text">清除算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">4.2.</span> <span class="toc-text">触发机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM"><span class="toc-number">6.</span> <span class="toc-text">JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">双亲委派模型</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%B1%82%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text"> 硬件层数据一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0"><span class="toc-number">2.</span> <span class="toc-text"> 汇编笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gc%E8%B0%83%E4%BC%98%E5%89%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text"> GC 调优前置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-vs-c"><span class="toc-number">3.1.</span> <span class="toc-text"> java VS C++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm%E5%86%85%E5%AD%98%E5%88%86%E4%BB%A3%E6%A8%A1%E5%9E%8B%E7%94%A8%E4%BA%8E%E5%88%86%E4%BB%A3%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text"> JVM 内存分代模型（用于分代垃圾回收算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gc%E5%92%8Cgc-tuning"><span class="toc-number">4.</span> <span class="toc-text"> GC 和 GC Tuning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gc-algorithmsgc%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text"> GC Algorithms（GC 算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%9E%83%E5%9C%BE%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 判断垃圾算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#reference-count%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0"><span class="toc-number">4.1.1.1.</span> <span class="toc-text"> reference count（引用计数）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#root-searching%E6%A0%B9%E5%8F%AF%E8%BE%BE%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.1.2.</span> <span class="toc-text"> Root Searching（根可达算法）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.2.</span> <span class="toc-text"> 清除算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">4.2.</span> <span class="toc-text"> 触发机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text"> 面试题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jvm"><span class="toc-number">6.</span> <span class="toc-text"> JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text"> 双亲委派模型</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
       </div>
@@ -376,13 +400,13 @@ Kuk = Hexo</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">4</span>
+        <span class="count">19</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">2</span>
+        <span class="count">5</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -443,12 +467,12 @@ Kuk = Hexo</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2024/07/15/hello-world/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+        <a href="/2024/07/16/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -472,25 +496,7 @@ Kuk = Hexo</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">JVM学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/15/hello-world/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
   </li>
 
       
@@ -500,6 +506,78 @@ Kuk = Hexo</title>
 </div>
 
     <span><a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" title="短信验证码登录">短信验证码登录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="POI文件上传">POI文件上传</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" title="西安分公司线上bug">西安分公司线上bug</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx安装">Liunx安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="单点登录">单点登录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">JVM学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Liunx软件安装">Liunx软件安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
   </li>
 
   </ul>

@@ -1,0 +1,879 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2025/05/15/Spring%E6%BA%90%E7%A0%81/">
+
+
+
+  <title>
+Spring源码 |
+Kuk = Hexo</title>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Spring源码
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2025-05-15 21:40:22">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:40:22+08:00">2025-05-15</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Kuk</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?535214"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?417745"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?183460"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?208519"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?361620"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?527568"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/15/Spring%E6%BA%90%E7%A0%81/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="spring源码学习"><a class="markdownIt-Anchor" href="#spring源码学习">#</a> Spring 源码学习</h2>
+<h3 id="一-涉及的设计模式"><a class="markdownIt-Anchor" href="#一-涉及的设计模式">#</a> 一、涉及的设计模式</h3>
+<ol>
+<li><strong>单例模式（Singleton）</strong>：单例模式确保一个类只有一个实例，并提供全局访问点。在 Spring 中，Bean 默认使用单例模式，这意味着 Spring 容器中的 Bean 只会被创建一次，并在整个应用程序中共享。通过单例模式，可以确保各个组件之间共享同一实例，提高性能和资源的利用率。
+<ol>
+<li>在 Bean 创建的时候</li>
+</ol>
+</li>
+<li><strong>工厂模式（Factory）</strong>：工厂模式是一种创建型设计模式，通过工厂类来创建和管理对象实例。在 Spring 中，Bean 工厂（如 ApplicationContext）充当工厂角色，负责根据配置或注解创建和管理 Bean 对象。工厂模式可以实现对象的解耦，将对象的创建和使用分离开来，提供更高的灵活性和可扩展性。
+<ol>
+<li>在各种 BeanFactory 以及 ApplicationContext 创建中都用到了</li>
+</ol>
+</li>
+<li><strong>代理模式（Proxy）</strong>：代理模式允许通过代理对象控制对真实对象的访问，并在访问前后添加额外的逻辑。在 Spring 中，AOP 基于动态代理实现，通过代理模式可以在方法执行前后插入切面逻辑，实现事务管理、日志记录、性能监控等功能。
+<ol>
+<li>Spring AOP 利用了 Aspect AOP 实现的！Aspet] AOP 的底层用了动态代理</li>
+</ol>
+</li>
+<li><strong>观察者模式（Observer）</strong>：观察者模式定义了一种一对多的依赖关系，当被观察对象状态发生改变时，所有依赖于它的观察者都会收到通知并自动更新。在 Spring 中，事件机制就是基于观察者模式实现的，通过定义事件发布者和事件监听器，可以实现模块之间的解耦和通信。
+<ol>
+<li>spring 中的 ApplicationEvent，ApplicationListener,ApplicationEventPublisher</li>
+</ol>
+</li>
+<li><strong>模板方法模式（Template Method）</strong>：模板方法模式定义了一个算法的骨架，将具体实现延迟到子类中。在 Spring 中，JdbcTemplate 和 HibernateTemplate 等模板类使用了模板方法模式。它们定义了通用的操作流程，在抽象类中封装了基本的算法逻辑，而具体的实现则由子类提供。
+<ol>
+<li>在各种 BeanFactory 以及 ApplicationContext 创建中都用到了</li>
+<li>BFPP BeanDefinitionReader</li>
+</ol>
+</li>
+<li><strong>装饰器模式（Decorator）</strong>：装饰器模式动态地将责任附加到对象上，扩展其功能。在 Spring 中，装饰器模式在 AOP 中广泛应用。通过动态代理和切面编程，可以在不改变原始对象的情况下，通过装饰器给对象增加额外的行为。
+<ol>
+<li>源码中类型带 Wrapper 或者 Decorator 的都是</li>
+</ol>
+</li>
+<li><strong>适配器模式（Adapter）</strong>：适配器模式将一个类的接口转换成客户端所期望的另一个接口，使得原本不兼容的类可以一起工作。在 Spring MVC 中，处理器适配器（HandlerAdapter）充当适配器的角色，负责将请求适配到不同类型的处理器方法上，实现处理器和框架之间的解耦。
+<ol>
+<li>MethodBeforeAdviceAdapter,ThrowsAdviceAdapter,AfterReturningAdapter</li>
+</ol>
+</li>
+<li><strong>策略模式（Strategy）</strong>：策略模式定义了一系列算法，并将每个算法封装起来，使它们可以相互替换。在 Spring 中，策略模式在事务管理中应用广泛。通过定义不同的事务策略（如声明式事务、编程式事务），在运行时可以选择合适的策略来进行事务管理。
+<ol>
+<li>加载资源文件的方式，使用了不同的方法，比如: ClassPathResourece，FileSystemResource，ServletContextResource，UrlResource 但他们都有共同的借口 Resource; 在 Aop 的实现中，采用了两种不同的方式，JDK 动态代理和 CGLIB 代理</li>
+</ol>
+</li>
+<li><strong>建造者模式（Builder）</strong>：建造者模式将一个复杂对象的构建过程与其表示分离，使得同样的构建过程可以创建不同的表示。在 Spring 中，BeanDefinitionBuilder 和 BeanDefinitionReader 等类使用了建造者模式，通过链式调用和配置方法来构建复杂的对象。<br>
+1.</li>
+</ol>
+<h3 id="二-类的分析"><a class="markdownIt-Anchor" href="#二-类的分析">#</a> 二、类的分析</h3>
+<hr>
+<ul>
+<li>ClassPathXmlApplicationContext：读取配置文件 xml</li>
+<li>BeanDefinition: 由 xml 等配置文件 解析的 bean 定义信息 存到 BeanDefinition</li>
+<li>BeanDefinitionReader：抽象接口 定义配置文件读取器（可以自定以读取配置文件 主要是体现 spring 的扩展性）</li>
+<li>PostProcessor: 增强器 (建议)/ 后置处理器 为了扩展实现
+<ul>
+<li>BeanPostProceessor: 操作对象是 —–Bean
+<ul>
+<li>BeanFactoryPostProcessor: (BFPP) 增强 读取配置文件 也可以扩展 PlaceholderConfigurerSupport 这个方法 对 ${} 里的东西进行替换</li>
+</ul>
+</li>
+<li>BeanFactoryProcessor: 操作对象是 —–BeanFactory
+<ul>
+<li>BeanFactoryRegistryPostProcessor ： 功能 注册 Bean</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BeanFactory: 用来访问 spring 容器的跟接口
+<ul>
+<li>ApplicationContext：继承了 BeanFactory</li>
+</ul>
+</li>
+<li>监听器 观察者模式
+<ul>
+<li>⭐️ Environment: 包含 两个东西 env&amp;properties（作用为了方便使用，在容器创建时提前加载系统的相关属性–加载到 StandardEnvironment 对象中，方便后续使用）
+<ul>
+<li>观察者模式就调用此接口（监听器、监听事件）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三-源码分析"><a class="markdownIt-Anchor" href="#三-源码分析">#</a> 三、源码分析</h3>
+<p><strong>spring 启动流程</strong></p>
+<p>new ClassPathXmlApplicationContext(“aaa”);</p>
+<p>super (parnt) 在调构造函数，时会创建相关对象</p>
+<h5 id="abstractapplicationcontext中refresh方法"><a class="markdownIt-Anchor" href="#abstractapplicationcontext中refresh方法">#</a> AbstractApplicationContext 中 refresh 方法</h5>
+<p>refresh 方法中有 13 个重要的方法</p>
+<p>对 Spring 流程分析</p>
+<ol>
+<li>先执行 refresh 方法
+<ol>
+<li>==prepareRefresh ()== 方法创建 BeanFactory
+<ol>
+<li>设置容器开关状态 设置容器启动时间、设置容器活跃 加载当前环境属性 设置 set 集合监听器、监听事件</li>
+<li>初始化属性资源 initPropertySources () 默认为空 为后续扩展做准备</li>
+<li>获取环境对象和所需要的值 getEnviromant ().validateRequiredProperties</li>
+<li>创建一系列的 set 集合 (注册一些监听器集合 监听事件 集合 为观察者模式准备)— 可扩展</li>
+</ol>
+</li>
+<li>==obtainFreshBeanFactory ()== 获取最新的 Bean 工厂 返回一个 beanFactory 对象名为 defaultlaizeBeanFactory 同时加载配置文件是
+<ol>
+<li>刷新 refreshBeanFactory () Bean 工厂
+<ol>
+<li>判断是否有 bean 工厂 hashBeanFactory 有则销毁 并且关闭</li>
+<li>开始创建 Bean 工厂 createBeanFactory ()
+<ol>
+<li>创建一个名为 DefaultListableBeanFactory ()</li>
+</ol>
+</li>
+<li>加载配置文件 loadBeanDefinitions</li>
+</ol>
+</li>
+<li>getBeanFactory () 返回刚才 GenericApplocationContext 创建的 BeanFactory 对象</li>
+</ol>
+</li>
+<li><mark>perpareBeanFactory(beanFactory)</mark> 对 BeanFactory 进行初实话 （给 BeanFactory 进行赋值）
+<ol>
+<li>设置 SPEL</li>
+<li>设置忽略 Aware 接口</li>
+</ol>
+</li>
+<li><mark>postProcessBeanFactory(beanFactory)</mark> 为扩展做准备 本身 里面是空方法</li>
+<li><mark>invokeBeanFactoryPostProcessros(beanFactory)</mark> 调用执行 BeanFactoryPostProcessor 方法
+<ol>
+<li>给 BeanFactoryPostProcessor 排序 按顺序执行</li>
+</ol>
+</li>
+<li>==registerBeanPostProcessros (beanFactory)== 只注册 BeanBeanPostProcessros 方法 并不执行</li>
+<li>==initMessageSource ()== 做国际化处理</li>
+<li><mark>initApplicationEventMulticaster()</mark> 初始化应用事件多播器</li>
+<li><mark>onRefresh()</mark></li>
+<li><mark>registerListeners()</mark> 注册监听器</li>
+<li><mark>finshBeanFactoryInitialiation(beanFactory)</mark> 实例化所有单例的非懒加载的 Bean 对象
+<ol>
+<li>preInstantiateSingletons (); 核心的实例化方法
+<ol>
+<li>beanDefinitionNames 放入 List – beanName 的 List–&gt;getMergedLocalBeanDefinition (beanName) 获取 bean 信息</li>
+<li>循环 (for ecah) 创建 bean 之前会调用 getBean (beanNames)
+<ol>
+<li>doGetBean
+<ol>
+<li>先通过 beanName 判断改 Bean 是否被创建 dogetSingletion () 从三级缓存中获取</li>
+<li>creatBean ()—docreatBean 创建完 Bean</li>
+<li>populateBean ()— 填充属性值
+<ol>
+<li>applyPropertyValues</li>
+</ol>
+</li>
+<li>invokeAwareMethod()—</li>
+<li>BeanPostProcessor:before</li>
+<li>invokeInitMethod</li>
+<li>BeanPostProcessor:after</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>getSingletion</li>
+</ol>
+</li>
+</ol>
+</li>
+<li></li>
+</ol>
+</li>
+<li>加载配置文件</li>
+<li>对文件中的东西进行 bean 创建</li>
+</ol>
+<h5 id="循环依赖问题源码模式"><a class="markdownIt-Anchor" href="#循环依赖问题源码模式">#</a> <strong>循环依赖问题源码模式</strong></h5>
+<p>最重要的 6 方法</p>
+<p>refresh—&gt;finishBeanFactoryInitialization ()—&gt;preInstantiateSingletons—&gt; 开始六个方法</p>
+<ol>
+<li>getBean()</li>
+<li>doGetBean 会有一个 getSingleton (beanName) 查看名字为 beanName 的对象是否被创建
+<ol>
+<li>getSingleton (beanName,() -&gt; {}) 传两个参数 第二个为 lamda 表达式</li>
+</ol>
+</li>
+<li>createBean()</li>
+<li>doCreateBean()</li>
+<li>createBeanInstance()
+<ol>
+<li>创建 Bean 对象 通过反射方式</li>
+<li>addSongletonFactory( beanName, ()-&gt;<mark>getEarlyBeanReference{}</mark>)
+<ol>
+<li>该方法会将 lamda 表达式放入三级缓存 — 把二级缓存移除</li>
+<li><strong>当条件成立时</strong> (由容器生成并且判断该容器是否实现了 AwareBeanPostProcessors () 方法) 会调用 getEarlyBeanReference (.exposedObject , beanName) 的重载方法 动态代理的操作 创建代理对象</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>populate () 属性赋值
+<ol>
+<li>通过 aaplyPropertyValues () 真正赋值</li>
+<li>此时如果该值还未创建（B 的 Bean 还未创建）会给他一个类型 RuntimeBeanReference</li>
+</ol>
+</li>
+</ol>
+<p>第一次</p>
+<p>创建 a 对象 在进行属性赋值 的时候 进行第二次 getBean</p>
+<p>第二次</p>
+<p>创建 b 对象 在进行属性赋值 的时候 进行第三次 getBean</p>
+<p>第三次</p>
+<p>a 对象被创建 且放在三级缓存里 状态：lamda 表达式 还未执行 getObject 方法 — 将半成品的 A 对象对外暴露</p>
+<ol>
+<li>此时进去<mark> getSingleton</mark> 方法 先去一级缓存中找看是否存在</li>
+<li>此时很重的判断条件 一级缓存中不存在 并且 该对象是否在创建过程中（isSingletonCurrentlyInCreation (beanName)）</li>
+<li>再去二级缓存找是否存在</li>
+<li>进行加锁（synchronzied (this.singletonObjects)） 去一级缓存、二级缓存 、三级缓存中取 （无论从哪级）</li>
+<li>如果是在三级缓存中取 那么取出来的是一个 lamda 表达式
+<ol>
+<li>执行 getObject 方法 === 执行 getEarlyABeanReference
+<ol>
+<li>把当前的 bean 对象（A 对象）赋值给 exposedObject (对外暴露)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>最后将半成品的 A 对象 对外暴露</li>
+<li>将半成品的 A 放入二级缓存</li>
+<li>将三级缓存清空</li>
+</ol>
+<p>递归 开始回调</p>
+<ol>
+<li>B 创建成功（B 里面有 A 但是 A 里面的 B 是空的）</li>
+<li>将 B 放入一级缓存（会将一二级缓存清空）</li>
+<li>使用 bw.setPropertyValues ()….(此过程中将 A 中 B 的值赋上 A 的地址)…… 执行完成此时 A 也成为成品</li>
+<li>将 A 放入一级缓存（会将一二级缓存清空）</li>
+</ol>
+<p>第四次</p>
+<p>执行到 getSingleton (beanName) 的时候 就可以获取 B 对象了</p>
+<p><strong>三个缓存对象，在获取数据的时候，是按照什么顺序来获取的？</strong></p>
+<p>通过 getSingleton (beanName) 的方法中 去从一级、二级、三级缓存中取（在前面缓存中获取到后 就把剩下缓存置空）</p>
+<p>在此顺序中 如果在一级中获取到了该对象 则需要 吧二级三级缓存的东西清空</p>
+<p><strong>如果只有一级缓存，能解决循环依赖问题吗？</strong></p>
+<p>如果只有一节缓存的话，成品和半成品对象会放到一起，没办法区分所以需要三级缓存</p>
+<p>一级缓存放成品对象 二级缓存放半成品对象</p>
+<p><strong>扩展思考 为什么不放在一个 里面</strong></p>
+<p>因为 key 唯一 并且 BeanName 唯一 所以开两个 Map</p>
+<p><strong>扩展思考在 value 里做文章可行吗</strong></p>
+<p>还要取值判断 很复杂成本较高</p>
+<p><strong>只有两级缓存、能解决循环依赖问题吗？</strong></p>
+<p>如果对象创建过程中不包含 Aop 二级缓存就可以解决 循环依赖问题</p>
+<p><strong>为什么存在 AOP 的时候需要三级缓存？</strong></p>
+<p>三级缓存加了什么操作</p>
+<p>添加了一个 getEarlyBeanReference 的方法</p>
+<p>当对象创建完之后，后续创建代理对象，应该使用哪一个对象就是一个 beanName 对应两个对象（原始对象和代理对象）</p>
+<p>在整个容器中 有且仅能有有一个同名的对象，当生成代理对象的时候，就会把原来的对象覆盖原始对象</p>
+<p>程序如何知道在什么时候进行代理对象的</p>
+<p>需要一个类似于回调接口的判断，当需要第一次对外暴露使用的时候 判断当前对象是否需要去创建代理对象 getEarlyBeanReference 判断是否要产生代理对象 并且暴露代理对象</p>
+<h5 id="观察者模式"><a class="markdownIt-Anchor" href="#观察者模式">#</a> 观察者模式</h5>
+<p>监听事件 、 监听器、广播器 (多播器)</p>
+<p><mark>initApplicationEventMulticaster()</mark> 初始化应用事件多播器</p>
+<p><mark>registerListeners()</mark> 注册监听器</p>
+<h3 id="四-面试题"><a class="markdownIt-Anchor" href="#四-面试题">#</a> 四、面试题</h3>
+<p><strong>Spring 中有哪些扩展点</strong></p>
+<ol>
+<li>BeanDefinitionReader: 解析配置文件 的方式可以扩展</li>
+<li>BeanFactoryPostProcessor:</li>
+<li>BeanPostProcessor:</li>
+</ol>
+<p><strong>BeanFactory 是什么？</strong></p>
+<p>BeanFactory 是一个访问 spring 容器的根接口</p>
+<p><strong>BeanFactory 和 FactoryBean 的区别？</strong></p>
+<p>BeanFactory: 必须遵循完整的 Bean 声明周期去创建对象 并不是根接口，而是 Bean 对象创建的整体流程 —- 属于流水线的操作</p>
+<p>FactoryBean：用来 Bean 对象 没有标准流程 其中有三个方法： —- 属于私人定制</p>
+<p>1、isSingleton: 判断对象是单例</p>
+<p>2、getObejctType: 获取返回对象的类型</p>
+<p>3、getObejct: 创建对象</p>
+<p><strong>BeanFactory 和 ApplicationContext 有什么区别？</strong></p>
+<p>相同</p>
+<ul>
+<li>Spring 提供了两种不同的 I0C 容器，一个是 BeanFactory，另外一个是 ApplicationContext，它们都是 avainterface，ApplicationContext 继承于 BeanFactory (ApplicationContext 继承 ListableBeanFactory。</li>
+<li>它们都可以用来配置 XML 属性，也支持属性的自动注入。</li>
+<li>而 ListableBeanFactory 继承 BeanFactory)，BeanFactory 和 ApplicationContext 都提供了一种方式，使用 getBean (“bean name”) 获取 bean。</li>
+</ul>
+<p>不同</p>
+<ul>
+<li>当你调用 getBean0 方法时，BeanFaLtory 仅实例化 bean，而 ApplicationContext 在启动容器的时候实例化单例 bean，不会等待调用 getBean (0 方法时再实例化。</li>
+<li>BeanFactory 不支持国际化，即 i18n，但 ApplicationContext 提供了对它的支持。</li>
+<li>BeanFactory 与 ApplicationContext 之间的另一个区别是能够将事件发布到注册为监听器的 bean。</li>
+<li>BeanFactory 的一个核心实现是 XMLBeanFactory 而 ApplicationContext 的一个核心实现是 ClassPathXmIApplicationContext，Web 容器的环境我们使用 WebApplicationContext 并且增加了 getServletContext 方法。</li>
+<li>如果使用自动注入并使用 BeanFactory，则需要使用 AP 注册 AutoWiredBeanPostProcessor，如果使用 ApplicationContext，则可以使用 XML 进行配置</li>
+<li>简而言之，BeanFactory 提供基本的 I0C 和 DI 功能，而 ApplicationContext 提供高级功能，BeanFactorvy 可用于测试和非生产使用，但 ApplicationContext 是功能更丰富的容器实现，应该优于 BeanFactory</li>
+</ul>
+<p><strong>说一说 bean 的生命周期？</strong></p>
+<ol>
+<li>实例化 bean（调用 createBeanInstance 方法（里面是放射））
+<ol>
+<li>在堆内存中申请内存空间吗，此时对象属性一般是默认值</li>
+</ol>
+</li>
+<li>初始化 根据使用者可以将对象分为两类 1、自定义对象 2、 容器对象
+<ol>
+<li>自定义属性赋值（调用 populateBean 方法 通过 set 方法完成赋值）</li>
+<li>容器对象属性赋值 （invokeAwareMethords 该方法去赋值的）容器对象会实现<mark> Aware 接口</mark> 调用 invokeAwareMethod 方法是会先判断该对象是否是 Aware 的子类</li>
+</ol>
+</li>
+<li>补充 上面步骤完成后就可以使用对象了 但是 spring 考虑到扩展性</li>
+<li>执行前置处理方法（做 Bean 对象的扩展实现）
+<ol>
+<li>BeanPostProcessor— 改接口有一个方法 postProcessorBeforeInitialization ()–AOP–其实就动态代理 jdk、cglib</li>
+</ol>
+</li>
+<li>执行初始化方法
+<ol>
+<li>调用 invokeInitMethod () — 检测 bean 是否实现了 InitalizingBean 接口– 如果实现了 会调用 afterPropertiesSet () 方法</li>
+</ol>
+</li>
+<li>执行后置处理方法（做 Bean 对象的扩展实现）
+<ol>
+<li>BeanPostProcessor—- 改接口有一个方法 postProcessorAfterInitialization ()</li>
+</ol>
+</li>
+<li>使用 Bean 对象</li>
+<li>销毁 Bean 对象
+<ol>
+<li>关闭容器的时候才会销毁</li>
+</ol>
+</li>
+</ol>
+<p><strong>扩展 Aware 接口是什么？</strong></p>
+<p>作用：当 Spring 容器创建 Bean 对象 在进行具体操作的时候，如果需要容器的其他对象，此时可以将对象实现 Aware 接口来满足当前的需要</p>
+<p>根据使用者可以将对象分为两类 1、自定义对象 2、 容器对象</p>
+<p>容器对象都会去实现 Aware 接口</p>
+<p><strong>谈谈你对 spring 的理解？</strong></p>
+<p>总分的方式回答</p>
+<p>总：spring 是一个容器 AOP 是 IOC 的一个扩展点、 主要有 AOP（面向切）和 IOC（控制反转、简单讲就是创建对象时不需要在手动 new 而是由 spring 容器提供）spring 是一个基石、springboot 和 springcloud 都是在 spring 上做的扩展</p>
+<p>分：</p>
+<ul>
+<li>IOC</li>
+<li>AOP</li>
+<li>IOC 如何实现</li>
+<li>生命周期</li>
+<li>循环依赖</li>
+</ul>
+<p><strong>循环依赖问题？</strong></p>
+<ol>
+<li>实例化和初始化的操作是分开的所以才能将半成品对象放入三级缓存中 （提前暴露对象）</li>
+</ol>
+<p><strong>三级缓存的区别？</strong></p>
+<p>三级缓存中最重要的是存放的泛型不同</p>
+<p>第三级缓存泛型是 ObjectFactory 是为了放一个 lamda 表达式进去</p>
+<p><strong>Spring 的事务传播机制是什么？</strong></p>
+<p>REQUIRED: 默认的传播特性，如果当前没有事务，则新建一个事务，如果当前存在事务，则加入这个事务</p>
+<p>SUPPORTS: 当前存在事务，则加入当前事务，如果当前没有事务，则以非事务的方式执行</p>
+<p>MANDATORY: 当前存在事务，则加入当前事务，如果当前事务不存在，则抛出异常</p>
+<p>REQUIRED_NEW: 创建一个新事务，如果存在当前事务，则挂起改事务</p>
+<p>NOT_SUPPORTED: 以非事务方式执行，如果存在当前事务，则挂起当前事务</p>
+<p>NEVER: 不使用事务，如果当前事务存在，则抛出异常</p>
+<p>NESTED: 如果当前事务存在，则在嵌套事务中执行，否则</p>
+<p>REQUIRED 的操作一样 NESTED 和 REQUIRED NEW 的区别:<br>
+REQUIRED_NEW 是新建一个事务并且新开始的这个事务与原有事务无关，而 NESTED 则是当前存在事务时会开启一个嵌套事务，在 NESTED 情况下，父事务回滚时，子事务也会回滚，而 REQUIREDNEW 情况下，原有事务回滚，不会影响新开启的事务</p>
+<p>NESTED 和 REQUIRED 的区别：</p>
+<p>REQUIRED 情况下，调用方存在事务时，则被调用方和调用方使用同一个事务，那么被调用方出现异常时，由于共用一个事务，所以无论是否 catch 异常，事务都会回滚，而在 NESTED 情况下，被调用方发生异常时，调用方可以 catch 其异常，这样只有子事务回滚，父事务不会回滚</p>
+<p><strong>观察者模式？</strong></p>
+<p><strong>反射的效率低为什么创建 bean 对象还采用反射？</strong></p>
+<p>反射效率低的条件是<strong>通过反射创建的对象特别多的时候才会很慢</strong></p>
+<p>反射的使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Class.forName(&quot;包名+类名&quot;);</span><br><span class="line">Class clazz = 对象.getClass();</span><br><span class="line">Class clazz = 类名.class;</span><br><span class="line">//获取构造器</span><br><span class="line">Constructor ctor = clazz.getDeclareConstructor();</span><br><span class="line">//创建对象</span><br><span class="line">Object object = ctor.newInstance();</span><br></pre></td></tr></table></figure>
+<h3 id="五-扩展"><a class="markdownIt-Anchor" href="#五-扩展">#</a> 五、扩展</h3>
+<p>接口和抽象类的区别</p>
+<p>接口：自上而下 描述 接口的方法 子类都需要实现 即接口设计的无需参考子类而是</p>
+<p>抽象类：自下而上 描述 所有类里面抽出公共的属性 即设计抽象类需要参考子类的属性（举例 抽象类是 “动物”，子类是” 猫 “、” 狗 “、” 猪 “ 其中他们都有相同的属性 年龄 肤色 等 ）</p>
+<p>springBoot 在内嵌 TomCat 的时候是在 onRefresh 方法里内嵌的</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2025-05-15 21:51:01" itemprop="dateModified" datetime="2025-05-15T21:51:01+08:00">2025-05-15</time>
+  </span>
+  <span id="2025/05/15/Spring源码/" class="item leancloud_visitors" data-flag-title="Spring源码" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">http://example.com/2025/05/15/Spring源码/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?87780" title="POI文件上传">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>POI文件上传</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?120456" title="计算机网络">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>计算机网络</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text"> Spring 源码学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E6%B6%89%E5%8F%8A%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、涉及的设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E7%B1%BB%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text"> 二、类的分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.3.</span> <span class="toc-text"> 三、源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#abstractapplicationcontext%E4%B8%ADrefresh%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"> AbstractApplicationContext 中 refresh 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98%E6%BA%90%E7%A0%81%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"> 循环依赖问题源码模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.3.0.3.</span> <span class="toc-text"> 观察者模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text"> 四、面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E6%89%A9%E5%B1%95"><span class="toc-number">1.5.</span> <span class="toc-text"> 五、扩展</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Kuk"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Kuk</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">19</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" title="短信验证码登录">短信验证码登录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" title="技术tips">技术tips</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="MongoDB性能测试">MongoDB性能测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">Spring源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" title="西安分公司线上bug">西安分公司线上bug</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记">JavaScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="POI文件上传">POI文件上传</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx安装">Liunx安装</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kuk @ Kuk</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2025/05/15/Spring源码/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

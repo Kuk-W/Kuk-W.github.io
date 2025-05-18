@@ -1,0 +1,819 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/">
+
+
+
+  <title>
+MongoDB笔记 |
+Kuk = Hexo</title>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">MongoDB笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2023-07-15 21:39:32">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-15T21:39:32+08:00">2023-07-15</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Kuk</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?894469"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?268841"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?767532"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?597058"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?644028"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?783632"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="mongodb"><a class="markdownIt-Anchor" href="#mongodb">#</a> Mong<strong>oDB</strong></h1>
+<h2 id="一-mongodb的引擎"><a class="markdownIt-Anchor" href="#一-mongodb的引擎">#</a> 一、MongoDB 的引擎</h2>
+<h3 id="wiredtiger"><a class="markdownIt-Anchor" href="#wiredtiger">#</a> WiredTiger</h3>
+<p>WiredTiger 是 MongoDB 默认的存储引擎，它提供了高性能、高度可扩展和高效的数据管理能力。WiredTiger 以其先进的存储技术而闻名，并在 MongoDB 中扮演着重要的角色。</p>
+<h4 id="wiredtiger-的特点"><a class="markdownIt-Anchor" href="#wiredtiger-的特点">#</a> WiredTiger 的特点：</h4>
+<ol>
+<li><strong>高性能：</strong> WiredTiger 使用了多种优化技术，包括数据压缩、多线程处理、缓存管理等，以提供高性能的数据读写操作。它采用了 MVCC（多版本并发控制）来处理事务，支持并发访问和高效的写入。</li>
+<li><strong>支持事务：</strong> WiredTiger 是支持事务的存储引擎，允许 MongoDB 在事务中执行多个操作并确保数据的一致性和原子性。这对于要求数据完整性和可靠性的应用程序特别重要。</li>
+<li><strong>数据压缩：</strong> WiredTiger 支持数据压缩，可以降低存储空间的使用，提高磁盘利用率。它使用了多种压缩算法来减少数据的存储大小，同时保持高效的读写性能。</li>
+<li><strong>多版本并发控制（MVCC）：</strong> WiredTiger 使用 MVCC 来管理数据版本，允许 read 不会被写入操作所阻塞。这种并发控制技术提高了数据库的并发性能。</li>
+<li><strong>支持大规模数据集：</strong> WiredTiger 可以处理大规模数据集，并具有较好的水平扩展性，能够适应高负载和大容量的数据存储需求。</li>
+<li><strong>可配置性：</strong> WiredTiger 提供了多种配置选项，允许管理员根据具体需求进行调整和优化，以达到最佳的性能和稳定性。</li>
+</ol>
+<h4 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h4>
+<p>WiredTiger 的引入极大地改善了 MongoDB 的存储引擎性能和功能，使其能够更好地适应各种应用场景和业务需求。其优化的存储和管理能力对于处理大规模数据、支持高并发以及保证数据完整性和可靠性非常有帮助。</p>
+<h4 id="官方文档总结"><a class="markdownIt-Anchor" href="#官方文档总结">#</a> 官方文档总结</h4>
+<ol>
+<li>Document Level Concurrency（文档级并发）对于大多数的读写的操作，使用 optimistic concurrency control（乐观并发控制）只有在全局、数据库和集合级别才使用 only intent locks（意向锁）</li>
+<li><strong>操作和限制：</strong>
+<ul>
+<li>不允许将文档固定在 WiredTiger 缓存中。</li>
+<li>WiredTiger 不会为读和写分别保留缓存，它会优先缓存索引。</li>
+<li>重写工作量较大时会影响性能，但 WiredTiger 会在这种情况下优先缓存索引。</li>
+<li>WiredTiger 将其缓存分配给整个 mongod 实例，不会按数据库或集合级别分配缓存。</li>
+</ul>
+</li>
+<li><strong>并发控制：</strong>
+<ul>
+<li>WiredTiger 使用文档级别的并发控制，允许多个客户端同时修改集合中的不同文档。</li>
+<li>大多数读和写操作使用乐观并发控制。</li>
+<li>某些全局操作仍然需要全局锁。</li>
+</ul>
+</li>
+<li><strong>快照和检查点：</strong>
+<ul>
+<li>WiredTiger 使用多版本并发控制（MVCC）(MultiVersion Concurrency Control)。</li>
+<li>在写入磁盘时，WiredTiger 以一致的方式写入快照的所有数据到磁盘。</li>
+<li>检查点确保数据文件在最后一个检查点之前都是一致的，检查点可作为恢复点。</li>
+<li>从 MongoDB 3.6 开始，WiredTiger 在 60 秒间隔内创建检查点。</li>
+</ul>
+</li>
+<li><strong>日志和持久性：</strong>
+<ul>
+<li>WiredTiger 使用预写日志（日志）和检查点来确保数据的持久性。</li>
+<li>日志持久化了检查点之间的所有数据修改。</li>
+<li>可以通过  <code>storage.journal.enabled</code>  设置禁用日志。</li>
+</ul>
+</li>
+<li><strong>压缩和内存使用：</strong>
+<ul>
+<li>MongoDB 支持所有集合和索引的压缩。</li>
+<li>默认使用 Snappy 块压缩和索引前缀压缩。</li>
+<li>会减少内存的压力 但是会加大 cpu 的压力</li>
+</ul>
+</li>
+</ol>
+<h3 id="journal"><a class="markdownIt-Anchor" href="#journal">#</a> journal</h3>
+<p>define：是指用于持久化数据的一种机制，用于记录和保护数据库的事务性操作。在 MongoDB 中，journal 是指写入操作日志文件（Write-Ahead Logging）的过程和文件本身。</p>
+<p>journal 作用 来确保数据库的可靠性和一致性。</p>
+<h4 id="实现原理"><a class="markdownIt-Anchor" href="#实现原理">#</a> 实现原理</h4>
+<ol>
+<li><strong>写入日志：</strong> 当执行数据更新操作时（如插入、更新、删除等），MongoDB 首先将这些操作记录到 journal 文件中，而不是直接写入数据文件。这样做是为了确保即使在发生意外情况时（如服务器崩溃），也可以通过 journal 文件来恢复数据。</li>
+<li><strong>保证原子性和一致性：</strong> 在执行事务性操作时，MongoDB 会先将操作记录到 journal 文件，然后再将其应用到实际的数据文件中。这确保了即使在写入数据文件之前出现故障，数据库也可以通过 journal 文件的恢复机制来保证操作的原子性和一致性。</li>
+<li><strong>性能影响：</strong> 使用 journal 机制会对性能产生一定影响，因为每个写入操作都要先写入 journal 文件，然后再写入数据文件。但是这种性能开销相对于数据一致性和可靠性所带来的好处是值得的。</li>
+</ol>
+<h4 id="总结-2"><a class="markdownIt-Anchor" href="#总结-2">#</a> 总结</h4>
+<p>journal 是 MongoDB 保障数据持久性和一致性的关键机制之一，它确保了即使在发生系统崩溃或异常情况时，数据库也能够恢复到一致的状态。</p>
+<h3 id="gridfs"><a class="markdownIt-Anchor" href="#gridfs">#</a> GridFS</h3>
+<p>def：GridFS 是 MongoDB 的一种文件存储机制，用于存储大型文件（通常大于 16MB）或者大量文件的方式。它将大文件分割成多个部分进行存储，能够更有效地管理和检索这些文件。</p>
+<h4 id="主要特点"><a class="markdownIt-Anchor" href="#主要特点">#</a> 主要特点：</h4>
+<ol>
+<li><strong>适用于大文件：</strong> MongoDB 存储的文档大小有限制（通常为 16MB），对于超出这个大小的文件，GridFS 将其分割成多个部分存储在多个文档中，允许存储非常大的文件。</li>
+<li><strong>分块存储：</strong> GridFS 将大文件分成多个小块（Chunk），每个块默认大小为 255KB，以二进制数据形式存储在 MongoDB 集合中。</li>
+<li><strong>元数据存储：</strong> 每个文件会有一个对应的元数据文档，存储文件的元信息（如文件名、类型、大小等）。这个元数据文档也会保存在 MongoDB 集合中。</li>
+<li><strong>支持索引：</strong> GridFS 可以为文件内容和元数据创建索引，从而提高文件检索的效率。</li>
+</ol>
+<h4 id="使用场景"><a class="markdownIt-Anchor" href="#使用场景">#</a> 使用场景：</h4>
+<ul>
+<li>存储大型多媒体文件，如视频、音频等。</li>
+<li>存储超过 16MB 的文件。</li>
+<li>保留文件的元数据信息，并能够以高效的方式进行检索</li>
+</ul>
+<h2 id="二-mongodb使用"><a class="markdownIt-Anchor" href="#二-mongodb使用">#</a> 二、MongoDB 使用</h2>
+<p><strong>liunx 安装 MongoDB</strong></p>
+<p>命令</p>
+<p><strong>进入客户端</strong> bin 目录下（例：指定端口 27017 端口进入）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongo port=27017</span><br></pre></td></tr></table></figure>
+<p>查看副本集状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.status()</span><br></pre></td></tr></table></figure>
+<p>查看副本集配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.conf()</span><br></pre></td></tr></table></figure>
+<h4 id="数据库操作"><a class="markdownIt-Anchor" href="#数据库操作">#</a> 数据库操作</h4>
+<h5 id="展示数据库"><a class="markdownIt-Anchor" href="#展示数据库">#</a> 展示数据库</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br><span class="line">or</span><br><span class="line">show databases</span><br></pre></td></tr></table></figure>
+<h5 id="展示当前数据库"><a class="markdownIt-Anchor" href="#展示当前数据库">#</a> 展示当前数据库</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db</span><br></pre></td></tr></table></figure>
+<h5 id="数据库的删除"><a class="markdownIt-Anchor" href="#数据库的删除">#</a> 数据库的删除</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropdatabase()</span><br></pre></td></tr></table></figure>
+<h4 id="集合操作"><a class="markdownIt-Anchor" href="#集合操作">#</a> 集合操作</h4>
+<h5 id="显示创建ex创建一个名为name的集合"><a class="markdownIt-Anchor" href="#显示创建ex创建一个名为name的集合">#</a> 显示创建 (ex: 创建一个名为 name 的集合)</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.creatCollection(&quot;name&quot;)</span><br></pre></td></tr></table></figure>
+<h5 id="隐式创建"><a class="markdownIt-Anchor" href="#隐式创建">#</a> 隐式创建</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="集合的删除"><a class="markdownIt-Anchor" href="#集合的删除">#</a> 集合的删除</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.collection.dorp()</span><br><span class="line">or</span><br><span class="line">db.集合.drop()</span><br></pre></td></tr></table></figure>
+<h4 id="文档的操作"><a class="markdownIt-Anchor" href="#文档的操作">#</a> 文档的操作</h4>
+<h5 id="文档插入"><a class="markdownIt-Anchor" href="#文档插入">#</a> 文档插入</h5>
+<p>使用 insert () 或 save () 方法向集合中插入文档，语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.collection.insert(</span><br><span class="line">	&lt;document or array of documents&gt;,</span><br><span class="line">	&#123;</span><br><span class="line">	writeConcern: &lt;document&gt;,</span><br><span class="line">	ordered: &lt;boolean&gt;</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>向 commen 插入一条测试语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.comment.insert(</span><br><span class="line">	&#123;</span><br><span class="line">	&quot;articleid&quot;:&quot;100000&quot;,</span><br><span class="line">	&quot;content&quot;:&quot;今天天气真好，阳光明媚&quot;,</span><br><span class="line">	&quot;userid&quot;:&quot;1001&quot;,</span><br><span class="line">	&quot;nickname&quot;:&quot;Rose&quot;,</span><br><span class="line">	&quot;createdatetime&quot;:newDate(),</span><br><span class="line">	&quot;likenum&quot;:NumberInt(10),</span><br><span class="line">	&quot;state&quot;:null</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>comment 集合如果不存在，则会隐式创建</li>
+<li>mongo 中的数字，默认情况下是 double 类型，如果要存整型，必须使用函数 NumberInt (整型数字)，否则取出来就有问题了。</li>
+<li>插入当前日期使用 new Date ()</li>
+<li>插入的数据没有指定 _id ，会自动生成主键值</li>
+<li>如果某字段没值，可以赋值为 null，或不写该字段。</li>
+</ul>
+<h5 id="文档查询"><a class="markdownIt-Anchor" href="#文档查询">#</a> 文档查询</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&lt;query&gt;, [projection])</span><br></pre></td></tr></table></figure>
+<p>查询所有的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find()</span><br><span class="line">或</span><br><span class="line">db.comment.find(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p>ex：查询 icomment 表中 id=1001 的第一条数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.findOne(&#123;id:&#x27;1001&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<p>投影查询（<strong>只显示指定的字段</strong>）</p>
+<p>ex:comment 表查询 iuserid=1001 的数据 只显示 userid,nickname, 不显示_id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;userid:&quot;1001&quot;&#125;,&#123;userid:1,nincname:1,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="文档的更新"><a class="markdownIt-Anchor" href="#文档的更新">#</a> 文档的更新</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(query, update, options)</span><br><span class="line">//或</span><br><span class="line">db.collection.update(</span><br><span class="line">	&lt;query&gt;,</span><br><span class="line">	&lt;update&gt;,</span><br><span class="line">	&#123;</span><br><span class="line">		upsert: &lt;boolean&gt;,</span><br><span class="line">		multi: &lt;boolean&gt;,</span><br><span class="line">		writeConcern: &lt;document&gt;,</span><br><span class="line">		collation: &lt;document&gt;,</span><br><span class="line">		arrayFilters: [ &lt;filterdocument1&gt;, ... ],</span><br><span class="line">		hint: &lt;document|string&gt; // Available starting in MongoDB 4.2</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>参数详解</p>
+<p>1、query</p>
+<p>覆盖修改（ex：想修改_id 为 1 的记录，点赞量为 1001，）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.update(&#123;_id:&quot;1&quot;&#125;,&#123;likenum:NumberInt(1001)&#125;)</span><br></pre></td></tr></table></figure>
+<p>局部修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.update(&#123;_id:&quot;2&quot;&#125;,&#123;$set:&#123;likenum:NumberInt(889)&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>批量修改（ex：更新所有用户为 1003 的用户的昵称为 凯撒大帝 。）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//默认只修改第一条数据</span><br><span class="line">db.comment.update(&#123;userid:&quot;1003&quot;&#125;,&#123;$set:&#123;nickname:&quot;凯撒2&quot;&#125;&#125;)</span><br><span class="line">//修改所有符合条件的数据</span><br><span class="line">db.comment.update(&#123;userid:&quot;1003&quot;&#125;,&#123;$set:&#123;nickname:&quot;凯撒大帝&quot;&#125;&#125;,&#123;multi:true&#125;)</span><br></pre></td></tr></table></figure>
+<p>列值增长修改（ex：对 3 号数据的点赞数，每次递增 1）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.update(&#123;_id:&quot;3&quot;&#125;,&#123;$inc:&#123;likenum:NumberInt(1)&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="文档的删除"><a class="markdownIt-Anchor" href="#文档的删除">#</a> 文档的删除</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名称.remove(条件)</span><br></pre></td></tr></table></figure>
+<p>删除 id 为 1 的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.remove(&#123;_id:&quot;1&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="分页查询"><a class="markdownIt-Anchor" href="#分页查询">#</a> 分页查询</h4>
+<h5 id="统计查询"><a class="markdownIt-Anchor" href="#统计查询">#</a> 统计查询</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.count(query, options)</span><br></pre></td></tr></table></figure>
+<p>ex（统计 comment 集合的所有的记录数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.count()</span><br></pre></td></tr></table></figure>
+<p>ex（统计 userid 为 1003 的记录条数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.count(&#123;userid:&quot;1003&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="分页列表查询"><a class="markdownIt-Anchor" href="#分页列表查询">#</a> 分页列表查询</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)</span><br></pre></td></tr></table></figure>
+<p>如果你想返回指定条数的记录，可以在 find 方法后调用 limit 来返回结果 (TopN)，默认值 20，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find().limit(3)</span><br></pre></td></tr></table></figure>
+<p>skip 方法同样接受一个数字参数作为跳过的记录条数。（前 N 个不要）, 默认值是 0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find().skip(3)</span><br></pre></td></tr></table></figure>
+<p>ex（分页查询：需求：每页 2 个，第二页开始：跳过前两条数据，接着值显示 3 和 4 条数据）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//第一页</span><br><span class="line">db.comment.find().skip(0).limit(2)</span><br><span class="line">//第二页</span><br><span class="line">db.comment.find().skip(2).limit(2)</span><br><span class="line">//第三页</span><br><span class="line">db.comment.find().skip(4).limit(2)</span><br></pre></td></tr></table></figure>
+<h5 id="排序查询"><a class="markdownIt-Anchor" href="#排序查询">#</a> 排序查询</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.COLLECTION_NAME.find().sort(&#123;KEY:1&#125;)</span><br><span class="line">或</span><br><span class="line">db.集合名称.find().sort(排序方式)</span><br></pre></td></tr></table></figure>
+<p>ex（对 userid 降序排列，并对访问量进行升序排列）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find().sort(&#123;userid:-1,likenum:1&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="文档更多的查询"><a class="markdownIt-Anchor" href="#文档更多的查询">#</a> 文档更多的查询</h4>
+<h5 id="正则查询"><a class="markdownIt-Anchor" href="#正则查询">#</a> 正则查询</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&#123;field:/正则表达式/&#125;)</span><br><span class="line">或</span><br><span class="line">db.集合.find(&#123;字段:/正则表达式/&#125;)</span><br></pre></td></tr></table></figure>
+<p>ex（要查询评论的内容中以 “专家” 开头的）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;content:/^专家/&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="比较查询"><a class="markdownIt-Anchor" href="#比较查询">#</a> 比较查询</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名称.find(&#123; &quot;field&quot; : &#123; $gt: value &#125;&#125;) // 大于: field &gt; value</span><br><span class="line">db.集合名称.find(&#123; &quot;field&quot; : &#123; $lt: value &#125;&#125;) // 小于: field &lt; value</span><br><span class="line">db.集合名称.find(&#123; &quot;field&quot; : &#123; $gte: value &#125;&#125;) // 大于等于: field &gt;= value</span><br><span class="line">db.集合名称.find(&#123; &quot;field&quot; : &#123; $lte: value &#125;&#125;) // 小于等于: field &lt;= value</span><br><span class="line">db.集合名称.find(&#123; &quot;field&quot; : &#123; $ne: value &#125;&#125;) // 不等于: field != value</span><br></pre></td></tr></table></figure>
+<p>ex（查询评论点赞数量大于 700 的记录）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;likenum:&#123;$gt:NumberInt(700)&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="包含查询"><a class="markdownIt-Anchor" href="#包含查询">#</a> 包含查询</h5>
+<p>包含使用 $in 操作符。ex：（查询评论的集合中 userid 字段包含 1003 或 1004 的文档）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;userid:&#123;$in:[&quot;1003&quot;,&quot;1004&quot;]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>不包含使用 $nin 操作符。 示例：查询评论集合中 userid 字段不包含 1003 和 1004 的文档</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;userid:&#123;$nin:[&quot;1003&quot;,&quot;1004&quot;]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="条件连接查询"><a class="markdownIt-Anchor" href="#条件连接查询">#</a> 条件连接查询</h5>
+<p>我们如果需要查询同时满足两个以上条件，需要使用 $and 操作符将条件进行关联。（相 当于 SQL 的 and） 格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$and:[ &#123; &#125;,&#123; &#125;,&#123; &#125; ]</span><br></pre></td></tr></table></figure>
+<p>ex：（查询评论集合中 likenum 大于等于 700 并且小于 2000 的文档：）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;$and:[&#123;likenum:&#123;$gte:NumberInt(700)&#125;&#125;,&#123;likenum:&#123;$lt:NumberInt(2000)&#125;&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+<p>如果两个以上条件之间是或者的关系，我们使用 操作符进行关联，与前面 and 的使用方式相同 格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$or:[ &#123; &#125;,&#123; &#125;,&#123; &#125; ]</span><br></pre></td></tr></table></figure>
+<p>ex：（查询评论集合中 userid 为 1003，或者点赞数小于 1000 的文档记录）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.comment.find(&#123;$or:[ &#123;userid:&quot;1003&quot;&#125; ,&#123;likenum:&#123;$lt:1000&#125; &#125;]&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="常用命令总结"><a class="markdownIt-Anchor" href="#常用命令总结">#</a> 常用命令总结</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">选择切换数据库：use articledb</span><br><span class="line">插入数据：db.comment.insert(&#123;bson数据&#125;)</span><br><span class="line">查询所有数据：db.comment.find();</span><br><span class="line">条件查询数据：db.comment.find(&#123;条件&#125;)</span><br><span class="line">查询符合条件的第一条记录：db.comment.findOne(&#123;条件&#125;)</span><br><span class="line">查询符合条件的前几条记录：db.comment.find(&#123;条件&#125;).limit(条数)</span><br><span class="line">查询符合条件的跳过的记录：db.comment.find(&#123;条件&#125;).skip(条数)</span><br><span class="line">修改数据：db.comment.update(&#123;条件&#125;,&#123;修改后的数据&#125;) 或db.comment.update(&#123;条件&#125;,&#123;$set:&#123;要修改部分的字段:数据&#125;)</span><br><span class="line">修改数据并自增某字段值：db.comment.update(&#123;条件&#125;,&#123;$inc:&#123;自增的字段:步进值&#125;&#125;)</span><br><span class="line">删除数据：db.comment.remove(&#123;条件&#125;)</span><br><span class="line">统计查询：db.comment.count(&#123;条件&#125;)</span><br><span class="line">模糊查询：db.comment.find(&#123;字段名:/正则表达式/&#125;)</span><br><span class="line">条件比较运算：db.comment.find(&#123;字段名:&#123;$gt:值&#125;&#125;)</span><br><span class="line">包含查询：db.comment.find(&#123;字段名:&#123;$in:[值1，值2]&#125;&#125;)或db.comment.find(&#123;字段名:&#123;$nin:[值1，值2]&#125;&#125;)</span><br><span class="line">条件连接查询：db.comment.find(&#123;$and:[&#123;条件1&#125;,&#123;条件2&#125;]&#125;)或db.comment.find(&#123;$or:[&#123;条件1&#125;,&#123;条件2&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="聚合管道"><a class="markdownIt-Anchor" href="#聚合管道">#</a> 聚合管道</h4>
+<h5 id="阶段"><a class="markdownIt-Anchor" href="#阶段">#</a> 阶段</h5>
+<p>第一个阶段 $match</p>
+<p>第二个阶段 $group</p>
+<h5 id="addfields"><a class="markdownIt-Anchor" href="#addfields">#</a>  <code>$addFields</code></h5>
+<p>def：用于向文档中添加新的字段或修改现有字段、在聚合过程中对文档进行变换或添加新的字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">语法</span><br><span class="line">&#123; $addFields: &#123; &lt;新字段1&gt;: &lt;表达式1&gt;, &lt;新字段2&gt;: &lt;表达式2&gt;, ... &#125; &#125;</span><br><span class="line">用法</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  name: &quot;Product 1&quot;,</span><br><span class="line">  price: 20,</span><br><span class="line">  category: &quot;Electronics&quot;</span><br><span class="line">&#125;</span><br><span class="line">经过管道操作</span><br><span class="line">db.products.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $addFields: &#123;</span><br><span class="line">      discountedPrice: &#123; $subtract: [&quot;$price&quot;, 5] &#125; // 计算折扣价</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;_id&quot;: 1,</span><br><span class="line">  &quot;name&quot;: &quot;Product 1&quot;,</span><br><span class="line">  &quot;price&quot;: 20,</span><br><span class="line">  &quot;category&quot;: &quot;Electronics&quot;,</span><br><span class="line">  &quot;discountedPrice&quot;: 15 // 新添加的折扣价字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="bucket"><a class="markdownIt-Anchor" href="#bucket">#</a>  <code>$bucket</code></h5>
+<p>def：将文档按照给定的范围进行分组，并统计每个范围内的文档数量或其他度量指标。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">语法结构</span><br><span class="line">&#123;</span><br><span class="line">  $bucket: &#123;</span><br><span class="line">    groupBy: &lt;expression&gt;, // 分组依据，可以是字段名或者表达式</span><br><span class="line">    boundaries: [ &lt;boundary1&gt;, &lt;boundary2&gt;, ... ], // 边界值数组</span><br><span class="line">    default: &lt;literal&gt;, // 默认桶</span><br><span class="line">    output: &#123; &lt;output1&gt;: &lt;expression1&gt;, &lt;output2&gt;: &lt;expression2&gt;, ... &#125; // 输出字段及对应的表达式</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">groupBy：指定了用来分组的字段或表达式。</span><br><span class="line">boundaries：是一个数组，包含了分组的边界值，决定了每个桶的范围。</span><br><span class="line">default：是一个可选参数，当文档不属于任何一个桶时，默认将其放入此桶。</span><br><span class="line">output：定义了每个输出字段的计算方式</span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  score: 80</span><br><span class="line">&#125;</span><br><span class="line">操作</span><br><span class="line">db.grades.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $bucket: &#123;</span><br><span class="line">      groupBy: &quot;$score&quot;,</span><br><span class="line">      boundaries: [0, 60, 70, 80, 90, 100],</span><br><span class="line">      default: &quot;Other&quot;,</span><br><span class="line">      output: &#123;</span><br><span class="line">        count: &#123; $sum: 1 &#125; // 计算每个桶内文档数量</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line">我们将 score 字段按照分数范围 [0, 60, 70, 80, 90, 100] 进行分组，并将每个范围内的文档数量计算出来。输出结果会包含每个范围的桶和各自的文档数量。</span><br></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li><code>$bucket </code> 操作符主要用于将文档按照给定的范围进行分组。</li>
+<li>边界值数组  <code>boundaries</code>  决定了每个桶的范围，文档的值会根据这些边界值被分到不同的桶中。</li>
+<li>可以在  <code>output </code> 部分定义需要统计的指标，比如计数、求和、平均值等。</li>
+</ul>
+<h5 id="bucketauto"><a class="markdownIt-Anchor" href="#bucketauto">#</a>  <code>$bucketAuto</code></h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">语法结构</span><br><span class="line">&#123;</span><br><span class="line">  $bucketAuto: &#123;</span><br><span class="line">    groupBy: &lt;expression&gt;, // 分组依据，可以是字段名或者表达式</span><br><span class="line">    buckets: &lt;numberOfBuckets&gt;, // 桶的数量</span><br><span class="line">    output: &#123; &lt;output1&gt;: &lt;expression1&gt;, &lt;output2&gt;: &lt;expression2&gt;, ... &#125; // 输出字段及对应的表达式</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">groupBy：指定了用来分组的字段或表达式。</span><br><span class="line">buckets：是一个整数值，表示希望生成的桶的数量。</span><br><span class="line">output：定义了每个输出字段的计算方式。</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  population: 5000</span><br><span class="line">&#125;</span><br><span class="line">db.population.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $bucketAuto: &#123;</span><br><span class="line">      groupBy: &quot;$population&quot;,</span><br><span class="line">      buckets: 5,</span><br><span class="line">      output: &#123;</span><br><span class="line">        count: &#123; $sum: 1 &#125; // 计算每个桶内文档数量</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line">在上述示例中，$bucketAuto 会自动计算生成 5 个桶，并将 population 字段的值按照自动生成的范围进行分组，最终输出每个桶内的文档数量。</span><br></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li><code>$bucketAuto</code>  自动计算生成桶的范围，使得数据能够被平均分布到每个桶中。</li>
+<li>可以在  <code>output</code>  部分定义需要统计的指标，比如计数、求和、平均值等。</li>
+</ul>
+<p>总结：</p>
+<p><code>$bucketAuto</code>  是用于自动生成桶范围并进行分组统计的便捷操作符，在需要根据数据的分布情况动态生成桶范围时十分有用。</p>
+<h5 id="collstats"><a class="markdownIt-Anchor" href="#collstats">#</a>  <code>$collStats</code></h5>
+<p>def: 用于获取指定集合的统计信息，包括数据大小、文档数量、索引数量等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">db.collection.aggregate([</span><br><span class="line">  &#123; $collStats: &#123; storageStats: true &#125; &#125;</span><br><span class="line">])</span><br><span class="line">&#123;</span><br><span class="line">  &quot;ns&quot;: &quot;database.collection&quot;,</span><br><span class="line">  &quot;size&quot;: &lt;数据大小&gt;,</span><br><span class="line">  &quot;count&quot;: &lt;文档数量&gt;,</span><br><span class="line">  &quot;avgObjSize&quot;: &lt;平均文档大小&gt;,</span><br><span class="line">  &quot;storageSize&quot;: &lt;存储空间大小&gt;,</span><br><span class="line">  &quot;totalIndexSize&quot;: &lt;索引占用空间总大小&gt;,</span><br><span class="line">  &quot;indexSizes&quot;: &#123;</span><br><span class="line">    &quot;_id_&quot;: &lt;_id_索引大小&gt;,</span><br><span class="line">    &quot;index1&quot;: &lt;index1索引大小&gt;,</span><br><span class="line">    // 其他索引大小...</span><br><span class="line">  &#125;,</span><br><span class="line">  // 更多存储引擎相关的信息，如果设置了storageStats为true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li><code>$collStats</code>  用于在聚合管道中获取指定集合的统计信息，帮助了解集合的结构和占用空间情况。</li>
+<li>可以通过设置  <code>st orageStats</code>  参数来获取更详细的存储引擎相关信息，包括数据存储方式、压缩情况等。</li>
+</ul>
+<p><code>$collStats</code>  操作符对于评估集合的大小、文档数量、索引大小等信息非常有用，尤其是在进行数据库性能优化、容量规划以及监控数据库占用情况时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$count</span><br></pre></td></tr></table></figure>
+<h5 id="facet"><a class="markdownIt-Anchor" href="#facet">#</a>  <code>$facet</code></h5>
+<p>def: 用于在单个聚合阶段内执行多个独立的子聚合操作，并将每个子聚合操作的结果存储在单个文档中的不同字段中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  $facet: &#123;</span><br><span class="line">    &lt;outputField1&gt;: [ &#123; &lt;stage1&gt; &#125;, &#123; &lt;stage2&gt; &#125;, ... ],</span><br><span class="line">    &lt;outputField2&gt;: [ &#123; &lt;stage3&gt; &#125;, &#123; &lt;stage4&gt; &#125;, ... ],</span><br><span class="line">    // 更多输出字段及对应的子聚合管道</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;outputField&gt;：输出字段名，用于指定存储子聚合操作结果的字段名称。</span><br><span class="line">&lt;stage&gt;：子聚合管道，包括一个或多个聚合阶段，每个阶段可以使用聚合操作符进行数据处理。</span><br></pre></td></tr></table></figure>
+<h5 id="project"><a class="markdownIt-Anchor" href="#project">#</a>  <code>$project</code></h5>
+<p>def: 用于控制输出文档中的字段，包括对现有字段的重命名、计算新字段等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">语法结构</span><br><span class="line">&#123;</span><br><span class="line">  $project: &#123;</span><br><span class="line">    &lt;field1&gt;: &lt;expression1&gt;, // 显示指定输出的字段或表达式</span><br><span class="line">    &lt;field2&gt;: &lt;expression2&gt;,</span><br><span class="line">    // 更多字段或表达式...</span><br><span class="line">    _id: &lt;0 or 1&gt; // 控制是否输出 _id 字段，0 表示不输出，1 表示输出（默认）</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;field&gt;：输出的字段名。</span><br><span class="line">&lt;expression&gt;：可以是字段名、常量、表达式、聚合表达式等，用于计算新的字段值或对现有字段进行处理。</span><br><span class="line">_id：控制是否输出 _id 字段，0 表示不输出，1 表示输出。</span><br><span class="line">示例</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  name: &quot;Alice&quot;,</span><br><span class="line">  age: 20,</span><br><span class="line">  score: 85</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  _id: 2,</span><br><span class="line">  name: &quot;Bob&quot;,</span><br><span class="line">  age: 22,</span><br><span class="line">  score: 78</span><br><span class="line">&#125;</span><br><span class="line">db.students.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $project: &#123;</span><br><span class="line">      name: 1, // 显示输出 name 字段</span><br><span class="line">      grade: &#123; $cond: &#123; if: &#123; $gte: [&quot;$score&quot;, 80] &#125;, then: &quot;A&quot;, else: &quot;B&quot; &#125; &#125; // 计算并输出 grade 字段</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line">在上述示例中，$project 控制了输出文档中的字段，只输出了 name 字段和计算得到的 grade 字段。$cond 表达式根据 score 字段的值计算出一个新的 grade 字段，并输出到结果文档中</span><br><span class="line">[</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Alice&quot;, &quot;grade&quot;: &quot;A&quot; &#125;,</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Bob&quot;, &quot;grade&quot;: &quot;B&quot; &#125;,</span><br><span class="line">  // 其他文档...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li><code>$project</code>  用于控制输出文档中的字段，可以通过表达式计算新字段的值或重命名现有字段。</li>
+<li>使用  <code>1</code>  表示输出指定字段， <code>0</code>  表示不输出。</li>
+<li><code>$project</code>  可以在聚合管道中的任意位置使用，用于控制输出文档的字段结构。</li>
+</ul>
+<p>总结：</p>
+<p><code>$project</code>  是 MongoDB 聚合管道中非常常用的操作符之一，能够在聚合过程中控制输出文档的字段，是进行数据清洗和格式化的有力工具。</p>
+<h5 id="cond"><a class="markdownIt-Anchor" href="#cond">#</a>  <code>$cond</code></h5>
+<p>def: 用于根据条件进行逻辑判断，并返回不同的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">数据结构</span><br><span class="line">&#123;</span><br><span class="line">  $cond: &#123;</span><br><span class="line">    if: &lt;booleanExpression&gt;, // 条件表达式</span><br><span class="line">    then: &lt;trueExpression&gt;, // 条件为真时返回的值</span><br><span class="line">    else: &lt;falseExpression&gt; // 条件为假时返回的值</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;booleanExpression&gt;：一个返回布尔值的表达式，用于进行条件判断。</span><br><span class="line">&lt;trueExpression&gt;：如果 &lt;booleanExpression&gt; 为真，将返回的值。</span><br><span class="line">&lt;falseExpression&gt;：如果 &lt;booleanExpression&gt; 为假，将返回的值</span><br><span class="line">示例</span><br><span class="line">&#123;</span><br><span class="line">  _id: 1,</span><br><span class="line">  name: &quot;Alice&quot;,</span><br><span class="line">  score: 85</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  _id: 2,</span><br><span class="line">  name: &quot;Bob&quot;,</span><br><span class="line">  score: 78</span><br><span class="line">&#125;</span><br><span class="line">// 更多文档...</span><br><span class="line">[</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Alice&quot;, &quot;grade&quot;: &quot;A&quot; &#125;,</span><br><span class="line">  &#123; &quot;name&quot;: &quot;Bob&quot;, &quot;grade&quot;: &quot;B&quot; &#125;,</span><br><span class="line">  // 其他文档...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li><code>$cond</code>  是一个用于条件判断的聚合表达式操作符，根据条件的真假返回不同的值。</li>
+<li><code>$cond</code>  可以在聚合管道中的  <code>$project</code>  等阶段中使用，用于根据条件生成新的字段值或进行数据处理。</li>
+</ul>
+<p>总结：</p>
+<p><code>$cond</code>  条件表达式是 MongoDB 聚合管道中用于逻辑判断的重要操作符之一，可以根据条件返回不同的值，对数据进行灵活的处理和转换。</p>
+<h5 id="match"><a class="markdownIt-Anchor" href="#match">#</a>  <code>$match</code></h5>
+<p>def: 用于筛选文档。它类似于查询中的  <code>find</code>  操作，可以根据指定的条件筛选文档并将符合条件的文档传递给下一个阶段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">db.collection.aggregate([</span><br><span class="line">  &#123;</span><br><span class="line">    $match: &#123;</span><br><span class="line">      field1: value1, // 匹配 field1 等于 value1 的文档</span><br><span class="line">      field2: value2, // 匹配 field2 等于 value2 的文档</span><br><span class="line">      // 可以根据需要添加更多字段和条件</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line">&quot;$match&quot;: &#123;</span><br><span class="line">        &quot;$or&quot;: [</span><br><span class="line">            &#123; &quot;danjuleixing_1&quot;: &quot;会议费办公报销单&quot; &#125;,</span><br><span class="line">            &#123; &quot;danjuleixing_1&quot;: &quot;会议费办公报销单a&quot; &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">$group</span><br></pre></td></tr></table></figure>
+<p>def: 是 MongoDB 聚合管道中的一个操作符，用于对文档进行分组并执行聚合操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;$group&quot;: &#123;</span><br><span class="line">        &quot;_id&quot;: &quot;$category&quot;,</span><br><span class="line">        &quot;totalSales&quot;: &#123; &quot;$sum&quot;: &quot;$amount&quot; &#125;,</span><br><span class="line">        &quot;averageAmount&quot;: &#123; &quot;$avg&quot;: &quot;$amount&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="索引的分类"><a class="markdownIt-Anchor" href="#索引的分类">#</a> 索引的分类</h4>
+<h5 id="单字段索引"><a class="markdownIt-Anchor" href="#单字段索引">#</a> <strong>单字段索引</strong></h5>
+<p>MongoDB 支持在文档的单个字段上创建用户定义的升序 / 降序索引</p>
+<h5 id="复合索引"><a class="markdownIt-Anchor" href="#复合索引">#</a> <strong>复合索引</strong></h5>
+<p>多个字段的用户定义索引</p>
+<p>例如，如果复合索引由 {userid: 1, score: -1} 组成，则索引首先按 userid 正序排序，然后 在每个 userid 的值内，再在按 score 倒序排序。</p>
+<h5 id="其他索引"><a class="markdownIt-Anchor" href="#其他索引">#</a> <strong>其他索引</strong></h5>
+<p>地理空间索引（Geospatial Index）、文本索引（Text Indexes）、哈希索引（Hashed Indexes）。</p>
+<p>地理空间索引（Geospatial Index） 为了支持对地理空间坐标数据的有效查询，MongoDB 提供了两种特殊的索引：返回结果时使用平面几何的二维索引和返回结果时使用球面 几何的二维球面索引。</p>
+<p>文本索引（Text Indexes）</p>
+<p>MongoDB 提供了一种文本索引类型，支持在集合中搜索字符串内容。这些文本索引不存储特定于语言的停止词（例如 “the”、“a”、“or”）， 而将集合中的词作为词干，只存储根词。</p>
+<p>哈希索引（Hashed Indexes）</p>
+<p>为了支持基于散列的分片，MongoDB 提供了散列索引类型，它对字段值的散列进行索引。这些索引在其范围内的值分布更加随机，但只支 持相等匹配，不支持基于范围的查询。</p>
+<h4 id="索引的操作"><a class="markdownIt-Anchor" href="#索引的操作">#</a> 索引的操作</h4>
+<h5 id="索引查看"><a class="markdownIt-Anchor" href="#索引查看">#</a> 索引查看</h5>
+<p>返回一个集合中的所有索引的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.getIndexes()</span><br></pre></td></tr></table></figure>
+<p>查看 comment 集合中所有的索引情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.comment.getIndexes()</span><br><span class="line">	[</span><br><span class="line">		&#123;</span><br><span class="line">				&quot;v&quot; : 2,</span><br><span class="line">				&quot;key&quot; : &#123;</span><br><span class="line">				&quot;_id&quot; : 1 (代表升序)</span><br><span class="line">			&#125;,</span><br><span class="line">				&quot;name&quot; : &quot;_id_&quot;,</span><br><span class="line">				&quot;ns&quot; : &quot;articledb.comment&quot;</span><br><span class="line">		&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>注意：该索引是唯一索引，因此值不能重复，即 _id 值不能重复的。在分片集群中，通常使用 _id 作为片键。</p>
+<h5 id="索引的创建"><a class="markdownIt-Anchor" href="#索引的创建">#</a> 索引的创建</h5>
+<p>在集合上创建索引。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.createIndex(keys, options)</span><br></pre></td></tr></table></figure>
+<p>ex:(单字段索引示例：对 userid 字段建立索引：)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.comment.createIndex(&#123;userid:1&#125;)</span><br><span class="line">	&#123;</span><br><span class="line">	&quot;createdCollectionAutomatically&quot; : false,</span><br><span class="line">	&quot;numIndexesBefore&quot; : 1,</span><br><span class="line">	&quot;numIndexesAfter&quot; : 2,</span><br><span class="line"> 	&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复合索引：对 userid 和 nickname 同时建立复合（Compound）索引：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.comment.createIndex(&#123;userid:1,nickname:-1&#125;)</span><br><span class="line">&#123;</span><br><span class="line">		&quot;createdCollectionAutomatically&quot; : false,</span><br><span class="line">		&quot;numIndexesBefore&quot; : 2,</span><br><span class="line">		&quot;numIndexesAfter&quot; : 3,</span><br><span class="line">		&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="移除索引"><a class="markdownIt-Anchor" href="#移除索引">#</a> 移除索引</h5>
+<p>指定索引的移除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.dropIndex(index)</span><br></pre></td></tr></table></figure>
+<p>ex:(删除 comment 集合中 userid 字段上的升序索引：)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.comment.dropIndex(&#123;userid:1&#125;)</span><br><span class="line">&#123; &quot;nIndexesWas&quot; : 3, &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
+<p>所有索引的移除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.dropIndexes()</span><br></pre></td></tr></table></figure>
+<p>删除 spit 集合中所有索引。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.comment.dropIndexes()</span><br><span class="line">&#123;</span><br><span class="line">	&quot;nIndexesWas&quot; : 2,</span><br><span class="line">	&quot;msg&quot; : &quot;non-_id indexes dropped for collection&quot;,</span><br><span class="line">	&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="索引的使用"><a class="markdownIt-Anchor" href="#索引的使用">#</a> 索引的使用</h4>
+<h5 id="执行计划"><a class="markdownIt-Anchor" href="#执行计划">#</a> 执行计划</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(query,options).explain(options)</span><br></pre></td></tr></table></figure>
+<p>ex:(查看根据 userid 查询数据的情况：)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.comment.find(&#123;userid:&quot;1003&quot;&#125;).explain()</span><br><span class="line">&#123;</span><br><span class="line">	&quot;queryPlanner&quot; : &#123;</span><br><span class="line">		&quot;plannerVersion&quot; : 1,</span><br><span class="line">		&quot;namespace&quot; : &quot;articledb.comment&quot;,</span><br><span class="line">		&quot;indexFilterSet&quot; : false,</span><br><span class="line">		&quot;parsedQuery&quot; : &#123;</span><br><span class="line">				&quot;userid&quot; : &#123;</span><br><span class="line">					&quot;$eq&quot; : &quot;1003&quot;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;winningPlan&quot; : &#123;</span><br><span class="line">			&quot;stage&quot; : &quot;COLLSCAN&quot;,</span><br><span class="line">			&quot;filter&quot; : &#123;</span><br><span class="line">				&quot;userid&quot; : &#123;</span><br><span class="line">					&quot;$eq&quot; : &quot;1003&quot;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				&quot;direction&quot; : &quot;forward&quot;</span><br><span class="line">			&#125;,</span><br><span class="line">			&quot;rejectedPlans&quot; : [ ]</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;serverInfo&quot; : &#123;</span><br><span class="line">				&quot;host&quot; : &quot;9ef3740277ad&quot;,</span><br><span class="line">				&quot;port&quot; : 27017,</span><br><span class="line">				&quot;version&quot; : &quot;4.0.10&quot;,</span><br><span class="line">				&quot;gitVersion&quot; : &quot;c389e7f69f637f7a1ac3cc9fae843b635f20b766&quot;</span><br><span class="line">		&#125;,</span><br><span class="line">	&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="mongodb的事务"><a class="markdownIt-Anchor" href="#mongodb的事务">#</a> MongoDB 的事务</h4>
+<h3 id="mongodb日志"><a class="markdownIt-Anchor" href="#mongodb日志">#</a> MongoDB 日志</h3>
+<p>ASIO： 表示异步输入输出（ASIO）相关的事件，通常与网络操作有关。</p>
+<p>REPL： 表示与复制（Replication）相关的事件，例如主从复制或副本集的操作。</p>
+<p>SHARDING： 与分片（Sharding）相关的事件，通常与分布式数据库架构有关。</p>
+<p>COMMAND： 表示 MongoDB 命令的执行，如数据库操作和查询。</p>
+<p>MONGOD： 表示 Mongod 进程的日志事件，通常是 MongoDB 的核心组件。</p>
+<p>NETWORK： 与网络通信相关的事件，例如连接和断开连接。</p>
+<p>QUERY： 表示查询相关的事件，通常包括查询性能和索引操作。</p>
+<p>STORAGE： 与存储引擎相关的事件，例如 WiredTiger 或 MMAPv1 存储引擎的操作。</p>
+<p>WRITE： 与写入操作相关的事件，例如插入、更新和删除文档的操作。</p>
+<p>ACCESS： 表示访问控制和权限相关的事件，包括用户身份验证和授权操作。</p>
+<p>TENANT_M： 与多租户（Tenant）相关的事件，可能包括租户划分和管理。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2025-05-15 21:48:33" itemprop="dateModified" datetime="2025-05-15T21:48:33+08:00">2025-05-15</time>
+  </span>
+  <span id="2023/07/15/MongoDB笔记/" class="item leancloud_visitors" data-flag-title="MongoDB笔记" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">http://example.com/2023/07/15/MongoDB笔记/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?522075" title="短信验证码登录">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>短信验证码登录</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?6371" title="学校项目一键导入功能">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>学校项目一键导入功能</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mongodb"><span class="toc-number">1.</span> <span class="toc-text"> MongoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-mongodb%E7%9A%84%E5%BC%95%E6%93%8E"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、MongoDB 的引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wiredtiger"><span class="toc-number">1.1.1.</span> <span class="toc-text"> WiredTiger</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wiredtiger-%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> WiredTiger 的特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.1.2.</span> <span class="toc-text"> 总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.1.3.</span> <span class="toc-text"> 官方文档总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#journal"><span class="toc-number">1.1.2.</span> <span class="toc-text"> journal</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.2.1.</span> <span class="toc-text"> 实现原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">1.1.2.2.</span> <span class="toc-text"> 总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gridfs"><span class="toc-number">1.1.3.</span> <span class="toc-text"> GridFS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.3.1.</span> <span class="toc-text"> 主要特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.1.3.2.</span> <span class="toc-text"> 使用场景：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-mongodb%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> 二、MongoDB 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> 数据库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text"> 展示数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B1%95%E7%A4%BA%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.0.1.2.</span> <span class="toc-text"> 展示当前数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">1.2.0.1.3.</span> <span class="toc-text"> 数据库的删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> 集合操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%88%9B%E5%BB%BAex%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8D%E4%B8%BAname%E7%9A%84%E9%9B%86%E5%90%88"><span class="toc-number">1.2.0.2.1.</span> <span class="toc-text"> 显示创建 (ex: 创建一个名为 name 的集合)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.0.2.2.</span> <span class="toc-text"> 隐式创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">1.2.0.2.3.</span> <span class="toc-text"> 集合的删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> 文档的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%8F%92%E5%85%A5"><span class="toc-number">1.2.0.3.1.</span> <span class="toc-text"> 文档插入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.3.2.</span> <span class="toc-text"> 文档查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="toc-number">1.2.0.3.3.</span> <span class="toc-text"> 文档的更新</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">1.2.0.3.4.</span> <span class="toc-text"> 文档的删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.4.</span> <span class="toc-text"> 分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.4.1.</span> <span class="toc-text"> 统计查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E5%88%97%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.4.2.</span> <span class="toc-text"> 分页列表查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.4.3.</span> <span class="toc-text"> 排序查询</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.5.</span> <span class="toc-text"> 文档更多的查询</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.5.1.</span> <span class="toc-text"> 正则查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.5.2.</span> <span class="toc-text"> 比较查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8C%85%E5%90%AB%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.5.3.</span> <span class="toc-text"> 包含查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.5.4.</span> <span class="toc-text"> 条件连接查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.0.5.5.</span> <span class="toc-text"> 常用命令总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E7%AE%A1%E9%81%93"><span class="toc-number">1.2.0.6.</span> <span class="toc-text"> 聚合管道</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.0.6.1.</span> <span class="toc-text"> 阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#addfields"><span class="toc-number">1.2.0.6.2.</span> <span class="toc-text">  $addFields</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#bucket"><span class="toc-number">1.2.0.6.3.</span> <span class="toc-text">  $bucket</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#bucketauto"><span class="toc-number">1.2.0.6.4.</span> <span class="toc-text">  $bucketAuto</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#collstats"><span class="toc-number">1.2.0.6.5.</span> <span class="toc-text">  $collStats</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#facet"><span class="toc-number">1.2.0.6.6.</span> <span class="toc-text">  $facet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#project"><span class="toc-number">1.2.0.6.7.</span> <span class="toc-text">  $project</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cond"><span class="toc-number">1.2.0.6.8.</span> <span class="toc-text">  $cond</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#match"><span class="toc-number">1.2.0.6.9.</span> <span class="toc-text">  $match</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.0.7.</span> <span class="toc-text"> 索引的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E5%AD%97%E6%AE%B5%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.0.7.1.</span> <span class="toc-text"> 单字段索引</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.0.7.2.</span> <span class="toc-text"> 复合索引</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.0.7.3.</span> <span class="toc-text"> 其他索引</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.0.8.</span> <span class="toc-text"> 索引的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E6%9F%A5%E7%9C%8B"><span class="toc-number">1.2.0.8.1.</span> <span class="toc-text"> 索引查看</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.0.8.2.</span> <span class="toc-text"> 索引的创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.0.8.3.</span> <span class="toc-text"> 移除索引</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.0.9.</span> <span class="toc-text"> 索引的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92"><span class="toc-number">1.2.0.9.1.</span> <span class="toc-text"> 执行计划</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb%E7%9A%84%E4%BA%8B%E5%8A%A1"><span class="toc-number">1.2.0.10.</span> <span class="toc-text"> MongoDB 的事务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb%E6%97%A5%E5%BF%97"><span class="toc-number">1.2.1.</span> <span class="toc-text"> MongoDB 日志</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Kuk"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Kuk</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">19</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" title="西安分公司线上bug">西安分公司线上bug</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="MongoDB性能测试">MongoDB性能测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="POI文件上传">POI文件上传</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="单点登录">单点登录</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">Spring源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kuk @ Kuk</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/15/MongoDB笔记/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -102,12 +102,12 @@ Kuk = Hexo</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?520640"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?234061"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?383149"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?293974"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?637458"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?576183"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?287157"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?843878"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?9785"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?442636"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?533852"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?356254"></li>
         </ul>
       </div>
     </header>
@@ -135,7 +135,7 @@ Kuk = Hexo</title>
 <span><a href="/">Home</a></span>
 </div>
 
-    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
   <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -151,95 +151,26 @@ Kuk = Hexo</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="短信登录"><a href="#短信登录" class="headerlink" title="短信登录"></a>短信登录</h2><p>参考<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3cxMzk2NjU5NzkzMS9hcnRpY2xlL2RldGFpbHMvMTI2MTYzOTAz">https://blog.csdn.net/w13966597931/article/details/126163903</span></p>
-<h3 id="阿里云实现"><a href="#阿里云实现" class="headerlink" title="阿里云实现"></a>阿里云实现</h3><h4 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h4><h5 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-java-sdk-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.5.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-java-sdk-dysmsapi<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="两个工具类"><a href="#两个工具类" class="headerlink" title="两个工具类"></a>两个工具类</h5><ul>
-<li><p>发送短信的工具类</p>
+    <h2 id="短信登录"><a class="markdownIt-Anchor" href="#短信登录">#</a> 短信登录</h2>
+<p>参考 https://blog.csdn.net/w13966597931/article/details/126163903</p>
+<h3 id="阿里云实现"><a class="markdownIt-Anchor" href="#阿里云实现">#</a> 阿里云实现</h3>
+<h4 id="逻辑"><a class="markdownIt-Anchor" href="#逻辑">#</a> 逻辑</h4>
+<h5 id="依赖"><a class="markdownIt-Anchor" href="#依赖">#</a> 依赖</h5>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-java-sdk-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.5.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-java-sdk-dysmsapi<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="两个工具类"><a class="markdownIt-Anchor" href="#两个工具类">#</a> 两个工具类</h5>
 <ul>
-<li><pre><code class="java">package com.ns.utils.SMSUtils;
-
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.profile.DefaultProfile;
-import org.springframework.stereotype.Component;
-
-
-/**
- * 短信发送工具类
- */
-@Component
-public class SMSUtils &#123;
-
-    /**
-     * 发送短信
-     * @param signName 签名
-     * @param templateCode 模板
-     * @param phoneNumbers 手机号
-     * @param param 参数
-     */
-    public static void sendMessage(String signName, String templateCode,String phoneNumbers,String param)&#123;
-        DefaultProfile profile = DefaultProfile.getProfile(&quot;cn-hangzhou&quot;, &quot;AccessKey&quot;, &quot;d0qe2MXRF43jy7tsRAygc2hEhvrDIY&quot;);
-        IAcsClient client = new DefaultAcsClient(profile);
-
-        SendSmsRequest request = new SendSmsRequest();
-        request.setSysRegionId(&quot;cn-hangzhou&quot;);
-        request.setPhoneNumbers(phoneNumbers);
-        request.setSignName(signName);
-        request.setTemplateCode(templateCode);
-        request.setTemplateParam(&quot;&#123;\&quot;code\&quot;:\&quot;&quot;+param+&quot;\&quot;&#125;&quot;);
-        try &#123;
-            SendSmsResponse response = client.getAcsResponse(request);
-            System.out.println(&quot;短信发送成功&quot;);
-        &#125;catch (ClientException e) &#123;
-            e.printStackTrace();
-        &#125;
-    &#125;
-&#125;
-- 生成随机数的工具类
-    package com.ns.utils.SMSUtils;
-    import org.springframework.stereotype.Component;
-    import java.util.Random;
-    
-    @Component
-    public class RandomUtils &#123;
-        /**
-         * 随机生成验证码
-         * @param length 长度为4位或者6位
-         * @return
-         */
-        public static Integer generateValidateCode(int length)&#123;
-            Integer code =null;
-            if(length == 4)&#123;
-                code = new Random().nextInt(9999);//生成随机数，最大为9999
-                if(code &lt; 1000)&#123;
-                    code = code + 1000;//保证随机数为4位数字
-                &#125;
-            &#125;else if(length == 6)&#123;
-                code = new Random().nextInt(999999);//生成随机数，最大为999999
-                if(code &lt; 100000)&#123;
-                    code = code + 100000;//保证随机数为6位数字
-                &#125;
-            &#125;else&#123;
-                throw new RuntimeException(&quot;只能生成4位或6位数字验证码&quot;);
-            &#125;
-            return code;
-        &#125;
-    &#125;
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 需提供两个api（redis实现）</span><br><span class="line"></span><br><span class="line">- 发送验证码</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    //校验手机号</span><br><span class="line">           if (!StringUtils.isNotEmpty(mobile) || mobile == &quot;&quot; || !mobile.matches(&quot;^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\\d&#123;8&#125;$&quot;))</span><br><span class="line">               throw new GlobalException(HttpStatus.BAD_REQUEST,&quot;手机号不合法&quot;);</span><br><span class="line">           // 生成随机6位验证码</span><br><span class="line">           String code = RandomUtils.generateValidateCode(6).toString();</span><br><span class="line">           System.out.println(&quot;code=&quot; + code);</span><br><span class="line">           // 调用阿里云提供的短信服务API完成发送短信</span><br><span class="line">           SMSUtils.sendMessage(&quot;Kuk博客&quot;, &quot;SMS_462055582&quot;, mobile, code);</span><br><span class="line">           // 将生成的验证码缓存到Redis中（封装后的reddis）</span><br><span class="line">           smsCode.CacheCode(mobile,code);</span><br><span class="line">           return ResponseUtil.success(&quot;手机验证按发送成功&quot;, HttpStatus.OK);</span><br><span class="line">    - 使用验证码登录</span><br><span class="line">    </span><br><span class="line">        //        校验手机号</span><br><span class="line">                if (!StringUtils.isNotEmpty(mobile) || mobile == &quot;&quot; || !mobile.matches(&quot;^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\\d&#123;8&#125;$&quot;))</span><br><span class="line">                    throw new GlobalException(HttpStatus.BAD_REQUEST,&quot;手机号不合法&quot;);</span><br><span class="line">        //        从缓存中获取code</span><br><span class="line">                String c = smsCode.GetCode(mobile);</span><br><span class="line">                if (!c.equals(code))</span><br><span class="line">                    throw new GlobalException(HttpStatus.BAD_REQUEST, &quot;验证码错误！&quot;);</span><br><span class="line">        //        根据手机号获取用户信息</span><br><span class="line">                String corpId = tenantEntity.getCorp_id();</span><br><span class="line">                Document user = userService.getUserByMobile(mobile,corpId);</span><br><span class="line">                if (user == null||user.isEmpty())</span><br><span class="line">                    throw new GlobalException(HttpStatus.BAD_REQUEST, &quot;用户不存在！&quot;);</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<li>
+<p>发送短信的工具类</p>
+<ul>
+<li>
+<figure class="highlight java"><figcaption data-lang="java"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ns<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">SMSUtils</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span></span><span class="token class-name">DefaultAcsClient</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span></span><span class="token class-name">IAcsClient</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span>dysmsapi<span class="token punctuation">.</span>model<span class="token punctuation">.</span>v20170525<span class="token punctuation">.</span></span><span class="token class-name">SendSmsRequest</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span>dysmsapi<span class="token punctuation">.</span>model<span class="token punctuation">.</span>v20170525<span class="token punctuation">.</span></span><span class="token class-name">SendSmsResponse</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span>exceptions<span class="token punctuation">.</span></span><span class="token class-name">ClientException</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span>profile<span class="token punctuation">.</span></span><span class="token class-name">DefaultProfile</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">/**</span></pre></td></tr><tr><td data-num="13"></td><td><pre> * 短信发送工具类</pre></td></tr><tr><td data-num="14"></td><td><pre> */</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token annotation punctuation">@Component</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SMSUtils</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token comment">/**</span></pre></td></tr><tr><td data-num="19"></td><td><pre>     * 发送短信</pre></td></tr><tr><td data-num="20"></td><td><pre>     * @param signName 签名</pre></td></tr><tr><td data-num="21"></td><td><pre>     * @param templateCode 模板</pre></td></tr><tr><td data-num="22"></td><td><pre>     * @param phoneNumbers 手机号</pre></td></tr><tr><td data-num="23"></td><td><pre>     * @param param 参数</pre></td></tr><tr><td data-num="24"></td><td><pre>     */</pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">String</span> signName<span class="token punctuation">,</span> <span class="token class-name">String</span> templateCode<span class="token punctuation">,</span><span class="token class-name">String</span> phoneNumbers<span class="token punctuation">,</span><span class="token class-name">String</span> param<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token class-name">DefaultProfile</span> profile <span class="token operator">=</span> <span class="token class-name">DefaultProfile</span><span class="token punctuation">.</span><span class="token function">getProfile</span><span class="token punctuation">(</span><span class="token string">"cn-hangzhou"</span><span class="token punctuation">,</span> <span class="token string">"AccessKey"</span><span class="token punctuation">,</span> <span class="token string">"d0qe2MXRF43jy7tsRAygc2hEhvrDIY"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token class-name">IAcsClient</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultAcsClient</span><span class="token punctuation">(</span>profile<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token class-name">SendSmsRequest</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SendSmsRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        request<span class="token punctuation">.</span><span class="token function">setSysRegionId</span><span class="token punctuation">(</span><span class="token string">"cn-hangzhou"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        request<span class="token punctuation">.</span><span class="token function">setPhoneNumbers</span><span class="token punctuation">(</span>phoneNumbers<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        request<span class="token punctuation">.</span><span class="token function">setSignName</span><span class="token punctuation">(</span>signName<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>        request<span class="token punctuation">.</span><span class="token function">setTemplateCode</span><span class="token punctuation">(</span>templateCode<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>        request<span class="token punctuation">.</span><span class="token function">setTemplateParam</span><span class="token punctuation">(</span><span class="token string">"&#123;\"code\":\""</span><span class="token operator">+</span>param<span class="token operator">+</span><span class="token string">"\"&#125;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>            <span class="token class-name">SendSmsResponse</span> response <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">getAcsResponse</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"短信发送成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ClientException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token operator">-</span> 生成随机数的工具类</pre></td></tr><tr><td data-num="44"></td><td><pre>    <span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>ns<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">SMSUtils</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Random</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    </pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token annotation punctuation">@Component</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RandomUtils</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>        <span class="token comment">/**</span></pre></td></tr><tr><td data-num="51"></td><td><pre>         * 随机生成验证码</pre></td></tr><tr><td data-num="52"></td><td><pre>         * @param length 长度为 4 位或者 6 位</pre></td></tr><tr><td data-num="53"></td><td><pre>         * @return</pre></td></tr><tr><td data-num="54"></td><td><pre>         */</pre></td></tr><tr><td data-num="55"></td><td><pre>        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Integer</span> <span class="token function">generateValidateCode</span><span class="token punctuation">(</span><span class="token keyword">int</span> length<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>            <span class="token class-name">Integer</span> code <span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>            <span class="token keyword">if</span><span class="token punctuation">(</span>length <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="58"></td><td><pre>                code <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">9999</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 生成随机数，最大为 9999</span></pre></td></tr><tr><td data-num="59"></td><td><pre>                <span class="token keyword">if</span><span class="token punctuation">(</span>code <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>                    code <span class="token operator">=</span> code <span class="token operator">+</span> <span class="token number">1000</span><span class="token punctuation">;</span><span class="token comment">// 保证随机数为 4 位数字</span></pre></td></tr><tr><td data-num="61"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="62"></td><td><pre>            <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>length <span class="token operator">==</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="63"></td><td><pre>                code <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">999999</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 生成随机数，最大为 999999</span></pre></td></tr><tr><td data-num="64"></td><td><pre>                <span class="token keyword">if</span><span class="token punctuation">(</span>code <span class="token operator">&lt;</span> <span class="token number">100000</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="65"></td><td><pre>                    code <span class="token operator">=</span> code <span class="token operator">+</span> <span class="token number">100000</span><span class="token punctuation">;</span><span class="token comment">// 保证随机数为 6 位数字</span></pre></td></tr><tr><td data-num="66"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="67"></td><td><pre>            <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="68"></td><td><pre>                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"只能生成4位或6位数字验证码"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="69"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>            <span class="token keyword">return</span> code<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="71"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="72"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="73"></td><td><pre></pre></td></tr><tr><td data-num="74"></td><td><pre></pre></td></tr><tr><td data-num="75"></td><td><pre><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>code￼<span class="token number">1</span><span class="token operator">--</span><span class="token operator">></span></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-<h5 id="遇到的bug"><a href="#遇到的bug" class="headerlink" title="遇到的bug"></a><strong>遇到的bug</strong></h5><ul>
-<li>缓存根据key拿到的value为null （可能会报空指针异常）</li>
-<li>在创建子用户时要保存好AccessKeyId和AccessSecret</li>
+<h5 id="遇到的bug"><a class="markdownIt-Anchor" href="#遇到的bug">#</a> <strong>遇到的 bug</strong></h5>
+<ul>
+<li>缓存根据 key 拿到的 value 为 null （可能会报空指针异常）</li>
+<li>在创建子用户时要保存好 AccessKeyId 和 AccessSecret</li>
 </ul>
 
       <div class="tags">
@@ -255,7 +186,7 @@ public class SMSUtils &#123;
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2024-07-11 16:46:24" itemprop="dateModified" datetime="2024-07-11T16:46:24+08:00">2024-07-11</time>
+    <time title="Modified: 2025-05-15 22:03:31" itemprop="dateModified" datetime="2025-05-15T22:03:31+08:00">2025-05-15</time>
   </span>
   <span id="2023/07/02/短信验证码登录/" class="item leancloud_visitors" data-flag-title="短信验证码登录" title="Views">
       <span class="icon">
@@ -320,10 +251,10 @@ public class SMSUtils &#123;
     <div class="item right">
       
 
-  <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?621511" title="平台登录信息API加密传输">
+  <a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?958381" title="MongoDB笔记">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>平台登录信息API加密传输</h3>
+  <h3>MongoDB笔记</h3>
   </a>
 
     </div>
@@ -342,7 +273,7 @@ public class SMSUtils &#123;
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">短信登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.</span> <span class="toc-text">阿里云实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91"><span class="toc-number">1.1.1.</span> <span class="toc-text">逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">两个工具类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84bug"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">遇到的bug</span></a></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text"> 短信登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 阿里云实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> 依赖</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">1.1.1.2.</span> <span class="toc-text"> 两个工具类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84bug"><span class="toc-number">1.1.1.3.</span> <span class="toc-text"> 遇到的 bug</span></a></li></ol></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
       </div>
@@ -357,13 +288,13 @@ public class SMSUtils &#123;
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">4</span>
+        <span class="count">19</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">2</span>
+        <span class="count">5</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -451,16 +382,7 @@ public class SMSUtils &#123;
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" title="短信验证码登录">短信验证码登录</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
+    <span><a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
   </li>
 
       
@@ -478,7 +400,70 @@ public class SMSUtils &#123;
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/07/15/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/HashMap%E6%BA%90%E7%A0%81/" title="HashMap源码">HashMap源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="MongoDB性能测试">MongoDB性能测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">Spring源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记">JavaScript笔记</a></span>
   </li>
 
   </ul>

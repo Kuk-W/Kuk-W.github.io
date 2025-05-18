@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -88,12 +88,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?260664"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?106676"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?655542"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?677340"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?384853"></li>
-          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?667096"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?532446"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?714916"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?719798"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?850533"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?362282"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?686173"></li>
         </ul>
       </div>
     </header>
@@ -120,119 +120,373 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/07/15/hello-world/" itemprop="url" title="Hello World"><img data-src="https://acg.xydwz.cn/api/api.php?624933"></a>
+    <a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" itemprop="url" title="西安分公司线上bug"><img data-src="https://acg.xydwz.cn/api/api.php?283460"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="Created: 2024-07-15 00:57:28">
+  <span class="item" title="Created: 2025-05-15 21:42:07">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2024-07-15T00:57:28+08:00">2024-07-15</time>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:42:07+08:00">2025-05-15</time>
   </span>
 </div>
 
-    <h3><a href="/2024/07/15/hello-world/" itemprop="url" title="Hello World">Hello World</a></h3>
+    <h3><a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" itemprop="url" title="西安分公司线上bug">西安分公司线上bug</a></h3>
     <div class="excerpt">
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &amp;quot;My New Post&amp;quot;
+        BUG 描述：
+在修改人员信息的岗位时，出现报错信息：” 该岗位 id 非隶属于该组织”。
+报错环境：西安内网。
+排查思路：
 
-More info: Writing
-Run server1$...
+查看本地代码，尝试复现 BUG。
+抓取一次请求，分析岗位 ID 和组织 ID 是否与数据库中的数据一致。
+由于无法进行断点调试，通过在代码中添加打印语句输出到控制台进行排查。
+
+实际排查过程：
+
+查阅西安内网日志，查看报错原因和位置。
+检查本地代码是否存在逻辑错误。
+尝试在本地环境复现 BUG。
+在西安内网抓取一次请求，分析传递的组织 ID 和岗位 ID 是否正确。检查前端传参是否有误。
+使用 Compass...
     </div>
-    <a href="/2024/07/15/hello-world/" itemprop="url" title="Hello World" class="btn">more...</a>
+    <a href="/2025/05/15/%E8%A5%BF%E5%AE%89%E5%88%86%E5%85%AC%E5%8F%B8%E7%BA%BF%E4%B8%8Abug/" itemprop="url" title="西安分公司线上bug" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" itemprop="url" title="JVM学习"><img data-src="https://acg.xydwz.cn/api/api.php?534529"></a>
+    <a href="/2025/05/15/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" title="平台登录信息API加密传输"><img data-src="https://acg.xydwz.cn/api/api.php?404273"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="Created: 2024-07-11 09:31:32">
+  <span class="item" title="Created: 2025-05-15 21:41:49">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2024-07-11T09:31:32+08:00">2024-07-11</time>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:41:49+08:00">2025-05-15</time>
   </span>
 </div>
 
-    <h3><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" itemprop="url" title="JVM学习">JVM学习</a></h3>
+    <h3><a href="/2025/05/15/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" title="平台登录信息API加密传输">平台登录信息API加密传输</a></h3>
     <div class="excerpt">
-        bootstrap：加载最核心的类库 比如JDK的一些类
-Excel：扩展类加载器 一般加载额外导的依赖的类
-App：一般是加载加载classpath的指定的内容
-Cuton : 处理自定义 的类加载器
-连接中
-验证：
-准备：给静态变量赋值
-硬件层数据一致性现代CPU的数据一致性实现 &amp;#x3D; 缓存锁（MESI）+锁总线
-LoadStore屏障
-对于语句...
+        # 传输动态加密
+# RSA 简介
+是非对称加密算法
+# 优点：
+
+安全性高：RSA 的安全性基于大素数的质因数分解难题，这个难题在目前的计算能力下是不可解的，因此 RSA 具有较高的安全性。
+公钥易于分发：RSA 的公钥可以自由分发，因此在实际应用中，发送方只需要知道接收方的公钥即可进行加密通信。
+数字签名功能：RSA 可以用于数字签名，保证数字签名的真实性和完整性。
+
+# 缺点：
+
+计算量大：RSA 的加密和解密需要进行大量的数学运算，因此计算量比较大，特别是在处理大数据时，会消耗大量的时间和计算资源。
+密钥管理困难：RSA...
     </div>
-    <a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" itemprop="url" title="JVM学习" class="btn">more...</a>
+    <a href="/2025/05/15/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" title="平台登录信息API加密传输" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" title="平台登录信息API加密传输"><img data-src="https://acg.xydwz.cn/api/api.php?980782"></a>
+    <a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" itemprop="url" title="技术tips"><img data-src="https://acg.xydwz.cn/api/api.php?87522"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="Created: 2023-07-02 16:15:41">
+  <span class="item" title="Created: 2025-05-15 21:41:27">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-02T16:15:41+08:00">2023-07-02</time>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:41:27+08:00">2025-05-15</time>
   </span>
 </div>
 
-    <h3><a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" title="平台登录信息API加密传输">平台登录信息API加密传输</a></h3>
+    <h3><a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" itemprop="url" title="技术tips">技术tips</a></h3>
     <div class="excerpt">
-        传输动态加密RSA简介是非对称加密算法
-优点：
-安全性高：RSA的安全性基于大素数的质因数分解难题，这个难题在目前的计算能力下是不可解的，因此RSA具有较高的安全性。
-公钥易于分发：RSA的公钥可以自由分发，因此在实际应用中，发送方只需要知道接收方的公钥即可进行加密通信。
-数字签名功能：RSA可以用于数字签名，保证数字签名的真实性和完整性。
+        # 遇到技术上的问题
+在学生生一键导入功能中
 
-缺点：
-计算量大：RSA的加密和解密需要进行大量的数学运算，因此计算量比较大，特别是在处理大数据时，会消耗大量的时间和计算资源。
-密钥管理困难：RSA需要管理一对密钥，其中私钥必须保密，如果私钥泄露，就会导致通信的安全性受到威胁。
-无法加密超过密钥长度的...
+有一、二次导入 （加标志位解决的） List 中区分数据 第一次的时候操作在 foreach 中 remove 数据 一直会数组越界异常
+
+在修改人员组织的 Bug
+
+//属性默认值校验中
+List&amp;lt;Object&amp;gt; list ......;
+// list是默认值允许出现的集合 list中 放有 A,B,C
+List&amp;lt;Object&amp;gt; valueSet = (List) str;
+// valueSet是默认值 valueSet中 放有 A,B
+for (int i = 0; i...
     </div>
-    <a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" itemprop="url" title="平台登录信息API加密传输" class="btn">more...</a>
+    <a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" itemprop="url" title="技术tips" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" itemprop="url" title="短信验证码登录"><img data-src="https://acg.xydwz.cn/api/api.php?964137"></a>
+    <a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" title="计算机网络"><img data-src="https://acg.xydwz.cn/api/api.php?989191"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="Created: 2023-07-02 09:24:56">
+  <span class="item" title="Created: 2025-05-15 21:41:14">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-02T09:24:56+08:00">2023-07-02</time>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:41:14+08:00">2025-05-15</time>
   </span>
 </div>
 
-    <h3><a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" itemprop="url" title="短信验证码登录">短信验证码登录</a></h3>
+    <h3><a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" title="计算机网络">计算机网络</a></h3>
     <div class="excerpt">
-        短信登录参考https://blog.csdn.net/w13966597931/article/details/126163903
-阿里云实现逻辑依赖12345678910&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.aliyun&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aliyun-java-sdk-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.5.16&amp;lt;/version&amp;gt;...
+        # 计算机网络基础
+
+计算机之间的通信 ：主机 A 的某个进程和主机 B 的某个进程之间进行通信
+
+C/S（client、server）
+
+# 计算机网络分类
+# 按照作用范围划分
+
+广域网 也叫远程网
+
+作用范围：几十到几千公里
+
+地域网
+
+作用范围：5~50 公里 一般一个城市的范围
+
+局域网
+
+类似一个网吧
+
+个人区域网 PAN
+
+手机和电脑通过蓝牙连接
+
+#...
     </div>
-    <a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" itemprop="url" title="短信验证码登录" class="btn">more...</a>
+    <a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" title="计算机网络" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" itemprop="url" title="Spring源码"><img data-src="https://acg.xydwz.cn/api/api.php?759240"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2025-05-15 21:40:22">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:40:22+08:00">2025-05-15</time>
+  </span>
+</div>
+
+    <h3><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" itemprop="url" title="Spring源码">Spring源码</a></h3>
+    <div class="excerpt">
+        # Spring 源码学习
+# 一、涉及的设计模式
+
+单例模式（Singleton）：单例模式确保一个类只有一个实例，并提供全局访问点。在 Spring 中，Bean 默认使用单例模式，这意味着 Spring 容器中的 Bean 只会被创建一次，并在整个应用程序中共享。通过单例模式，可以确保各个组件之间共享同一实例，提高性能和资源的利用率。
+
+在 Bean 创建的时候
+
+工厂模式（Factory）：工厂模式是一种创建型设计模式，通过工厂类来创建和管理对象实例。在 Spring 中，Bean 工厂（如 ApplicationContext）充当工厂角色，负责根据配置或注解创建和管理 Bean...
+    </div>
+    <a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" itemprop="url" title="Spring源码" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" itemprop="url" title="POI文件上传"><img data-src="https://acg.xydwz.cn/api/api.php?753995"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2025-05-15 21:40:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:40:04+08:00">2025-05-15</time>
+  </span>
+</div>
+
+    <h3><a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" itemprop="url" title="POI文件上传">POI文件上传</a></h3>
+    <div class="excerpt">
+        # poi
+组件
+常用组件：
+HSSFWorkbook excel 的文档对象
+HSSFSheet excel 的表单
+HSSFRow excel 的行
+HSSFCell excel 的格子单元
+HSSFFont excel 字体
+HSSFDataFormat 日期格式
+HSSFHeader sheet 头
+HSSFFooter sheet 尾（只有打印的时候才能看到效果）
+用 poi 创建 Excel 原理：
+首先了解以下 excel 文件怎么和 poi 中的组件对应起来的。
+一个 Excel 文件对应于一个 Workbook 对象
+一个 Workbook 可以有多个 Sheet...
+    </div>
+    <a href="/2025/05/15/POI%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" itemprop="url" title="POI文件上传" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" title="MongoDB性能测试"><img data-src="https://acg.xydwz.cn/api/api.php?249455"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2025-05-15 21:39:41">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:39:41+08:00">2025-05-15</time>
+  </span>
+</div>
+
+    <h3><a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" title="MongoDB性能测试">MongoDB性能测试</a></h3>
+    <div class="excerpt">
+        # 环境准备
+# 一、liunx 搭建单机
+# 1、配置文件
+12345678910111213141516配置文件storage: dbPath: /usr/local/mongodb-4.0.7/data/single/data-27017 journal: 	 enabled: truesystemLog: destination: file logAppend: true path: /usr/local/mongodb-4.0.7/log/single/mongodb-27017.logprocessManagement: fork: truenet: port: 27017...
+    </div>
+    <a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" itemprop="url" title="MongoDB性能测试" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" title="Liunx软件安装"><img data-src="https://acg.xydwz.cn/api/api.php?804866"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2025-05-15 21:39:05">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-15T21:39:05+08:00">2025-05-15</time>
+  </span>
+</div>
+
+    <h3><a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" title="Liunx软件安装">Liunx软件安装</a></h3>
+    <div class="excerpt">
+        
+    </div>
+    <a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" title="Liunx软件安装" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" itemprop="url" title="Liunx安装"><img data-src="https://acg.xydwz.cn/api/api.php?916967"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2024-07-16 08:53:37">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-16T08:53:37+08:00">2024-07-16</time>
+  </span>
+</div>
+
+    <h3><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" itemprop="url" title="Liunx安装">Liunx安装</a></h3>
+    <div class="excerpt">
+        # liunx 常用命令
+查看当前路径
+1pwd
+查看当前目录的文件
+123llorls
+移动文件夹或重名名 (将 oldname.file 改为 newname,file)
+1mv oldname.file newname.file
+解压文件夹 (解压 objecter.tar 文件并且放在 /usr/local/kuk 目录下)
+1tar -xzvf object.tar -C /usr/local/kuk
+
+x: 表示解压
+z: 表示使用 gizp 压缩
+V: 表示显示详细的解压过程
+f: 表示解压指定的文件
+
+查看当前所有进程命令
+1ps aux |grep...
+    </div>
+    <a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" itemprop="url" title="Liunx安装" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" itemprop="url" title="JavaScript笔记"><img data-src="https://acg.xydwz.cn/api/api.php?646731"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2024-07-16 08:53:19">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-16T08:53:19+08:00">2024-07-16</time>
+  </span>
+</div>
+
+    <h3><a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" itemprop="url" title="JavaScript笔记">JavaScript笔记</a></h3>
+    <div class="excerpt">
+        # JavaScript 学习笔记
+# 第一章 — 简介
+# JavaScript 是什么
+是一个运行在网页的编程语言
+# JavaScript 三中书写位置
+
+内部
+外部
+行内
+
+# JavaScript 注释方式
+
+单行注释 //
+多行注释 /**/
+
+# JavaScript 结束语
+可以有分号也可以没有分号
+# JavaScript 输入输出语句
+
+输入 prompt ()
+输入 alert ()、document.write ()、console.log ()
+
+# JavaScript 字面量
+
+[] 数组字面量
+{} 对象字面量
+
+# 第二章 — 变量
+# 变量的声明
+声明变量：...
+    </div>
+    <a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" itemprop="url" title="JavaScript笔记" class="btn">more...</a>
   </div>
 </article>
 
@@ -241,6 +495,11 @@ LoadStore屏障
   </div>
 
   
+  <nav class="pagination">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="ic i-angle-right" aria-label="Next page"></i></a>
+    </div>
+  </nav>
 
 
 
@@ -266,13 +525,13 @@ LoadStore屏障
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">4</span>
+        <span class="count">19</span>
         <span class="name">posts</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">2</span>
+        <span class="count">5</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -337,6 +596,7 @@ LoadStore屏障
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/page/2/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -359,6 +619,60 @@ LoadStore屏障
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="MongoDB性能测试">MongoDB性能测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" title="技术tips">技术tips</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/07/15/MongoDB%E7%AC%94%E8%AE%B0/" title="MongoDB笔记">MongoDB笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Liunx软件安装">Liunx软件安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx安装">Liunx安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/07/02/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95/" title="短信验证码登录">短信验证码登录</a></span>
   </li>
 
@@ -368,7 +682,7 @@ LoadStore屏障
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/07/02/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
+    <span><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">Spring源码</a></span>
   </li>
 
       
@@ -377,7 +691,7 @@ LoadStore屏障
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">JVM学习</a></span>
+    <span><a href="/2024/07/16/HashMap%E6%BA%90%E7%A0%81/" title="HashMap源码">HashMap源码</a></span>
   </li>
 
       
@@ -386,7 +700,7 @@ LoadStore屏障
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/07/15/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2025/05/15/%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AFAPI%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93/" title="平台登录信息API加密传输">平台登录信息API加密传输</a></span>
   </li>
 
   </ul>

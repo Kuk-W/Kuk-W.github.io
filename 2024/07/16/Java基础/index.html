@@ -1,0 +1,689 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Java" />
+
+
+<link rel="canonical" href="http://example.com/2024/07/16/Java%E5%9F%BA%E7%A1%80/">
+
+
+
+  <title>
+Java基础 |
+Kuk = Hexo</title>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Java基础
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-07-16 08:53:05">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-16T08:53:05+08:00">2024-07-16</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Kuk</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?925130"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?975844"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?796201"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?549203"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?344989"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?540284"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/16/Java%E5%9F%BA%E7%A1%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="java基础"><a class="markdownIt-Anchor" href="#java基础">#</a> java 基础</h1>
+<h2 id="第四章-面向对象"><a class="markdownIt-Anchor" href="#第四章-面向对象">#</a> 第四章 - 面向对象</h2>
+<h3 id="1-抽象方法"><a class="markdownIt-Anchor" href="#1-抽象方法">#</a> 1、抽象方法</h3>
+<h4 id="def"><a class="markdownIt-Anchor" href="#def">#</a> def</h4>
+<p>1、所谓抽象就是：没有方法体 的 方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract void getName();</span><br></pre></td></tr></table></figure>
+<p>2、用 abstract 修饰的类叫抽象类 abstract 修饰的方法叫抽象方法</p>
+<h4 id="使用背景"><a class="markdownIt-Anchor" href="#使用背景">#</a> 使用背景</h4>
+<p>1、父类 方法 不确定要实现为什么，换句话说就是为了后期去重写的（一般子类会去重写）</p>
+<h4 id="使用方法"><a class="markdownIt-Anchor" href="#使用方法">#</a> 使用方法</h4>
+<p>用 abstract 关键字 修饰</p>
+<h4 id="detail"><a class="markdownIt-Anchor" href="#detail">#</a> Detail</h4>
+<p>1、抽象类不能被实例化</p>
+<p>2、抽象类不一定包括抽象方法（抽象类，可以没有抽象方法，而且可以有实现的方法）</p>
+<p>3、一个类一旦包含了 abstract 方法，则该类必须声明为 abstract</p>
+<p>4、abstract 只能修饰类和方法， 不能修饰其他方法。</p>
+<p>5、抽象类 == 类 本质是类（抽象方法，构造器，静态属性）</p>
+<p>6、☆☆☆抽象类不能有主体</p>
+<p>7、如果一个类继承了抽象类，则他必须实现抽象类的所有抽象方法，除非他自己也声明为 abstract 类</p>
+<p>8、☆☆☆☆☆☆抽象方法不能被 private,final,static 修饰符修饰，因为修饰符都涉及到重写，与之相违背</p>
+<p>static 静态方法可以被继承但是不能被重写</p>
+<h3 id="2-代码块"><a class="markdownIt-Anchor" href="#2-代码块">#</a> 2、代码块</h3>
+<h4 id="def-2"><a class="markdownIt-Anchor" href="#def-2">#</a> Def</h4>
+<p>代码化块又叫初始化块，属于类中的成员（即是类的一部分），类似于方法，将逻辑语句封装在方法体中，通过 {} 包围</p>
+<p>不用通过对象或类显示调用，而是类加载时，或创建对象时隐式调用</p>
+<h4 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法">#</a> 基本语法</h4>
+<p>修饰符 {</p>
+<p>代码</p>
+<p>}；</p>
+<p>注意 1、修饰符可选，只能用 static</p>
+<p>2、分为两类一种被 static 修饰叫静态代码块，另一种被称为普通代码块</p>
+<p>3、；可以省略可以写</p>
+<p>4、逻辑语句任意</p>
+<h4 id="detail-2"><a class="markdownIt-Anchor" href="#detail-2">#</a> Detail☆☆☆☆</h4>
+<p>1、代码块的调用的顺序优先于构造器</p>
+<p>2、静态代码块，作用对类进行初始化，而且随着类加载而执行，只会执行一次；</p>
+<p>3、普通代码块，创建实例时，会被隐式调用。被创建一次，调用一次。如果只是使用类的静态成员时，普通代码块不会被加载</p>
+<p>4、☆☆☆☆☆☆类什么时候被加载</p>
+<p>①创建对象实例时（new）</p>
+<p>②创建子类对象实例时，父类也会被加载</p>
+<p>③使用静态成员时</p>
+<p>5、如果有继承关系泽；先加载父类的代码块，再加载子类的代码块（因为父类构造器先加载，而代码块的调用的顺序优先于构造器 ）</p>
+<p>6、☆☆☆☆☆☆创建一个对象时，在一个类 调用的顺序是</p>
+<p>①调用静态代码块 和 静态属性初始化（静态代码块和静态属性初始化 调用优先级是一样、、如果有多个则按顺序执行）</p>
+<p>②调用普通代码块 和 普通属性初始化</p>
+<p>③调用构造方法</p>
+<p>7、☆☆☆☆构造器最前面 隐含了 super（）和调用普代码块，</p>
+<p>8、☆☆☆☆☆☆创建一个子类时（继承关系），静态代码块，静态属性初始化，普通代码块，普通属性初始化，构造器的顺序</p>
+<p>①父 静代码块和静属性 （优先级一样，按顺序执行）</p>
+<p>②子 静代码块和静属性 （优先级一样，按顺序执行）</p>
+<p>③父 普通码块和普通属性 （优先级一样，按顺序执行）</p>
+<p>④父 构造器</p>
+<p>⑤子 普通码块和普通属性 （优先级一样，按顺序执行）</p>
+<p>⑥子 构造器</p>
+<p>9、静态代码块只能调用静态成员，普通代码块可以调用任意成员</p>
+<h3 id="3-单例设计模式"><a class="markdownIt-Anchor" href="#3-单例设计模式">#</a> 3、单例设计模式</h3>
+<h4 id="一-单例单个实例"><a class="markdownIt-Anchor" href="#一-单例单个实例">#</a> 一、单例（单个实例）</h4>
+<p>1、所谓的单例设计模式，就是采取一定的方法保证这个软件系统中，对某个类只能存在一个实例对象，并且该类只提供一个取得其对象的方法</p>
+<p>2、单列模式有两种方式：①饿汉式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private String name ;</span><br><span class="line">//为了能够在静态方法中，返回gf对象，需要将其修饰为static</span><br><span class="line">    private static  GirlFriend gf = new GirlFriend(&quot;邓&quot;);</span><br><span class="line">/*</span><br><span class="line">* 如何保障我们只能创建一个 GrilFrined  的对象</span><br><span class="line">* 单例模式--饿汉式</span><br><span class="line">* 1、将构造器私有化</span><br><span class="line">* 2、在类的内部直接创建</span><br><span class="line">* 3、提供一个公共的static方法，返回gf对象</span><br><span class="line">* */</span><br><span class="line">    private GirlFriend(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">     static GirlFriend getInstance()&#123;</span><br><span class="line">        return gf;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>饿汉式缺点</p>
+<p>造成资源浪费，因为对象会被直接创建</p>
+<p>②懒汉式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 懒汉式</span><br><span class="line">* */</span><br><span class="line">public class Cat &#123;</span><br><span class="line">    private String name ;</span><br><span class="line">    private static Cat cat;</span><br><span class="line">    /*</span><br><span class="line">    * 1、构造器私有化</span><br><span class="line">    * 2、定义一个static的属性对象</span><br><span class="line">    * 3、提供一个public方法，可以返回一个Cat对象</span><br><span class="line">    * 4、</span><br><span class="line">    * */</span><br><span class="line">    private Cat(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public static Cat getInstance()&#123;</span><br><span class="line">        if (cat == null)&#123;</span><br><span class="line">//          如果没有创建cat对象</span><br><span class="line">            cat = new Cat(&quot;邓&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return cat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只有用户使用时才会创建对象</p>
+<h3 id="4-动态绑定机制"><a class="markdownIt-Anchor" href="#4-动态绑定机制">#</a> 4、动态绑定机制（☆☆☆☆☆）</h3>
+<p>1、当调用对象方法的时候，该方法会和该对象的 内存地址（运行类型） 绑定</p>
+<p>2、当调用对象属性时，没有动态绑定计机制，哪里声明 哪里使用</p>
+<h3 id="5-断点调试"><a class="markdownIt-Anchor" href="#5-断点调试">#</a> 5、断点调试</h3>
+<h4 id="一-介绍"><a class="markdownIt-Anchor" href="#一-介绍">#</a> 一、介绍</h4>
+<p>用来寻找错误的方法，注意在断点调试过程中 是运行状态，是以对象的运行类型来执行的</p>
+<h4 id="二-快捷键"><a class="markdownIt-Anchor" href="#二-快捷键">#</a> 二、快捷键</h4>
+<p>F7 ： 跳入 跳入方法内</p>
+<p>F8 ： 跳过 逐行执行代码</p>
+<p>Shift + F8 ：跳出 跳出方法</p>
+<p>F9 ： 执行到下一个断点</p>
+<p>alt+shift+f7：强制跳入</p>
+<h3 id="6-多态"><a class="markdownIt-Anchor" href="#6-多态">#</a> 6、多态</h3>
+<h4 id="一-def"><a class="markdownIt-Anchor" href="#一-def">#</a> 一、Def</h4>
+<p>方法或对象具有多种形态，是面向对象的第三大特征</p>
+<h4 id="二-体现"><a class="markdownIt-Anchor" href="#二-体现">#</a> 二、体现</h4>
+<h5 id="方法的多态"><a class="markdownIt-Anchor" href="#方法的多态">#</a> 方法的多态</h5>
+<p>方法的重载与重写</p>
+<h5 id="对象的多态"><a class="markdownIt-Anchor" href="#对象的多态">#</a> 对象的多态</h5>
+<p>一个对象的编译类型和运行类型可以不一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Animal();//编译类型是Animal 运行类型Animal</span><br><span class="line"></span><br><span class="line">Animal animal = new Cat();//编译类型是Animal 运行类型cat</span><br></pre></td></tr></table></figure>
+<p>编译类型在定义的时候就确定了，不能改变</p>
+<p>运行类型可以改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Animal();//编译类型是Animal 运行类型Animal</span><br><span class="line">animal = new Cat;//编译类型是Animal 运行类型变为Cat</span><br></pre></td></tr></table></figure>
+<p>编译类型看 = 左边 运行类型看 = 右边</p>
+<h5 id="多态的向上和向下"><a class="markdownIt-Anchor" href="#多态的向上和向下">#</a> 多态的向上和向下</h5>
+<h5 id="向上转型"><a class="markdownIt-Anchor" href="#向上转型">#</a> 向上转型</h5>
+<p>举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Dog();</span><br></pre></td></tr></table></figure>
+<p>本质：父类的引用指向子类</p>
+<p>语法：引用名 = new 子类类型 ()；</p>
+<p>特点：可以调用父类中所有成员（需要遵守访问规则）</p>
+<p>不能调用子类特有成员</p>
+<p>最终运行效果看子类的实现</p>
+<h5 id="向下转型"><a class="markdownIt-Anchor" href="#向下转型">#</a> 向下转型</h5>
+<p>举例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dog dog = (Dog)animal;</span><br></pre></td></tr></table></figure>
+<p><strong>用途</strong>：调用子类的特有方法（<strong>因为向下转型后 编译类型和运行类型一致所以可调用特有的方法，换句话说向下转型后与 Dog dog = new Dog (); 相同）</strong></p>
+<p><strong>本质</strong>：将父类的引用转回子类引用</p>
+<p><strong>语法</strong>：子类类型 引用名 = (子 ± 型) 父类引用；</p>
+<p><strong>特点</strong>：只能强转父类的引用，不能强转父类的对象</p>
+<p>要求 父类的引用 必须 是指向的是当前的目标类型 的对象（可理解为 之前就是作为引用的）</p>
+<p>当向下转型后就可以调用子类中的所有成员</p>
+<h4 id="detail-3"><a class="markdownIt-Anchor" href="#detail-3">#</a> Detail</h4>
+<p>1、属性没有重写这一说，属性的值看编译类型</p>
+<p>2、 instanceOf 比较操作符 判断 对象的运行类型 是否为 xx 类型 的 xx 类型 的子类</p>
+<h4 id="三-动态绑定机制"><a class="markdownIt-Anchor" href="#三-动态绑定机制">#</a> 三、动态绑定机制（☆☆☆☆☆）</h4>
+<p>1、当调用对象方法的时候，该方法会和该对象的 内存地址（运行类型） 绑定</p>
+<p>2、当调用对象属性时，没有动态绑定计机制，哪里声明 哪里使用</p>
+<h4 id="四-多态的应用"><a class="markdownIt-Anchor" href="#四-多态的应用">#</a> 四、多态的应用</h4>
+<h5 id="41多态数组"><a class="markdownIt-Anchor" href="#41多态数组">#</a> 4.1 多态数组</h5>
+<p>4.1.1 定义</p>
+<p>数组定义的类型为父类，数组元素为子类类型</p>
+<h5 id="42多态参数"><a class="markdownIt-Anchor" href="#42多态参数">#</a> 4.2 多态参数</h5>
+<p>4.2.1 定义</p>
+<p>方法定义的参数类型为父类类型，实参允许为子类类型</p>
+<h3 id="7-继承和接口关系"><a class="markdownIt-Anchor" href="#7-继承和接口关系">#</a> 7、继承和接口关系</h3>
+<h4 id="一-继承接口解决的问题不一样"><a class="markdownIt-Anchor" href="#一-继承接口解决的问题不一样">#</a> 一、继承接口解决的问题不一样</h4>
+<p>1、继承的价值主要用在：解决代码的服用性和可维护性</p>
+<p>2、接口的价值主要在于：设计各种规范，让其类实现这些方法</p>
+<h4 id="二-接口比继承更加灵活"><a class="markdownIt-Anchor" href="#二-接口比继承更加灵活">#</a> 二、接口比继承更加灵活</h4>
+<p>1、继承需要满足 is - a 的关系 ，而接口只需要满足 like - a 的关系即可</p>
+<h4 id="三-接口在一定程度上可以实现代码的解耦"><a class="markdownIt-Anchor" href="#三-接口在一定程度上可以实现代码的解耦">#</a> 三、接口在一定程度上可以实现代码的解耦</h4>
+<p>接口的规范性 + 动态绑定机制</p>
+<h3 id="8-接口"><a class="markdownIt-Anchor" href="#8-接口">#</a> 8、接口</h3>
+<h4 id="一-基本接口"><a class="markdownIt-Anchor" href="#一-基本接口">#</a> 一、基本接口</h4>
+<p>1、给出一些没有实现的方法，封装到一起</p>
+<h4 id="二-语法"><a class="markdownIt-Anchor" href="#二-语法">#</a> 二、语法</h4>
+<p>interface 接口名 {</p>
+<p>// 属性</p>
+<p>// 方法</p>
+<p>}</p>
+<p>class 类名 implements 接口 {</p>
+<p>自己属性</p>
+<p>自己方法</p>
+<p>必须实现的接口的抽象方法</p>
+<p>}</p>
+<p>[注意] jdk 7 前 接口类的所有方法都没有方法体，即是抽象的方法体</p>
+<p>[注意] jdk 8 后 接口可以有静态方法，默认方法，也就是说接口中可以有方法的具体实现</p>
+<h4 id="三-细节"><a class="markdownIt-Anchor" href="#三-细节">#</a> 三、细节</h4>
+<p>1、接口不能实例化</p>
+<p>2、接口中所有的方法都是 public 的，可以不用 abstract 修饰</p>
+<p>3、一个普通类实现接口，就必须将该接口的所有方法都实现。</p>
+<p>4、抽象类实现接口，可以不用实现接口方法</p>
+<p>5、☆一个类可以实现多个接口</p>
+<p>6、接口中的属性只能是 final，而且是 public static final 修饰符</p>
+<p>7、接口的访问形式：接口名。属性名</p>
+<p>8、一个接口不能继承他的类，但是可以继承多个别的接口</p>
+<p>9、接口的修饰符 只能是 public 和默认，这点和类的修饰符是一样的</p>
+<h3 id="9-类方法和类变量"><a class="markdownIt-Anchor" href="#9-类方法和类变量">#</a> 9、类方法和类变量</h3>
+<h4 id="一-类变量"><a class="markdownIt-Anchor" href="#一-类变量">#</a> 一、类变量</h4>
+<h5 id="1-实例变量和类变量的区别"><a class="markdownIt-Anchor" href="#1-实例变量和类变量的区别">#</a> 1、实例变量和类变量的区别</h5>
+<p>1.1 实例变量在创建对象是分配空间，类变量在类加载后就会被分配空间</p>
+<p>1.2 所有对象共享类变量，对同一个类所有对象共享（）</p>
+<p>1.3 实例变量通过对象访问 不能通过类名访问，类变量可以通过类名访问也可以通过对象访问（因为类创建了后类变量一定被创建，但是实例变量不一定被创建）</p>
+<h5 id="2-用法"><a class="markdownIt-Anchor" href="#2-用法">#</a> 2、用法</h5>
+<p>加修饰符 static 即可</p>
+<h4 id="二-类方法"><a class="markdownIt-Anchor" href="#二-类方法">#</a> 二、类方法</h4>
+<h5 id="1-实例方法和类方法的区别"><a class="markdownIt-Anchor" href="#1-实例方法和类方法的区别">#</a> 1、实例方法和类方法的区别</h5>
+<p>1.1 实例方法在创建对象是分配空间，类方法在类加载后就会被分配空间</p>
+<p>1.2 类方法不可以操作实例变量 并且 不能调用实例方法（类加载完成后实例变量和实例方法不）</p>
+<p>1.3</p>
+<h5 id="2-用法-2"><a class="markdownIt-Anchor" href="#2-用法-2">#</a> 2、用法</h5>
+<p>加修饰符 static 即可</p>
+<h2 id="第五章-封装类"><a class="markdownIt-Anchor" href="#第五章-封装类">#</a> 第五章 - 封装类</h2>
+
+      <div class="tags">
+          <a href="/tags/Java/" rel="tag"><i class="ic i-tag"></i> Java</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2025-05-15 21:45:22" itemprop="dateModified" datetime="2025-05-15T21:45:22+08:00">2025-05-15</time>
+  </span>
+  <span id="2024/07/16/Java基础/" class="item leancloud_visitors" data-flag-title="Java基础" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/07/16/Java%E5%9F%BA%E7%A1%80/" title="Java基础">http://example.com/2024/07/16/Java基础/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/16/HashMap%E6%BA%90%E7%A0%81/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?461610" title="HashMap源码">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>HashMap源码</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?660583" title="JavaScript笔记">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>JavaScript笔记</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text"> java 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text"> 第四章 - 面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 1、抽象方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#def"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> def</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.1.2.</span> <span class="toc-text"> 使用背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.1.3.</span> <span class="toc-text"> 使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#detail"><span class="toc-number">1.1.1.4.</span> <span class="toc-text"> Detail</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 2、代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#def-2"><span class="toc-number">1.1.2.1.</span> <span class="toc-text"> Def</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.2.2.</span> <span class="toc-text"> 基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#detail-2"><span class="toc-number">1.1.2.3.</span> <span class="toc-text"> Detail☆☆☆☆</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 3、单例设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-%E5%8D%95%E4%BE%8B%E5%8D%95%E4%B8%AA%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.1.3.1.</span> <span class="toc-text"> 一、单例（单个实例）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 4、动态绑定机制（☆☆☆☆☆）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95"><span class="toc-number">1.1.5.</span> <span class="toc-text"> 5、断点调试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.5.1.</span> <span class="toc-text"> 一、介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.1.5.2.</span> <span class="toc-text"> 二、快捷键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%A4%9A%E6%80%81"><span class="toc-number">1.1.6.</span> <span class="toc-text"> 6、多态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-def"><span class="toc-number">1.1.6.1.</span> <span class="toc-text"> 一、Def</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-%E4%BD%93%E7%8E%B0"><span class="toc-number">1.1.6.2.</span> <span class="toc-text"> 二、体现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E5%A4%9A%E6%80%81"><span class="toc-number">1.1.6.2.1.</span> <span class="toc-text"> 方法的多态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%A4%9A%E6%80%81"><span class="toc-number">1.1.6.2.2.</span> <span class="toc-text"> 对象的多态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E6%80%81%E7%9A%84%E5%90%91%E4%B8%8A%E5%92%8C%E5%90%91%E4%B8%8B"><span class="toc-number">1.1.6.2.3.</span> <span class="toc-text"> 多态的向上和向下</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B"><span class="toc-number">1.1.6.2.4.</span> <span class="toc-text"> 向上转型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B"><span class="toc-number">1.1.6.2.5.</span> <span class="toc-text"> 向下转型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#detail-3"><span class="toc-number">1.1.6.3.</span> <span class="toc-text"> Detail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89-%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.6.4.</span> <span class="toc-text"> 三、动态绑定机制（☆☆☆☆☆）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B-%E5%A4%9A%E6%80%81%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.6.5.</span> <span class="toc-text"> 四、多态的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#41%E5%A4%9A%E6%80%81%E6%95%B0%E7%BB%84"><span class="toc-number">1.1.6.5.1.</span> <span class="toc-text"> 4.1 多态数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#42%E5%A4%9A%E6%80%81%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.6.5.2.</span> <span class="toc-text"> 4.2 多态参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%BB%A7%E6%89%BF%E5%92%8C%E6%8E%A5%E5%8F%A3%E5%85%B3%E7%B3%BB"><span class="toc-number">1.1.7.</span> <span class="toc-text"> 7、继承和接口关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-%E7%BB%A7%E6%89%BF%E6%8E%A5%E5%8F%A3%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8D%E4%B8%80%E6%A0%B7"><span class="toc-number">1.1.7.1.</span> <span class="toc-text"> 一、继承接口解决的问题不一样</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-%E6%8E%A5%E5%8F%A3%E6%AF%94%E7%BB%A7%E6%89%BF%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB"><span class="toc-number">1.1.7.2.</span> <span class="toc-text"> 二、接口比继承更加灵活</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89-%E6%8E%A5%E5%8F%A3%E5%9C%A8%E4%B8%80%E5%AE%9A%E7%A8%8B%E5%BA%A6%E4%B8%8A%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%A3%E8%80%A6"><span class="toc-number">1.1.7.3.</span> <span class="toc-text"> 三、接口在一定程度上可以实现代码的解耦</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.8.</span> <span class="toc-text"> 8、接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-%E5%9F%BA%E6%9C%AC%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.8.1.</span> <span class="toc-text"> 一、基本接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.8.2.</span> <span class="toc-text"> 二、语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89-%E7%BB%86%E8%8A%82"><span class="toc-number">1.1.8.3.</span> <span class="toc-text"> 三、细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E7%B1%BB%E6%96%B9%E6%B3%95%E5%92%8C%E7%B1%BB%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.9.</span> <span class="toc-text"> 9、类方法和类变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-%E7%B1%BB%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.9.1.</span> <span class="toc-text"> 一、类变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.9.1.1.</span> <span class="toc-text"> 1、实例变量和类变量的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.9.1.2.</span> <span class="toc-text"> 2、用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.9.2.</span> <span class="toc-text"> 二、类方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.9.2.1.</span> <span class="toc-text"> 1、实例方法和类方法的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%94%A8%E6%B3%95-2"><span class="toc-number">1.1.9.2.2.</span> <span class="toc-text"> 2、用法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%B0%81%E8%A3%85%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 第五章 - 封装类</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Kuk"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Kuk</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">19</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/07/16/HashMap%E6%BA%90%E7%A0%81/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" title="技术tips">技术tips</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx安装">Liunx安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">Spring源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/git/" title="Git">Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记">JavaScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/MongoDB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="MongoDB性能测试">MongoDB性能测试</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Liunx软件安装">Liunx软件安装</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kuk @ Kuk</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/07/16/Java基础/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

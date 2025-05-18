@@ -1,0 +1,570 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="HashMap" />
+
+
+<link rel="canonical" href="http://example.com/2024/07/16/HashMap%E6%BA%90%E7%A0%81/">
+
+
+
+  <title>
+HashMap源码 |
+Kuk = Hexo</title>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">HashMap源码
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-07-16 08:52:57">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-16T08:52:57+08:00">2024-07-16</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Kuk</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?25649"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?11105"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?649108"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?578873"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?700555"></li>
+          <li class="item" data-background-image="https://acg.xydwz.cn/api/api.php?417848"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-Hans">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/16/HashMap%E6%BA%90%E7%A0%81/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Kuk">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>highestOneBit 方法 Integer 中的一个方法</p>
+<p>如何保证数组下标是一个 2 的次方数</p>
+<p>为什么数组下标是一个 2 的次方数</p>
+<p>因为在算数组下标时 需要一个 2 的次方数 开进行算</p>
+<p>在进行算下标时会遇到一个问题就是 高位不参与运算 回导致 hash 冲突很多</p>
+<p>思考如何让高位参与 算下标 的操作中</p>
+<p>通过右移和（^）异或运算就可以完美解决</p>
+<h4 id="hashmap源码解读"><a class="markdownIt-Anchor" href="#hashmap源码解读">#</a> HashMap 源码解读</h4>
+<p>先比较 hashcode、comparaTo、getClass.getName、System.identityHashCode（a）</p>
+<h5 id="当需要进行将数据转成红黑树时"><a class="markdownIt-Anchor" href="#当需要进行将数据转成红黑树时">#</a> 当需要进行将数据转成红黑树时</h5>
+<p>TreeNode 集成了很多类</p>
+<ol>
+<li>转红黑树之前所有的节点是 Node， new TreeNode</li>
+<li>将 TreeNode 转换成双向链表</li>
+</ol>
+<h6 id="转换为红黑树后"><a class="markdownIt-Anchor" href="#转换为红黑树后">#</a> 转换为红黑树后</h6>
+<ol>
+<li>维护一个双向链表
+<ol>
+<li>原因：红黑树的根节点要与链表保持一致，如果是单向链表的话可能不太好操作</li>
+<li></li>
+</ol>
+</li>
+</ol>
+<h4 id="hashmap特点"><a class="markdownIt-Anchor" href="#hashmap特点">#</a> HashMap 特点</h4>
+<h4 id="红黑树"><a class="markdownIt-Anchor" href="#红黑树">#</a> 红黑树</h4>
+<p>定义</p>
+<ol>
+<li>每个节点是红的或者黑的</li>
+<li>根节点是黑的</li>
+<li>每个叶子节点都是黑的</li>
+<li>如果一个节点是红的，则他的两个儿子都是黑的</li>
+<li>对于每个节点，从该节点到其子孙节点的所有路径上都包含相同数目的黑节点</li>
+</ol>
+<h5 id="红黑树的插入"><a class="markdownIt-Anchor" href="#红黑树的插入">#</a> 红黑树的插入</h5>
+<p>插入的节点 是红色的定义 方便</p>
+<p>总结</p>
+<ol>
+<li>在插入时 先确定插入的位置 如果插入的位置的<mark>父节点是黑色</mark> 不进行调整</li>
+<li>父节点是红色
+<ol>
+<li>叔叔 是空的， 需要旋转 + 变色</li>
+<li>叔叔 红色的， 需要把 叔叔和爸爸 变成黑色 + 把爷爷变成红色 （如果爷爷节点是根节点 则需要变回黑色）</li>
+<li>叔叔 黑色的， 旋转 + 变色（思考）</li>
+</ol>
+</li>
+<li>优先考虑 祖孙三代</li>
+</ol>
+<p>其实只保证黑色的树保证平衡</p>
+<p>时间复杂度 log n</p>
+<p>是一个平衡树</p>
+
+      <div class="tags">
+          <a href="/tags/HashMap/" rel="tag"><i class="ic i-tag"></i> HashMap</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2025-05-15 21:44:31" itemprop="dateModified" datetime="2025-05-15T21:44:31+08:00">2025-05-15</time>
+  </span>
+  <span id="2024/07/16/HashMap源码/" class="item leancloud_visitors" data-flag-title="HashMap源码" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Kuk WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Kuk Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Kuk PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Kuk <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/07/16/HashMap%E6%BA%90%E7%A0%81/" title="HashMap源码">http://example.com/2024/07/16/HashMap源码/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/16/git/" itemprop="url" rel="prev" data-background-image="&#x2F;2024&#x2F;07&#x2F;16&#x2F;git&#x2F;git.jpg" title="Git">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Git</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;acg.xydwz.cn&#x2F;api&#x2F;api.php?690931" title="Java基础">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Java基础</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#hashmap%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">1.</span> <span class="toc-text"> HashMap 源码解读</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BD%93%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%B0%86%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%88%90%E7%BA%A2%E9%BB%91%E6%A0%91%E6%97%B6"><span class="toc-number">1.1.</span> <span class="toc-text"> 当需要进行将数据转成红黑树时</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%BA%A2%E9%BB%91%E6%A0%91%E5%90%8E"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 转换为红黑树后</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashmap%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text"> HashMap 特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">3.</span> <span class="toc-text"> 红黑树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text"> 红黑树的插入</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Kuk"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Kuk</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">19</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>Posts</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>friends</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/07/16/git/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/07/16/Java%E5%9F%BA%E7%A1%80/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E6%8A%80%E6%9C%AFtips/" title="技术tips">技术tips</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/12/%E5%AD%A6%E6%A0%A1%E9%A1%B9%E7%9B%AE%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD/" title="学校项目一键导入功能">学校项目一键导入功能</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/11/JVM%E5%AD%A6%E4%B9%A0/" title="JVM学习">JVM学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Liunx%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Liunx软件安装">Liunx软件安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/Liunx%E5%91%BD%E4%BB%A4/" title="Liunx安装">Liunx安装</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记">JavaScript笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/16/git/" title="Git">Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2025/05/15/Spring%E6%BA%90%E7%A0%81/" title="Spring源码">Spring源码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/12/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">服务器</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kuk @ Kuk</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/07/16/HashMap源码/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
